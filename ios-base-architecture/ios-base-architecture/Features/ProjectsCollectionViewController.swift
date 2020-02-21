@@ -17,6 +17,8 @@ class ProjectsCollectionViewController: UICollectionViewController, UICollection
         super.viewDidLoad()
         setupController()
         registerCells()
+        
+
     }
     
     func setupController(){
@@ -39,6 +41,6 @@ class ProjectsCollectionViewController: UICollectionViewController, UICollection
 }
 
 
-class ProjectsCollectionViewCell: UICollectionViewCell {
-    
+class ProjectsCollectionViewCell: UICollectionViewCell {    
+    let avatarImageView: UIImageView = GHAvatarImageView(size: CGSize(width: 70, height: 70))
 }

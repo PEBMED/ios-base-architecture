@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		254EB025240072FF004A4E11 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254EB024240072FF004A4E11 /* NetworkManager.swift */; };
 		254EB02B2400742B004A4E11 /* CodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254EB02A2400742B004A4E11 /* CodeView.swift */; };
+		254EB02F240077D6004A4E11 /* GHAvatarImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254EB02E240077D6004A4E11 /* GHAvatarImageView.swift */; };
+		254EB031240079C2004A4E11 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 254EB030240079C2004A4E11 /* UIView+Layout.swift */; };
 		25CE7C0C2400472400A54079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0B2400472400A54079 /* AppDelegate.swift */; };
 		25CE7C0E2400472400A54079 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0D2400472400A54079 /* SceneDelegate.swift */; };
 		25CE7C102400472400A54079 /* ProjectsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0F2400472400A54079 /* ProjectsCollectionViewController.swift */; };
@@ -39,7 +41,9 @@
 /* Begin PBXFileReference section */
 		254EB024240072FF004A4E11 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		254EB02A2400742B004A4E11 /* CodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeView.swift; sourceTree = "<group>"; };
-		25CE7C082400472400A54079 /* ios-base-architecture.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ios-base-architecture.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		254EB02E240077D6004A4E11 /* GHAvatarImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHAvatarImageView.swift; sourceTree = "<group>"; };
+		254EB030240079C2004A4E11 /* UIView+Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		25CE7C082400472400A54079 /* GHProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CE7C0B2400472400A54079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25CE7C0D2400472400A54079 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		25CE7C0F2400472400A54079 /* ProjectsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCollectionViewController.swift; sourceTree = "<group>"; };
@@ -163,8 +167,17 @@
 		254EB02C2400746C004A4E11 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				254EB030240079C2004A4E11 /* UIView+Layout.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		254EB02D240077B3004A4E11 /* ImageView */ = {
+			isa = PBXGroup;
+			children = (
+				254EB02E240077D6004A4E11 /* GHAvatarImageView.swift */,
+			);
+			path = ImageView;
 			sourceTree = "<group>";
 		};
 		25CE7BFF2400472400A54079 = {
@@ -180,7 +193,7 @@
 		25CE7C092400472400A54079 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				25CE7C082400472400A54079 /* ios-base-architecture.app */,
+				25CE7C082400472400A54079 /* GHProjects.app */,
 				25CE7C1E2400472700A54079 /* ios-base-architectureTests.xctest */,
 				25CE7C292400472700A54079 /* ios-base-architectureUITests.xctest */,
 			);
@@ -222,6 +235,7 @@
 		25CE7C3B2400683A00A54079 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				254EB02D240077B3004A4E11 /* ImageView */,
 				25CE7C3D2400688F00A54079 /* Controllers */,
 			);
 			path = CustomViews;
@@ -271,7 +285,7 @@
 			);
 			name = "ios-base-architecture";
 			productName = "ios-base-architecture";
-			productReference = 25CE7C082400472400A54079 /* ios-base-architecture.app */;
+			productReference = 25CE7C082400472400A54079 /* GHProjects.app */;
 			productType = "com.apple.product-type.application";
 		};
 		25CE7C1D2400472700A54079 /* ios-base-architectureTests */ = {
@@ -384,7 +398,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				254EB031240079C2004A4E11 /* UIView+Layout.swift in Sources */,
 				25CE7C3F240068A400A54079 /* CustomNavigationController.swift in Sources */,
+				254EB02F240077D6004A4E11 /* GHAvatarImageView.swift in Sources */,
 				25CE7C102400472400A54079 /* ProjectsCollectionViewController.swift in Sources */,
 				254EB025240072FF004A4E11 /* NetworkManager.swift in Sources */,
 				254EB02B2400742B004A4E11 /* CodeView.swift in Sources */,
@@ -562,7 +578,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "PEBMED.ios-base-architecture";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GHProjects;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -580,7 +596,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "PEBMED.ios-base-architecture";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = GHProjects;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
