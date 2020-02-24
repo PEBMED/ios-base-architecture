@@ -29,6 +29,15 @@ class GHAvatarImageView: UIImageView {
         layer.cornerRadius = size.height/2
         contentMode = .scaleToFill
         clipsToBounds = true
-        image = #imageLiteral(resourceName: "avatar-placeholder-dark")
+        image = #imageLiteral(resourceName: "avatar-placeholder-dark")        
+    }
+    
+    func fetchImage(stringUrl: String){
+        NetworkManager.shared.downloadImage(stringURL: stringUrl) { [weak self] (image) in
+            guard let image = image else {return}
+            DispatchQueue.main.async {
+                self?.image = image
+            }
+        }
     }
 }

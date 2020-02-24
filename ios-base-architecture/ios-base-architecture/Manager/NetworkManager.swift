@@ -12,9 +12,10 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     let cache = NSCache<NSString, UIImage>()
+    let baseUrl = "https://api.github.com/"
     
     func fetchData<T: Codable>(stringURL: String, type: T.Type, completion: @escaping (Result<T, GHError>)->Void){
-        guard let url = URL(string: stringURL) else {return}
+        guard let url = URL(string: baseUrl+stringURL) else {return}
         
         let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
             if let _ = error {
@@ -51,7 +52,7 @@ class NetworkManager {
         
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
-            guard let data = data, let image = UIImage(data: data), error != nil else {
+            guard error == nil, let data = data, let image = UIImage(data: data) else {
                 print("Error to fetch image")
                 completion(nil)
                 return
@@ -59,6 +60,7 @@ class NetworkManager {
             
             NetworkManager.shared.cache.setObject(image, forKey: NSString(string: stringURL))
             completion(image)
-        }
+            
+        }.resume()
     }
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProjectInfoView: UIView {
+class RepositoryInfoView: UIView {
     
     let imageView: UIImageView = {
         let imageView = UIImageView()
@@ -26,9 +26,7 @@ class ProjectInfoView: UIView {
         return label
     }()
     
-    init(imageName: String, value: Int) {
-        self.imageView.image = UIImage(systemName: imageName)
-        self.numberLabel.text = String(value)
+    override init(frame: CGRect) {
         super.init(frame: .zero)
         setupViews()
     }
@@ -46,5 +44,10 @@ class ProjectInfoView: UIView {
         
         addSubviews(stackView)
         stackView.fillSuperview()
+    }
+    
+    func set(imageName: String, value: Int){
+        self.imageView.image = UIImage(systemName: imageName)
+        self.numberLabel.text = String(value)
     }
 }

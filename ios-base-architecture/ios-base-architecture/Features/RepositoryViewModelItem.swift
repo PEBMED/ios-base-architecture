@@ -24,6 +24,6 @@ struct RepositoryViewModelItem {
         self.forksCount = forksCount
         self.openIssuesCount = openIssuesCount
         self.stargazersCount = stargazersCount
-        self.ownerName = ownerName
+        self.ownerName = "• " + ownerName
     }
 }

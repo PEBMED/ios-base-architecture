@@ -16,14 +16,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: scene.coordinateSpace.bounds)
         window?.windowScene = scene        
-        window?.rootViewController = setupRootViewController()
+        window?.rootViewController = GHTabBarController()
         window?.makeKeyAndVisible()
     }
     
     func setupRootViewController()-> UIViewController{
-        let rootController = ProjectsCollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        let rootController = RepositoriesCollectionViewController(viewModel: DefaultRepositoryViewModel(service: DefaultRepositoryService()))
         return CustomNavigationController(rootViewController: rootController)
     }
+    
     
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
