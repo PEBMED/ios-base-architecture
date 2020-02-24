@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class ProjectsCollectionViewCell: UICollectionViewCell {
+final class RepositoryCollectionViewCell: UICollectionViewCell {
             
     let titleLabel = GHTitleLabel()
     let companyLabel = GHSecondaryLabel()
@@ -51,13 +51,13 @@ final class ProjectsCollectionViewCell: UICollectionViewCell {
         titleLabelStackView.spacing = 8
         titleLabelStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
         
-        let labelStackView = UIStackView(arrangedSubviews: [titleLabelStackView, desciprionLabel])
-        labelStackView.axis = .vertical
-        labelStackView.isLayoutMarginsRelativeArrangement = true
-        labelStackView.layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
-        labelStackView.spacing = 6
+        let labelsStackView = UIStackView(arrangedSubviews: [titleLabelStackView, desciprionLabel])
+        labelsStackView.axis = .vertical
+        labelsStackView.isLayoutMarginsRelativeArrangement = true
+        labelsStackView.layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
+        labelsStackView.spacing = 6
         
-        let headerStackView = UIStackView(arrangedSubviews: [avatarImageView, labelStackView])
+        let headerStackView = UIStackView(arrangedSubviews: [avatarImageView, labelsStackView])
         headerStackView.alignment = .top
         headerStackView.spacing = 12
         

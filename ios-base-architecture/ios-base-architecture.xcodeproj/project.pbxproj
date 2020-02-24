@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2526D7B124032B9E0074A9A4 /* UICollectionViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B024032B9E0074A9A4 /* UICollectionViewController+Ext.swift */; };
-		2526D7B3240332930074A9A4 /* ProjectsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B2240332930074A9A4 /* ProjectsCollectionViewCell.swift */; };
+		2526D7B3240332930074A9A4 /* RepositoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B2240332930074A9A4 /* RepositoryCollectionViewCell.swift */; };
 		2526D7B62403389B0074A9A4 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B52403389B0074A9A4 /* UILabel+Ext.swift */; };
 		2526D7B92403F1F10074A9A4 /* GHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B82403F1F10074A9A4 /* GHTabBarController.swift */; };
 		2526D7BB2403F4810074A9A4 /* RepositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7BA2403F4810074A9A4 /* RepositoryService.swift */; };
@@ -59,7 +59,7 @@
 
 /* Begin PBXFileReference section */
 		2526D7B024032B9E0074A9A4 /* UICollectionViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Ext.swift"; sourceTree = "<group>"; };
-		2526D7B2240332930074A9A4 /* ProjectsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectsCollectionViewCell.swift; sourceTree = "<group>"; };
+		2526D7B2240332930074A9A4 /* RepositoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2526D7B52403389B0074A9A4 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		2526D7B82403F1F10074A9A4 /* GHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTabBarController.swift; sourceTree = "<group>"; };
 		2526D7BA2403F4810074A9A4 /* RepositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryService.swift; sourceTree = "<group>"; };
@@ -221,7 +221,7 @@
 		254EB0272400735F004A4E11 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2526D7B2240332930074A9A4 /* ProjectsCollectionViewCell.swift */,
+				2526D7B2240332930074A9A4 /* RepositoryCollectionViewCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -520,7 +520,7 @@
 				2526D7C224041F8F0074A9A4 /* FooterLoaderCell.swift in Sources */,
 				2526D7BF2403F9060074A9A4 /* RepositoryViewModel.swift in Sources */,
 				25E77D2A2401D14900239F40 /* Repository.swift in Sources */,
-				2526D7B3240332930074A9A4 /* ProjectsCollectionViewCell.swift in Sources */,
+				2526D7B3240332930074A9A4 /* RepositoryCollectionViewCell.swift in Sources */,
 				2526D7BB2403F4810074A9A4 /* RepositoryService.swift in Sources */,
 				25E77D1D2400AF3C00239F40 /* GHTitleLabel.swift in Sources */,
 				255D6F7A2403279F00419359 /* UIViewController+Ext.swift in Sources */,

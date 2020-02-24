@@ -11,6 +11,7 @@ import Foundation
 protocol RepositoryViewModel {
         
     var service: RepositoryService { get }
+    var hasMoreData: Bool {get}
     
     func fetchRepositories(completion: @escaping (Bool, String?)->Void)
     func getRepositoryViewModelItem(with indexPath: IndexPath)->RepositoryViewModelItem

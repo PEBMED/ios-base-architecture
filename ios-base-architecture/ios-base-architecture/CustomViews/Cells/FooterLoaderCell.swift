@@ -28,5 +28,7 @@ final class FooterLoaderCell: UICollectionReusableView {
     func setupLayout(){
         self.addSubview(loader)
         loader.centerInSuperview()
+        
+        loader.startAnimating()
     }
 }

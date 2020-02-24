@@ -13,6 +13,7 @@ class DefaultRepositoryViewModel: RepositoryViewModel {
     private var searchRepositories: SearchRepositories?
     private var repositoriesViewModelItem: [RepositoryViewModelItem]
     let service: RepositoryService
+    var hasMoreData = true
     
     required init(service: RepositoryService) {
         self.service = service
@@ -20,20 +21,24 @@ class DefaultRepositoryViewModel: RepositoryViewModel {
     }
     
     func fetchRepositories(completion: @escaping (Bool, String?)->Void){
-        service.fetchRepositoriesData { [weak self] (searchRepostioriesData, errorMessage) in
+        service.fetchRepositoriesData { [weak self] (searchRepostioriesData, errorMessage, hasMoreData) in
             
             guard let searchRepostioriesData = searchRepostioriesData else {
                 completion(false, errorMessage ?? "Default error message")
                 return
             }
             
-            self?.searchRepositories = searchRepostioriesData
-            
-            self?.repositoriesViewModelItem = searchRepostioriesData.items.map { (repository) -> RepositoryViewModelItem in
-                return RepositoryViewModelItem(name: repository.name, description: repository.description, avatarUrl: repository.owner.avatarUrl, stargazersCount: repository.stargazersCount, forksCount: repository.forksCount, openIssuesCount: repository.openIssuesCount, ownerName: repository.owner.login)
-            }
-            
+            self?.hasMoreData = hasMoreData
+            self?.setSearchReposityData(searchRepostioriesData)
             completion(true, nil)
+        }
+    }
+    
+    private func setSearchReposityData(_ searchRepostioriesData: SearchRepositories){
+        searchRepositories = searchRepostioriesData
+        
+        repositoriesViewModelItem += searchRepostioriesData.items.map { (repository) -> RepositoryViewModelItem in
+            return RepositoryViewModelItem(name: repository.name, description: repository.description, avatarUrl: repository.owner.avatarUrl, stargazersCount: repository.stargazersCount, forksCount: repository.forksCount, openIssuesCount: repository.openIssuesCount, ownerName: repository.owner.login)
         }
     }
     
@@ -45,6 +50,3 @@ class DefaultRepositoryViewModel: RepositoryViewModel {
         return repositoriesViewModelItem.count
     }
 }
-
-
-
