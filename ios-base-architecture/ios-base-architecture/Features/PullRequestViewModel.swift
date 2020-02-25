@@ -11,6 +11,7 @@ import Foundation
 protocol PullRequestViewModel {
     var ownerName: String { get }
     var projectName: String { get }
+    var hasMoreData: Bool { get set }
     
     init(_ repository: Repository, service: PullRequestService)
     

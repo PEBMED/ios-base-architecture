@@ -44,6 +44,7 @@ class PullRequestCollectionViewCell: UICollectionViewCell {
         self.addSubviews(avatarImageView, titleStackView, titleLabel, desciprionLabel, separatorView)
         
         avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, size: avatarImageSize)
+        
         titleStackView.anchor(top: topAnchor, leading: avatarImageView.trailingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 8, left: 10, bottom: 0, right: 5))
         
         titleLabel.anchor(top: titleStackView.bottomAnchor, leading: titleStackView.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))

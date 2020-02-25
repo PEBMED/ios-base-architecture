@@ -31,6 +31,8 @@ class PullRequestCollectionViewController: UICollectionViewController {
     }
     
     func getPullRequests(){
+        guard viewModel.hasMoreData else {return}
+        
         viewModel.fetchPullRequests { [weak self] (success, message) in
             guard success else {
                 self?.showDefaultAlertOnMainThread(title: "Erro", message: message ?? "")
@@ -62,6 +64,10 @@ extension PullRequestCollectionViewController: UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 14
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: 0, height: viewModel.hasMoreData ? 44 : 0)
+    }
 }
 
 extension PullRequestCollectionViewController{
@@ -75,5 +81,19 @@ extension PullRequestCollectionViewController{
         let removeSeparator = (viewModel.getPullRequestViewModelNumberOfItems()-1) == indexPath.item
         cell.set(item: viewModel.getPullRequestViewModelItem(with: indexPath), removeSeparator: removeSeparator)
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {        
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        if(viewModel.getPullRequestViewModelNumberOfItems()-1 == indexPath.item){
+            getPullRequests()
+        }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Did Select Item!")
     }
 }

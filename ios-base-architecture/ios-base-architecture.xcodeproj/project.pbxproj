@@ -29,6 +29,7 @@
 		255D6F7A2403279F00419359 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255D6F792403279F00419359 /* UIViewController+Ext.swift */; };
 		257DC6CD24059C6C00051554 /* PullRequestViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC6CC24059C6C00051554 /* PullRequestViewModelItem.swift */; };
 		257DC6CF24059DBB00051554 /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC6CE24059DBB00051554 /* Date+Ext.swift */; };
+		257DC6D22405B97E00051554 /* UICollectionView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC6D12405B97E00051554 /* UICollectionView+Ext.swift */; };
 		25CE7C0C2400472400A54079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0B2400472400A54079 /* AppDelegate.swift */; };
 		25CE7C0E2400472400A54079 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0D2400472400A54079 /* SceneDelegate.swift */; };
 		25CE7C102400472400A54079 /* RepositoriesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0F2400472400A54079 /* RepositoriesCollectionViewController.swift */; };
@@ -90,6 +91,7 @@
 		255D6F792403279F00419359 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		257DC6CC24059C6C00051554 /* PullRequestViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewModelItem.swift; sourceTree = "<group>"; };
 		257DC6CE24059DBB00051554 /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
+		257DC6D12405B97E00051554 /* UICollectionView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Ext.swift"; sourceTree = "<group>"; };
 		25CE7C082400472400A54079 /* GHProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CE7C0B2400472400A54079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25CE7C0D2400472400A54079 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -223,7 +225,7 @@
 		2526D7CA240470200074A9A4 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				2526D7DA24055C9A0074A9A4 /* PullRequestService.swift */,
+				257DC6D02405B5B600051554 /* Protocol */,
 				2526D7D424055A4E0074A9A4 /* DefaultPullRequestService.swift */,
 			);
 			name = Service;
@@ -344,11 +346,12 @@
 		254EB02C2400746C004A4E11 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				254EB030240079C2004A4E11 /* UIView+Ext.swift */,
-				25E77D242401821D00239F40 /* String+Ext.swift */,
 				255D6F792403279F00419359 /* UIViewController+Ext.swift */,
 				2526D7B024032B9E0074A9A4 /* UICollectionViewController+Ext.swift */,
+				257DC6D12405B97E00051554 /* UICollectionView+Ext.swift */,
+				254EB030240079C2004A4E11 /* UIView+Ext.swift */,
 				2526D7B52403389B0074A9A4 /* UILabel+Ext.swift */,
+				25E77D242401821D00239F40 /* String+Ext.swift */,
 				257DC6CE24059DBB00051554 /* Date+Ext.swift */,
 			);
 			path = Extension;
@@ -366,6 +369,14 @@
 			isa = PBXGroup;
 			children = (
 				2526D7D824055BB40074A9A4 /* PullRequestViewModel.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
+		257DC6D02405B5B600051554 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2526D7DA24055C9A0074A9A4 /* PullRequestService.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -629,6 +640,7 @@
 				25E77D1B2400ADEF00239F40 /* GHBodyLabel.swift in Sources */,
 				257DC6CD24059C6C00051554 /* PullRequestViewModelItem.swift in Sources */,
 				25E77D2C2401F64700239F40 /* RepositoryViewModelItem.swift in Sources */,
+				257DC6D22405B97E00051554 /* UICollectionView+Ext.swift in Sources */,
 				25CE7C0C2400472400A54079 /* AppDelegate.swift in Sources */,
 				2526D7C224041F8F0074A9A4 /* FooterLoaderCell.swift in Sources */,
 				2526D7BF2403F9060074A9A4 /* RepositoryViewModel.swift in Sources */,

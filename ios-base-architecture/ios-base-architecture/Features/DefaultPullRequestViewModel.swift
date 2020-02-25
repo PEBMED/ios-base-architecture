@@ -12,8 +12,10 @@ class DefaultPullRequestViewModel: PullRequestViewModel {
     
     let ownerName: String
     let projectName: String
+    var hasMoreData: Bool = true
+    
     let service: PullRequestService
-    var hasMoreData = true
+    
     private var pullRequests = [PullRequest]()
     private var pullRequestViewModelItens = [PullRequestViewModelItem]()
     
