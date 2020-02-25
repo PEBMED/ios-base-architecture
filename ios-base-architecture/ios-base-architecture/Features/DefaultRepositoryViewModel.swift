@@ -9,7 +9,7 @@
 import UIKit
 
 class DefaultRepositoryViewModel: RepositoryViewModel {
-    
+
     private var searchRepositories: SearchRepositories?
     private var repositoriesViewModelItem: [RepositoryViewModelItem]
     let service: RepositoryService
@@ -35,7 +35,12 @@ class DefaultRepositoryViewModel: RepositoryViewModel {
     }
     
     private func setSearchReposityData(_ searchRepostioriesData: SearchRepositories){
-        searchRepositories = searchRepostioriesData
+        
+        if searchRepositories == nil{
+            searchRepositories = searchRepostioriesData
+        }else{
+            searchRepositories?.items += searchRepostioriesData.items
+        }
         
         repositoriesViewModelItem += searchRepostioriesData.items.map { (repository) -> RepositoryViewModelItem in
             return RepositoryViewModelItem(name: repository.name, description: repository.description, avatarUrl: repository.owner.avatarUrl, stargazersCount: repository.stargazersCount, forksCount: repository.forksCount, openIssuesCount: repository.openIssuesCount, ownerName: repository.owner.login)
@@ -48,5 +53,9 @@ class DefaultRepositoryViewModel: RepositoryViewModel {
     
     func getRepositoryViewModelNumberOfItems()->Int{
         return repositoriesViewModelItem.count
+    }
+    
+    func getSearchRepository() -> SearchRepositories? {
+        return searchRepositories
     }
 }

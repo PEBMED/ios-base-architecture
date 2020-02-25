@@ -25,7 +25,7 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
         let padding:CGFloat = 36
         let label = GHBodyLabel()
         label.text = text
-        let labelHeight = label.height(width: UIScreen.main.bounds.width - 118)
+        let labelHeight = label.height(width: UIScreen.main.bounds.width - 108)
         let height:CGFloat = 112 + (labelHeight - 36)
         return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
     }
@@ -45,7 +45,7 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
     }
     
     func setupHeaderViews(){
-        avatarImageView.widthAnchor.constraint(equalToConstant: 60  ).isActive = true
+        avatarImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         let titleLabelStackView = UIStackView(arrangedSubviews: [titleLabel, companyLabel, UIView()])
         titleLabelStackView.spacing = 8

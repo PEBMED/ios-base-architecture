@@ -20,12 +20,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
     }
     
-    func setupRootViewController()-> UIViewController{
-        let rootController = RepositoriesCollectionViewController(viewModel: DefaultRepositoryViewModel(service: DefaultRepositoryService()))
-        return CustomNavigationController(rootViewController: rootController)
-    }
-    
-    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

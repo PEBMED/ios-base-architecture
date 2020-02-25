@@ -9,7 +9,7 @@
 import Foundation
 
 struct SearchRepositories: Codable {
-    let items: [Repository]
+    var items: [Repository]
 }
 
 

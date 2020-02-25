@@ -9,8 +9,7 @@
 import UIKit
 
 class RepositoriesCollectionViewController: UICollectionViewController {
-
-    var itens = [Repository]()
+    
     let cellID = "cellID"
     let footerCellID = "footerCellID"
     let viewModel: RepositoryViewModel
@@ -76,7 +75,7 @@ extension RepositoriesCollectionViewController{
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! RepositoryCollectionViewCell
         let removeSeparator = indexPath.item == viewModel.getRepositoryViewModelNumberOfItems()-1
-        cell.set(item: viewModel.getRepositoryViewModelItem(with: indexPath), removeSeparator: removeSeparator)
+        cell.set(item: viewModel.getRepositoryViewModelItem(with: indexPath), removeSeparator: removeSeparator)        
         return cell
     }
     
@@ -95,4 +94,10 @@ extension RepositoriesCollectionViewController{
         }
     }
     
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let searchRepository = viewModel.getSearchRepository() else {return}
+        let viewModel = DefaultPullRequestViewModel(searchRepository.items[indexPath.item], service: DefaultPullRequestService())
+        let pullRequestController = PullRequestCollectionViewController(viewModel: viewModel)
+        navigationController?.pushViewController(pullRequestController, animated: true)
+    }
 }
