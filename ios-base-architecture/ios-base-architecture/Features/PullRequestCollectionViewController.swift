@@ -94,6 +94,7 @@ extension PullRequestCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Did Select Item!")
+        let pullRequestDetailViewModel = DefautPullRequestDetailsViewModel(viewModel.getPullRequestItem(with: indexPath), service: DefaultPullRequestDetailsService())        
+        navigationController?.pushViewController(PullRequestDetailViewController(viewModel: pullRequestDetailViewModel), animated: true)
     }
 }

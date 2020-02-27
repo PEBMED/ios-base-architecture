@@ -26,7 +26,7 @@ class GHTabBarController: UITabBarController {
         repositoriesCollectionViewController.title = "Repositories"
         repositoriesCollectionViewController.tabBarItem.image = UIImage(systemName: "folder.fill")
         
-        return CustomNavigationController(rootViewController: repositoriesCollectionViewController)
+        return GHCustomNavigationController(rootViewController: repositoriesCollectionViewController)
     }
     
     func setupFavoritesController()->UIViewController{
@@ -35,6 +35,6 @@ class GHTabBarController: UITabBarController {
         favoritesViewController.title = "Favorites"
         favoritesViewController.tabBarItem.image = UIImage(systemName: "star.fill")
         
-        return CustomNavigationController(rootViewController: favoritesViewController)
+        return GHCustomNavigationController(rootViewController: favoritesViewController)
     }
 }

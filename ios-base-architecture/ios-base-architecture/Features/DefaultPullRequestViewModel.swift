@@ -51,6 +51,10 @@ class DefaultPullRequestViewModel: PullRequestViewModel {
         return pullRequestViewModelItens[indexPath.item]
     }
     
+    func getPullRequestItem(with indexPath: IndexPath)->PullRequest{
+        return pullRequests[indexPath.item]
+    }
+    
     func getPullRequestViewModelNumberOfItems()->Int{
         return pullRequestViewModelItens.count
     }

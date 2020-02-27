@@ -44,7 +44,7 @@ class RepositoriesCollectionViewController: UICollectionViewController {
     func getRepositories(){
         guard viewModel.hasMoreData else { return }
         
-        viewModel.fetchRepositories { [weak self](success, errorMessage) in
+        viewModel.fetchRepositories { [weak self] (success, errorMessage) in
             guard success else {
                 self?.showDefaultAlertOnMainThread(title: "Erro", message: errorMessage ?? "")
                 return
@@ -98,6 +98,6 @@ extension RepositoriesCollectionViewController{
         guard let searchRepository = viewModel.getSearchRepository() else {return}
         let viewModel = DefaultPullRequestViewModel(searchRepository.items[indexPath.item], service: DefaultPullRequestService())
         let pullRequestController = PullRequestCollectionViewController(viewModel: viewModel)
-        navigationController?.pushViewController(pullRequestController, animated: true)
+        navigationController?.pushViewController(pullRequestController, animated: true)                
     }
 }

@@ -68,7 +68,7 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
     
     func setupProjectInfoStackView(){
         let stackView = UIStackView(arrangedSubviews: [startsRepositoryView, forkRepositoryView, issuesRepositoryView, UIView()])
-         stackView.distribution = .equalSpacing
+        stackView.distribution = .equalSpacing
         
         addSubviews(stackView, separatorView)
         
