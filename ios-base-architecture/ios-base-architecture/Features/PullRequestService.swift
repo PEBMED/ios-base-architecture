@@ -8,6 +8,6 @@
 
 import Foundation
 
-protocol PullRequestService  {
-    func fetchPullRequestData(_ owner: String, repository: String, completion: @escaping ([PullRequest]?, String?, Bool)->Void)
+protocol PullRequestService {
+    func fetchPullRequestData(_ owner: String, repository: String, completion: @escaping ([PullRequest]?, String?, Bool) -> Void)
 }

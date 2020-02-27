@@ -12,10 +12,10 @@ protocol PullRequestViewModel {
     var ownerName: String { get }
     var projectName: String { get }
     var hasMoreData: Bool { get set }
-    
+
     init(_ repository: Repository, service: PullRequestService)
-    
-    func fetchPullRequests(completion: @escaping (Bool, String?)->Void)->Void
-    func getPullRequestViewModelItem(with indexPath: IndexPath)->PullRequestViewModelItem
-    func getPullRequestViewModelNumberOfItems()->Int
+
+    func fetchPullRequests(completion: @escaping (Bool, String?) -> Void)
+    func getPullRequestViewModelItem(with indexPath: IndexPath) -> PullRequestViewModelItem
+    func getPullRequestViewModelNumberOfItems() -> Int
 }

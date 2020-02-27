@@ -9,17 +9,17 @@
 import UIKit
 
 class GHTitleLabel: UILabel {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupLayout(){
+
+    func setupLayout() {
         font = UIFont.systemFont(ofSize: 19, weight: .heavy)
         minimumScaleFactor = 0.8
         numberOfLines = 1

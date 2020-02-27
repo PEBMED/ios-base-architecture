@@ -1010,7 +1010,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-base-architecture.app/ios-base-architecture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHProjects.app/GHProjects";
 			};
 			name = Debug;
 		};
@@ -1033,7 +1033,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ios-base-architecture.app/ios-base-architecture";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHProjects.app/GHProjects";
 			};
 			name = Release;
 		};

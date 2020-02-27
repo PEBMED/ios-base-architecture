@@ -9,17 +9,16 @@
 import UIKit
 
 class GHBodyLabel: UILabel {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupLayout(){
+
+    func setupLayout() {
         numberOfLines = 3
         font = UIFont.preferredFont(forTextStyle: .callout)
     }

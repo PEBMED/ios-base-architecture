@@ -9,9 +9,8 @@
 import UIKit
 
 extension UIViewController {
-
     func showDefaultAlertOnMainThread(title: String, message: String) {
-        DispatchQueue.main.async {            
+        DispatchQueue.main.async {
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)

@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PullRequest: Codable{
+struct PullRequest: Codable {
     let id: Int
     let number: Int
     let title: String
@@ -17,7 +17,7 @@ struct PullRequest: Codable{
     let user: User
 }
 
-struct User: Codable{
+struct User: Codable {
     let id: Int
     let login: String
     let avatarUrl: String?

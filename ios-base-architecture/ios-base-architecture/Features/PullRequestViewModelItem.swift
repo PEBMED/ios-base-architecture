@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PullRequestViewModelItem {    
+struct PullRequestViewModelItem {
     let login: String
     let title: String
     let body: String?

@@ -30,7 +30,8 @@ extension UICollectionView {
     func dequeueReusableSupplementaryView<T: UICollectionReusableView>(ofKind kind: String, indexPath: IndexPath) -> T {
         guard
             let supplementaryView = dequeueReusableSupplementaryView(
-            ofKind: kind, withReuseIdentifier: T.identifier,
+            ofKind: kind,
+            withReuseIdentifier: T.identifier,
             for: indexPath
             ) as? T else
         {
@@ -42,6 +43,6 @@ extension UICollectionView {
 
 extension UICollectionReusableView {
     static var identifier: String {
-        return String(describing: self)
+        String(describing: self)
     }
 }

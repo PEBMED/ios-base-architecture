@@ -9,14 +9,13 @@
 import UIKit
 
 final class DefaultRepositoryService: RepositoryService {
-    
     private var page = 1
     var hasMoreFollowers = true
-    
-    func fetchRepositoriesData(completion: @escaping (SearchRepositories?, String?, Bool)->Void){
-        NetworkManager.shared.fetchData(stringURL: "search/repositories?q=topic:javascript&per_page=20&page=\(page)", type: SearchRepositories.self) { [weak self] (result) in
-            guard let self = self else {return}
-            switch result{
+
+    func fetchRepositoriesData(completion: @escaping (SearchRepositories?, String?, Bool) -> Void) {
+        NetworkManager.shared.fetchData(stringURL: "search/repositories?q=topic:javascript&per_page=20&page=\(page)", type: SearchRepositories.self) { [weak self] result in
+            guard let self = self else { return }
+            switch result {
             case .success(let repositories):
                 completion(repositories, nil, self.checkAndUpdatePage(repositories))
             case .failure(let error):
@@ -24,8 +23,8 @@ final class DefaultRepositoryService: RepositoryService {
             }
         }
     }
-    
-    func checkAndUpdatePage(_ repositories: SearchRepositories)->Bool{
+
+    func checkAndUpdatePage(_ repositories: SearchRepositories) -> Bool {
         page += 1
         return repositories.items.count == 20
     }

@@ -9,13 +9,12 @@
 import Foundation
 
 protocol RepositoryViewModel {
-        
     var service: RepositoryService { get }
-    var hasMoreData: Bool {get}
-    
-    func fetchRepositories(completion: @escaping (Bool, String?)->Void)
-    func getRepositoryViewModelItem(with indexPath: IndexPath)->RepositoryViewModelItem
-    func getRepositoryViewModelNumberOfItems()->Int
-    func getSearchRepository()->SearchRepositories?
+    var hasMoreData: Bool { get }
+
+    func fetchRepositories(completion: @escaping (Bool, String?) -> Void)
+    func getRepositoryViewModelItem(with indexPath: IndexPath) -> RepositoryViewModelItem
+    func getRepositoryViewModelNumberOfItems() -> Int
+    func getSearchRepository() -> SearchRepositories?
     init(service: RepositoryService)
 }
