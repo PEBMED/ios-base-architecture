@@ -51,12 +51,10 @@ opt_in_rules:
   - overridden_super_call
   - override_in_extension
   - pattern_matching_keywords
+  - prefer_self_type_over_type_of_self
   - private_action
   - prohibited_interface_builder
   - prohibited_super_call
-  - quick_discouraged_call
-  - quick_discouraged_focused_test
-  - quick_discouraged_pending_test
   - reduce_into
   - redundant_discardable_let
   - redundant_nil_coalescing
