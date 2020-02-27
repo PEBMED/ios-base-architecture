@@ -57,6 +57,7 @@ class NetworkManager {
 
             NetworkManager.shared.cache.setObject(image, forKey: NSString(string: stringURL))
             completion(image)
-        }.resume()
+        }
+        .resume()
     }
 }

@@ -49,11 +49,11 @@ class DefaultPullRequestViewModel: PullRequestViewModel {
                                             avatarUrl: item.user.avatarUrl)
         }
     }
-        
+
     func getPullRequestViewModelItem(with indexPath: IndexPath) -> PullRequestViewModelItem {
         return pullRequestViewModelItens[indexPath.item]
     }
-    
+
     func getPullRequestViewModelNumberOfItems() -> Int {
         return pullRequestViewModelItens.count
     }

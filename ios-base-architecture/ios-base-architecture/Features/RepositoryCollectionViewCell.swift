@@ -20,15 +20,6 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
     let separatorView = SeparatorView()
     let avatarImageView = GHAvatarImageView(size: CGSize(width: 60, height: 60))
 
-    static func getCellHeight(with text: String) -> CGSize {
-        let padding: CGFloat = 36
-        let label = GHBodyLabel()
-        label.text = text
-        let labelHeight = label.height(width: UIScreen.main.bounds.width - 108)
-        let height: CGFloat = 112 + (labelHeight - 36)
-        return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
-    }
-
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -36,6 +27,15 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    static func getCellHeight(with text: String) -> CGSize {
+        let padding: CGFloat = 36
+        let label = GHBodyLabel()
+        label.text = text
+        let labelHeight = label.height(width: UIScreen.main.bounds.width - 108)
+        let height: CGFloat = 112 + (labelHeight - 36)
+        return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
     }
 
     func setupViews() {

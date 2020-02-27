@@ -18,6 +18,7 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -37,7 +38,8 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
 
     func registerCells() {
         collectionView.register(RepositoryCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.register(FooterLoaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+        collectionView.register(FooterLoaderCell.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: footerCellID)
     }
 
@@ -56,7 +58,8 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
 
 extension RepositoriesCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return RepositoryCollectionViewCell.getCellHeight(with: viewModel.getRepositoryViewModelItem(with: indexPath).description)
     }
 
