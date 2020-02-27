@@ -8,9 +8,9 @@
 
 import UIKit
 
-extension UICollectionViewController{
-    
-    func reloadDataOnMainThread(){        
+extension UICollectionViewController {
+
+    func reloadDataOnMainThread() {
         DispatchQueue.main.async {
             self.collectionView.reloadData()
         }

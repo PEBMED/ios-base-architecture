@@ -43,7 +43,10 @@ class DefaultRepositoryViewModel: RepositoryViewModel {
         }
         
         repositoriesViewModelItem += searchRepostioriesData.items.map { (repository) -> RepositoryViewModelItem in
-            return RepositoryViewModelItem(name: repository.name, description: repository.description, avatarUrl: repository.owner.avatarUrl, stargazersCount: repository.stargazersCount, forksCount: repository.forksCount, openIssuesCount: repository.openIssuesCount, ownerName: repository.owner.login)
+            return RepositoryViewModelItem(name: repository.name, description: repository.description,
+                                           avatarUrl: repository.owner.avatarUrl, stargazersCount: repository.stargazersCount,
+                                           forksCount: repository.forksCount, openIssuesCount: repository.openIssuesCount,
+                                           ownerName: repository.owner.login)
         }
     }
     

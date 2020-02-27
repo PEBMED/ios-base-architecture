@@ -55,7 +55,6 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
     }
 }
 
-
 extension RepositoriesCollectionViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView,

@@ -39,12 +39,12 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupViews(){
+    func setupViews() {
         setupHeaderViews()
         setupProjectInfoStackView()
     }
     
-    func setupHeaderViews(){
+    func setupHeaderViews() {
         avatarImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
         
         let titleLabelStackView = UIStackView(arrangedSubviews: [titleLabel, companyLabel, UIView()])
@@ -63,21 +63,24 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
         
         addSubviews(headerStackView)
         
-        headerStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+        headerStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                               padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
     
-    func setupProjectInfoStackView(){
+    func setupProjectInfoStackView() {
         let stackView = UIStackView(arrangedSubviews: [startsRepositoryView, forkRepositoryView, issuesRepositoryView, UIView()])
          stackView.distribution = .equalSpacing
         
         addSubviews(stackView, separatorView)
         
-        stackView.anchor(top: desciprionLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14), size: CGSize(width: 0, height: 19))
+        stackView.anchor(top: desciprionLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                         padding: .init(top: 12, left: 0, bottom: 0, right: 14), size: CGSize(width: 0, height: 19))
         
-        separatorView.anchor(top: stackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
+        separatorView.anchor(top: stackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                             padding: .init(top: 14, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
     }
     
-    func set(item: RepositoryViewModelItem, removeSeparator: Bool){
+    func set(item: RepositoryViewModelItem, removeSeparator: Bool) {
         titleLabel.text = item.name
         companyLabel.text = item.ownerName
         desciprionLabel.text = item.description

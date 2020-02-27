@@ -45,13 +45,17 @@ class PullRequestCollectionViewCell: UICollectionViewCell {
         
         avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, size: avatarImageSize)
         
-        titleStackView.anchor(top: topAnchor, leading: avatarImageView.trailingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 8, left: 10, bottom: 0, right: 5))
+        titleStackView.anchor(top: topAnchor, leading: avatarImageView.trailingAnchor, bottom: nil, trailing: trailingAnchor,
+                              padding: UIEdgeInsets(top: 8, left: 10, bottom: 0, right: 5))
         
-        titleLabel.anchor(top: titleStackView.bottomAnchor, leading: titleStackView.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))
+        titleLabel.anchor(top: titleStackView.bottomAnchor, leading: titleStackView.leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                          padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))
         
-        desciprionLabel.anchor(top: titleLabel.bottomAnchor, leading: titleStackView.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0))
+        desciprionLabel.anchor(top: titleLabel.bottomAnchor, leading: titleStackView.leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                               padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0))
         
-        separatorView.anchor(top: desciprionLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
+        separatorView.anchor(top: desciprionLabel.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                             padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
     }
     
     func createTitleStackView()-> UIStackView{
