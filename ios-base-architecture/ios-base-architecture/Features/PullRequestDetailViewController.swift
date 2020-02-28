@@ -24,12 +24,29 @@ class PullRequestDetailViewController: GHCustomViewController<PullRequestDetailV
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
-        viewModel.fetchPullRequests { (success, error) in
-            print(success)
-        }
+        getPullRequestDetail()
     }
     
     func setupController(){
         navigationItem.largeTitleDisplayMode = .never
     }
+    
+    func getPullRequestDetail(){
+        showLoader()
+        viewModel.fetchPullRequests { [weak self](success, error) in
+            self?.removeLoader()
+            guard success else {
+                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: error ?? "")
+                return
+            }
+            
+            guard let viewModelItem = self?.viewModel.getPullRequestDetailViewModelItem() else {return}
+            
+            DispatchQueue.main.async {
+                self?.customView.setupViews()
+                self?.customView.setUpContainersSubviews(item: viewModelItem)
+            }
+        }
+    }
+    
 }

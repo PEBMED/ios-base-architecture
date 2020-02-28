@@ -23,7 +23,7 @@ struct PullRequestDetail: Codable{
 }
 
 struct PullRequestDetailViewModelItem{
-    let number: Int
+    let number: String
     let changedFiles: String
     let title: String
     let state: String
@@ -31,6 +31,10 @@ struct PullRequestDetailViewModelItem{
     let createdAt: String
     let baseAvatarUrl: String
     let headAvatarUrl: String
+    let fullName: String
     let additionsDeletions: NSMutableAttributedString
+    let baseBranchName: String
+    let headBranchName: String
+    let userName: String
 }
 

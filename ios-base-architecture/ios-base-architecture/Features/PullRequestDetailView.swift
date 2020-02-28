@@ -14,10 +14,7 @@ class PullRequestDetailView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        
-        backgroundColor = .systemGray6
-        setupViews()
-        setUpContainersSubviews()
+        backgroundColor = .systemGray6        
     }
     
     required init?(coder: NSCoder) {
@@ -33,12 +30,12 @@ class PullRequestDetailView: UIView {
         secondContainer.anchor(top: firstContainer.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 260))
     }
     
-    func setUpContainersSubviews(){
-        let pullRequestInfoView = PullRequestInfoView()
+    func setUpContainersSubviews(item: PullRequestDetailViewModelItem){
+        let pullRequestInfoView = PullRequestInfoView(item: item)
         firstContainer.addSubview(pullRequestInfoView)
         pullRequestInfoView.fillSuperview()
 
-        let pullRequestUserInfoView = PullRequestUserInfoView()
+        let pullRequestUserInfoView = PullRequestUserInfoView(item: item)
         secondContainer.addSubview(pullRequestUserInfoView)
         pullRequestUserInfoView.fillSuperview()
     }

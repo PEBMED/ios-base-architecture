@@ -11,4 +11,5 @@ import Foundation
 protocol PullRequestDetailsViewModel {    
     init(_ pullRequest: PullRequest, service: PullRequestDetailsService)
     func fetchPullRequests(completion: @escaping (Bool, String?)->Void)
+    func getPullRequestDetailViewModelItem()->PullRequestDetailViewModelItem?
 }

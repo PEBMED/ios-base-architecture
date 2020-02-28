@@ -25,7 +25,7 @@ class PullRequestCollectionViewCell: UICollectionViewCell {
         let label = GHBodyLabel()
         label.text = text
         let labelHeight = label.height(width: UIScreen.main.bounds.width - 104)
-        let height:CGFloat = 94 + (labelHeight)
+        let height:CGFloat = 88 + (labelHeight)
         return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
     }
     
@@ -45,7 +45,7 @@ class PullRequestCollectionViewCell: UICollectionViewCell {
         
         avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, size: avatarImageSize)
         
-        titleStackView.anchor(top: topAnchor, leading: avatarImageView.trailingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 8, left: 10, bottom: 0, right: 5))
+        titleStackView.anchor(top: topAnchor, leading: avatarImageView.trailingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5))
         
         titleLabel.anchor(top: titleStackView.bottomAnchor, leading: titleStackView.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 0))
         

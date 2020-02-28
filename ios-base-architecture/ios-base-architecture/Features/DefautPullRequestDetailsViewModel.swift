@@ -13,7 +13,7 @@ class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
     let pullRequest: PullRequest
     let service: PullRequestDetailsService
     var pullRequestDetail: PullRequestDetail?
-    var pullRequestDetailViewModelItem: PullRequestDetailViewModelItem?
+    private var pullRequestDetailViewModelItem: PullRequestDetailViewModelItem?
     
     required init(_ pullRequest: PullRequest, service: PullRequestDetailsService) {
         self.pullRequest = pullRequest
@@ -41,13 +41,21 @@ class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
         
         let createdDate = pullRequestsDetailData.createdAt.convertToMonthDayYearFormat() ?? Date().description
         
-        pullRequestDetailViewModelItem = PullRequestDetailViewModelItem(number: pullRequestsDetailData.number,
-                                       changedFiles: String(pullRequestsDetailData.changedFiles),
+        pullRequestDetailViewModelItem = PullRequestDetailViewModelItem(number: "#\(pullRequestsDetailData.number)",
+                                       changedFiles: "\(pullRequestsDetailData.changedFiles) files changed",
                                        title: pullRequestsDetailData.title,
                                        state: pullRequestsDetailData.state, body: pullRequestsDetailData.body,
                                        createdAt: createdDate,
                                        baseAvatarUrl: pullRequestsDetailData.base.repo.owner.avatarUrl ?? "",
                                        headAvatarUrl: pullRequestsDetailData.head.repo.owner.avatarUrl ?? "",
-                                       additionsDeletions: atributtedString)
+                                       fullName: pullRequestsDetailData.base.repo.fullName ?? "",
+                                       additionsDeletions: atributtedString,
+                                       baseBranchName: pullRequestsDetailData.base.ref,
+                                       headBranchName: pullRequestsDetailData.base.label,
+                                       userName: pullRequestsDetailData.head.repo.owner.login)
+    }
+    
+    func getPullRequestDetailViewModelItem() -> PullRequestDetailViewModelItem? {
+        return pullRequestDetailViewModelItem
     }
 }

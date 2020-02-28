@@ -34,6 +34,8 @@ class PullRequestInfoView: UIView {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 17)
+        label.minimumScaleFactor = 0.9
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
@@ -57,10 +59,11 @@ class PullRequestInfoView: UIView {
         return label
     }()
 
-    init(){
+    init(item: PullRequestDetailViewModelItem){
         super.init(frame: .zero)
         backgroundColor = .systemBackground
         setupViews()
+        set(with: item)
     }
     
     required init?(coder: NSCoder) {
@@ -70,8 +73,7 @@ class PullRequestInfoView: UIView {
     func setupViews(){
         setupHeader()
         setupBanchView()
-        setupFooterContainerView()
-        set()
+        setupFooterContainerView()        
     }
     
     func setupHeader(){
@@ -130,26 +132,22 @@ class PullRequestInfoView: UIView {
         labelStackView.centerYAnchor.constraint(equalTo: footerContainerView.centerYAnchor).isActive = true
     }
     
-    func setupDeleteAddLabel(){
-        let atributtedString = NSMutableAttributedString(string: "+382 ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGreen])
-        atributtedString.append(NSAttributedString(string: " -478", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemRed]))
-        
-        deleteAddLabel.attributedText = atributtedString
-        
+    func setupDeleteAddLabel(){        
         footerContainerView.addSubview(deleteAddLabel)
         
         deleteAddLabel.centerYInSuperview()
         deleteAddLabel.anchor(top: nil, leading: nil, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 32))
     }
     
-    func set(){
-        destinationBranchNameView.branchNameLabel.text = "master"
-        originBranchNameView.branchNameLabel.text = "fixes-login-screen"
-        repositoryNameLabel.text = "desktop / desktop"
-        repositoryNumberLabel.text = "#5920"
-        titleLabel.text = "Fixes login screen warning"
-        filesChangedLabel.text = "4 files changed"
+    func set(with item: PullRequestDetailViewModelItem){
+        destinationBranchNameView.branchNameLabel.text = item.baseBranchName
+        originBranchNameView.branchNameLabel.text = item.headBranchName
+        repositoryNameLabel.text = item.fullName
+        repositoryNumberLabel.text = item.number
+        titleLabel.text = item.title
+        filesChangedLabel.text = item.changedFiles
+        deleteAddLabel.attributedText = item.additionsDeletions
         
-        logoImageView.fetchImage(stringUrl: "https://avatars3.githubusercontent.com/u/69631?v=4")
+        logoImageView.fetchImage(stringUrl: item.baseAvatarUrl)
     }
 }
