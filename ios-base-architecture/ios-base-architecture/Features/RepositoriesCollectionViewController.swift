@@ -46,7 +46,7 @@ class RepositoriesCollectionViewController: UICollectionViewController {
         
         viewModel.fetchRepositories { [weak self] (success, errorMessage) in
             guard success else {
-                self?.showDefaultAlertOnMainThread(title: "Erro", message: errorMessage ?? "")
+                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: errorMessage ?? GHError.genericError.rawValue)
                 return
             }
             self?.reloadDataOnMainThread()

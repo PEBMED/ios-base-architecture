@@ -35,7 +35,7 @@ class PullRequestCollectionViewController: UICollectionViewController {
         
         viewModel.fetchPullRequests { [weak self] (success, message) in
             guard success else {
-                self?.showDefaultAlertOnMainThread(title: "Erro", message: message ?? "")
+                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: message ?? GHError.genericError.rawValue)
                 return
             }
             

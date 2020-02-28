@@ -36,7 +36,7 @@ class PullRequestDetailViewController: GHCustomViewController<PullRequestDetailV
         viewModel.fetchPullRequests { [weak self](success, error) in
             self?.removeLoader()
             guard success else {
-                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: error ?? "")
+                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: error ?? GHError.genericError.rawValue)
                 return
             }
             

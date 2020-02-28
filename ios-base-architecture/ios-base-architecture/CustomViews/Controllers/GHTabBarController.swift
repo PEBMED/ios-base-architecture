@@ -24,7 +24,7 @@ class GHTabBarController: UITabBarController {
         let repositoriesCollectionViewController = RepositoriesCollectionViewController(viewModel: DefaultRepositoryViewModel(service: DefaultRepositoryService()))
         
         repositoriesCollectionViewController.title = "Repositories"
-        repositoriesCollectionViewController.tabBarItem.image = UIImage(systemName: "folder.fill")
+        repositoriesCollectionViewController.tabBarItem.image = SFSymbols.folder
         
         return GHCustomNavigationController(rootViewController: repositoriesCollectionViewController)
     }
@@ -33,7 +33,7 @@ class GHTabBarController: UITabBarController {
         let favoritesViewController = UIViewController()
         favoritesViewController.view.backgroundColor = .white
         favoritesViewController.title = "Favorites"
-        favoritesViewController.tabBarItem.image = UIImage(systemName: "star.fill")
+        favoritesViewController.tabBarItem.image = SFSymbols.star
         
         return GHCustomNavigationController(rootViewController: favoritesViewController)
     }

@@ -107,7 +107,7 @@ class PullRequestInfoView: UIView {
     
     func setupFooterContainerView(){
         let separator = SeparatorView()
-        let chevronImage = GHDefaultSystemImageView(image: UIImage(systemName: "chevron.right"))
+        let chevronImage = GHDefaultSystemImageView(image: SFSymbols.chevron)
                 
         addSubviews(footerContainerView, separator, chevronImage)
         

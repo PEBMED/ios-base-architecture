@@ -19,7 +19,7 @@ class BranchStateView: UIView {
     }()
 
     let imageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(systemName: "arrow.branch"))
+        let imageView = SFSymbols.branch
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = #colorLiteral(red: 0.2941176471, green: 0.5411764706, blue: 0.2980392157, alpha: 1)
         return imageView

@@ -56,7 +56,7 @@ class PullRequestCollectionViewCell: UICollectionViewCell {
     
     func createTitleStackView()-> UIStackView{
         let calendarImage = UIImageView()
-        calendarImage.image = UIImage(systemName: "calendar.circle")
+        calendarImage.image = SFSymbols.calendar
         calendarImage.contentMode = .scaleAspectFit
         calendarImage.tintColor = #colorLiteral(red: 0, green: 0.6745098039, blue: 0.9294117647, alpha: 1)
         
