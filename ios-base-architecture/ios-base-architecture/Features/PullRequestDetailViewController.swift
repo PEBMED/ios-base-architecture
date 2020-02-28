@@ -43,7 +43,7 @@ class PullRequestDetailViewController: GHCustomViewController<PullRequestDetailV
             guard let viewModelItem = self?.viewModel.getPullRequestDetailViewModelItem() else {return}
             
             DispatchQueue.main.async {
-                self?.customView.setupViews()
+                self?.customView.setupViews(descriptionText: viewModelItem.body)
                 self?.customView.setUpContainersSubviews(item: viewModelItem)
             }
         }

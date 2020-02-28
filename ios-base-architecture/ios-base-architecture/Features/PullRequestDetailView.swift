@@ -11,23 +11,51 @@ import UIKit
 class PullRequestDetailView: UIView {
     let firstContainer = UIView()
     let secondContainer = UIView()
+    var scrollView = UIScrollView()
+    var contentView = UIView()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        backgroundColor = .systemGray6        
+        backgroundColor = .systemGray6
+        setupScrollView()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupViews(){
-        addSubview(firstContainer)
-        addSubview(secondContainer)
-                
-        firstContainer.anchor(top: safeAreaLayoutGuide.topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, size: CGSize(width: 0, height: 195))
+    func setupScrollView(){
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         
-        secondContainer.anchor(top: firstContainer.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 25, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 260))
+        addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        NSLayoutConstraint.activate([
+            scrollView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            scrollView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor)
+        ])
+    }
+    
+    func setupViews(descriptionText: String){
+        let stackView = UIStackView(arrangedSubviews: [firstContainer, secondContainer, UIView()])
+        stackView.axis = .vertical
+        stackView.spacing = 25
+        contentView.addSubview(stackView)
+        
+        let secondContainerHeight:CGFloat = 85 + descriptionText.height(withConstrainedWidth: frame.width - 38, font: .systemFont(ofSize: 14))
+        
+        firstContainer.heightAnchor.constraint(equalToConstant: 195).isActive = true
+        secondContainer.heightAnchor.constraint(equalToConstant: secondContainerHeight).isActive = true
+                        
+        stackView.fillSuperview()
     }
     
     func setUpContainersSubviews(item: PullRequestDetailViewModelItem){

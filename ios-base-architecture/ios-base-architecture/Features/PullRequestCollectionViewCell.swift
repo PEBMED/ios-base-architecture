@@ -25,13 +25,13 @@ class PullRequestCollectionViewCell: UICollectionViewCell {
         let label = GHBodyLabel()
         label.text = text
         let labelHeight = label.height(width: UIScreen.main.bounds.width - 104)
-        let height:CGFloat = 88 + (labelHeight)
+        let height:CGFloat = 77 + (labelHeight)
         return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()
+        setupViews()        
     }
     
     required init?(coder: NSCoder) {
