@@ -39,7 +39,7 @@ class DefaultPullRequestViewModel: PullRequestViewModel {
     }
     
     func setPullRequestsData(_ pullRequestsData: [PullRequest]){
-        pullRequests = pullRequestsData
+        pullRequests += pullRequestsData
         pullRequestViewModelItens += pullRequestsData.map { (item) -> PullRequestViewModelItem in
             let strDate = item.createdAt.convertToMonthDayYearFormat() ?? Date().description
             let body = item.body?.filter { !$0.isNewline }
