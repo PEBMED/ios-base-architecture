@@ -222,10 +222,10 @@
 		2526D7C524046F830074A9A4 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				2526D7CA240470200074A9A4 /* Service */,
-				2526D7C92404701A0074A9A4 /* Model */,
 				2526D7C8240470150074A9A4 /* View */,
 				2526D7C72404700B0074A9A4 /* ViewModel */,
+				2526D7C92404701A0074A9A4 /* Model */,
+				2526D7CA240470200074A9A4 /* Service */,
 			);
 			name = List;
 			sourceTree = "<group>";
@@ -233,10 +233,10 @@
 		2526D7C624046F8C0074A9A4 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				257DC6DE24081B6200051554 /* ViewModel */,
-				257DC6DD24081B5A00051554 /* Service */,
 				257DC6DC24081B1A00051554 /* View */,
+				257DC6DE24081B6200051554 /* ViewModel */,
 				257DC6DB24081B1200051554 /* Model */,
+				257DC6DD24081B5A00051554 /* Service */,
 			);
 			name = Detail;
 			sourceTree = "<group>";
@@ -303,7 +303,7 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		254EB01E24007259004A4E11 /* Repositories */ = {
+		254EB01E24007259004A4E11 /* RepositoriesList */ = {
 			isa = PBXGroup;
 			children = (
 				254EB0262400734F004A4E11 /* View */,
@@ -311,7 +311,7 @@
 				254EB0202400728D004A4E11 /* ViewModel */,
 				254EB01F24007284004A4E11 /* Model */,
 			);
-			name = Repositories;
+			name = RepositoriesList;
 			sourceTree = "<group>";
 		};
 		254EB01F24007284004A4E11 /* Model */ = {
@@ -559,7 +559,7 @@
 			isa = PBXGroup;
 			children = (
 				2526D7C424046F660074A9A4 /* PullRequest */,
-				254EB01E24007259004A4E11 /* Repositories */,
+				254EB01E24007259004A4E11 /* RepositoriesList */,
 			);
 			path = Features;
 			sourceTree = "<group>";

@@ -10,13 +10,12 @@ import Foundation
 
 protocol PullRequestViewModel {
     var ownerName: String { get }
-    var projectName: String { get }
+    var repoName: String { get }
     var hasMoreData: Bool { get set }    
     
-    init(_ repository: Repository, service: PullRequestService)
+    init(ownerName: String, repoName: String , service: PullRequestService)
     
     func fetchPullRequests(completion: @escaping (Bool, String?)->Void)->Void
-    func getPullRequestViewModelItem(with indexPath: IndexPath)->PullRequestViewModelItem
-    func getPullRequestItem(with indexPath: IndexPath)->PullRequest
+    func getPullRequestViewModelItem(with indexPath: IndexPath)->PullRequestViewModelItem    
     func getPullRequestViewModelNumberOfItems()->Int
 }

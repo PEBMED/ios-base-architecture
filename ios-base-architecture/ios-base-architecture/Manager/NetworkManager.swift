@@ -26,6 +26,7 @@ class NetworkManager {
                 completion(.failure(.invalidResponse))
                 return
             }
+            
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             decoder.dateDecodingStrategy = .iso8601

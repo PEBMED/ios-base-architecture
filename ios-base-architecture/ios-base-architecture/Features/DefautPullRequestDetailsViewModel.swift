@@ -9,19 +9,22 @@
 import UIKit
 
 class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
-    
-    let pullRequest: PullRequest
+        
+    let login:String
+    let repoName:String
+    let pullRequestNumber:Int
     let service: PullRequestDetailsService
-    var pullRequestDetail: PullRequestDetail?
     private var pullRequestDetailViewModelItem: PullRequestDetailViewModelItem?
     
-    required init(_ pullRequest: PullRequest, service: PullRequestDetailsService) {
-        self.pullRequest = pullRequest
+    required init(login: String, repoName: String, pullRequestNumber: Int, service: PullRequestDetailsService) {
+        self.login = login
+        self.repoName = repoName
+        self.pullRequestNumber = pullRequestNumber
         self.service = service
     }
     
     func fetchPullRequests(completion: @escaping (Bool, String?)->Void){
-        service.fetchPullRequestDetailsData(pullRequest.base.repo.owner.login, repository: pullRequest.base.repo.name, id: pullRequest.number) { [weak self] (pullRequestDetail, errorMessage) in
+        service.fetchPullRequestDetailsData(login, repository: repoName, id: pullRequestNumber) { [weak self] (pullRequestDetail, errorMessage) in
             
             guard let pullRequestsData = pullRequestDetail else {
                 completion(false, errorMessage ?? "")
@@ -34,8 +37,6 @@ class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
     }
     
     func setPullRequestsDetailData(_ pullRequestsDetailData: PullRequestDetail){
-        self.pullRequestDetail = pullRequestsDetailData
-        
         let atributtedString = NSMutableAttributedString(string: "+\(pullRequestsDetailData.additions) ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGreen])
         atributtedString.append(NSAttributedString(string: " -\(pullRequestsDetailData.deletions)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemRed]))
         

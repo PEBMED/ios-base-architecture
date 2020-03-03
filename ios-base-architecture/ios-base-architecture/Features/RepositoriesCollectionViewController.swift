@@ -95,9 +95,8 @@ extension RepositoriesCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let searchRepository = viewModel.getSearchRepository() else {return}
-        let viewModel = DefaultPullRequestViewModel(searchRepository.items[indexPath.item], service: DefaultPullRequestService())
-        let pullRequestController = PullRequestCollectionViewController(viewModel: viewModel)
-        navigationController?.pushViewController(pullRequestController, animated: true)                
+        let viewModelItem = viewModel.getRepositoryViewModelItem(with: indexPath)
+        let viewModel = DefaultPullRequestViewModel(ownerName: viewModelItem.login, repoName: viewModelItem.name, service: DefaultPullRequestService())        
+        navigationController?.pushViewController(PullRequestCollectionViewController(viewModel: viewModel), animated: true)
     }
 }

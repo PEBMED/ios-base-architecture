@@ -29,6 +29,7 @@ class PullRequestDetailViewController: GHCustomViewController<PullRequestDetailV
     
     func setupController(){
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.title = "Pull Request Detail"
     }
     
     func getPullRequestDetail(){

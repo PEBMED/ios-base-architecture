@@ -10,6 +10,7 @@ import Foundation
 
 struct PullRequestViewModelItem {    
     let login: String
+    let number: Int
     let title: String
     let body: String?
     let createdAt: String

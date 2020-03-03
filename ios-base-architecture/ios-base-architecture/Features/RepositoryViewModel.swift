@@ -15,7 +15,6 @@ protocol RepositoryViewModel {
     
     func fetchRepositories(completion: @escaping (Bool, String?)->Void)
     func getRepositoryViewModelItem(with indexPath: IndexPath)->RepositoryViewModelItem
-    func getRepositoryViewModelNumberOfItems()->Int
-    func getSearchRepository()->SearchRepositories?
+    func getRepositoryViewModelNumberOfItems()->Int    
     init(service: RepositoryService)
 }

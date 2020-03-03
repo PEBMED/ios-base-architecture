@@ -9,7 +9,7 @@
 import Foundation
 
 protocol PullRequestDetailsViewModel {    
-    init(_ pullRequest: PullRequest, service: PullRequestDetailsService)
+    init(login: String, repoName: String, pullRequestNumber: Int ,service: PullRequestDetailsService)
     func fetchPullRequests(completion: @escaping (Bool, String?)->Void)
     func getPullRequestDetailViewModelItem()->PullRequestDetailViewModelItem?
 }

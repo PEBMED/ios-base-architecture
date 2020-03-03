@@ -30,6 +30,17 @@ class PullRequestCollectionViewController: UICollectionViewController {
         getPullRequests()
     }
     
+    func setupController(){
+        collectionView.backgroundColor = .systemBackground
+        collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+        self.title = viewModel.repoName
+    }
+    
+    func registerCells(){
+        collectionView.register(PullRequestCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
+        collectionView.register(FooterLoaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
+    }
+    
     func getPullRequests(){
         guard viewModel.hasMoreData else {return}
         
@@ -38,20 +49,8 @@ class PullRequestCollectionViewController: UICollectionViewController {
                 self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: message ?? GHError.genericError.rawValue)
                 return
             }
-            
             self?.reloadDataOnMainThread()
         }
-    }
-    
-    func setupController(){
-        collectionView.backgroundColor = .systemBackground
-        collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)        
-        self.title = viewModel.projectName
-    }
-    
-    func registerCells(){
-        collectionView.register(PullRequestCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.register(FooterLoaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
     }
 }
 
@@ -94,7 +93,10 @@ extension PullRequestCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let pullRequestDetailViewModel = DefautPullRequestDetailsViewModel(viewModel.getPullRequestItem(with: indexPath), service: DefaultPullRequestDetailsService())        
+        let viewModelItem = viewModel.getPullRequestViewModelItem(with: indexPath)
+        
+        let pullRequestDetailViewModel = DefautPullRequestDetailsViewModel(login: viewModel.ownerName, repoName: viewModel.repoName, pullRequestNumber: viewModelItem.number, service: DefaultPullRequestDetailsService())
+        
         navigationController?.pushViewController(PullRequestDetailViewController(viewModel: pullRequestDetailViewModel), animated: true)
     }
 }
