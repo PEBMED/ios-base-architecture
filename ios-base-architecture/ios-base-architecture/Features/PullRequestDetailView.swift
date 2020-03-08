@@ -9,6 +9,7 @@
 import UIKit
 
 class PullRequestDetailView: UIView {
+    
     let firstContainer = UIView()
     let secondContainer = UIView()
     var scrollView = UIScrollView()

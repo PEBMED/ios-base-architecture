@@ -9,7 +9,7 @@
 import UIKit
 
 final class RepositoryCollectionViewCell: UICollectionViewCell {
-            
+    
     let titleLabel = GHTitleLabel()
     let companyLabel = GHSecondaryLabel()
     let desciprionLabel = GHBodyLabel()

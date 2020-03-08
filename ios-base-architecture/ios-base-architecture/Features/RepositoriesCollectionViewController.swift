@@ -9,9 +9,7 @@
 import UIKit
 
 class RepositoriesCollectionViewController: UICollectionViewController {
-    
-    let cellID = "cellID"
-    let footerCellID = "footerCellID"
+            
     let viewModel: RepositoryViewModel
     
     init(viewModel: RepositoryViewModel){
@@ -37,8 +35,8 @@ class RepositoriesCollectionViewController: UICollectionViewController {
     }
     
     func registerCells(){
-        collectionView.register(RepositoryCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.register(FooterLoaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
+        collectionView.register(RepositoryCollectionViewCell.self)
+        collectionView.register(FooterLoaderCell.self, ofKind: UICollectionView.elementKindSectionFooter)
     }
     
     func getRepositories(){
@@ -66,6 +64,7 @@ extension RepositoriesCollectionViewController: UICollectionViewDelegateFlowLayo
     }
 }
 
+
 extension RepositoriesCollectionViewController{
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -73,14 +72,14 @@ extension RepositoriesCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! RepositoryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as RepositoryCollectionViewCell
         let removeSeparator = indexPath.item == viewModel.getRepositoryViewModelNumberOfItems()-1
         cell.set(item: viewModel.getRepositoryViewModelItem(with: indexPath), removeSeparator: removeSeparator)        
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath)
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, indexPath: indexPath) as FooterLoaderCell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
@@ -95,8 +94,6 @@ extension RepositoriesCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewModelItem = viewModel.getRepositoryViewModelItem(with: indexPath)
-        let viewModel = DefaultPullRequestViewModel(ownerName: viewModelItem.login, repoName: viewModelItem.name, service: DefaultPullRequestService())        
-        navigationController?.pushViewController(PullRequestCollectionViewController(viewModel: viewModel), animated: true)
+        navigationController?.pushViewController(viewModel.didSelectRepository(indexPath: indexPath), animated: true)
     }
 }

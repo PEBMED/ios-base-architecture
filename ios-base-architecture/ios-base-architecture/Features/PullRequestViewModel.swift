@@ -6,7 +6,7 @@
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol PullRequestViewModel {
     var ownerName: String { get }
@@ -18,4 +18,5 @@ protocol PullRequestViewModel {
     func fetchPullRequests(completion: @escaping (Bool, String?)->Void)->Void
     func getPullRequestViewModelItem(with indexPath: IndexPath)->PullRequestViewModelItem    
     func getPullRequestViewModelNumberOfItems()->Int
+    func didSelectPullRequest(indexPath: IndexPath)->UIViewController
 }

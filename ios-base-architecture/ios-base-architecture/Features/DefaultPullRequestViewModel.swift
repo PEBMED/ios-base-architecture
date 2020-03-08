@@ -6,10 +6,10 @@
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class DefaultPullRequestViewModel: PullRequestViewModel {
-    
+
     let ownerName: String
     let repoName: String
     var hasMoreData: Bool = true
@@ -51,5 +51,13 @@ class DefaultPullRequestViewModel: PullRequestViewModel {
     
     func getPullRequestViewModelNumberOfItems()->Int{
         return pullRequestViewModelItens.count
+    }
+    
+    func didSelectPullRequest(indexPath: IndexPath) -> UIViewController {
+        let viewModelItem = getPullRequestViewModelItem(with: indexPath)
+        
+        let pullRequestDetailViewModel = DefautPullRequestDetailsViewModel(login: ownerName, repoName: repoName, pullRequestNumber: viewModelItem.number, service: DefaultPullRequestDetailsService())
+        
+        return PullRequestDetailViewController(viewModel: pullRequestDetailViewModel)
     }
 }

@@ -10,8 +10,6 @@ import UIKit
 
 class PullRequestCollectionViewController: UICollectionViewController {
     
-    let cellID = "cellID"
-    let footerCellID = "footerCellID"
     let viewModel: PullRequestViewModel
     
     init(viewModel: PullRequestViewModel){
@@ -37,8 +35,8 @@ class PullRequestCollectionViewController: UICollectionViewController {
     }
     
     func registerCells(){
-        collectionView.register(PullRequestCollectionViewCell.self, forCellWithReuseIdentifier: cellID)
-        collectionView.register(FooterLoaderCell.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: footerCellID)
+        collectionView.register(PullRequestCollectionViewCell.self)
+        collectionView.register(FooterLoaderCell.self, ofKind: UICollectionView.elementKindSectionFooter)
     }
     
     func getPullRequests(){
@@ -76,14 +74,14 @@ extension PullRequestCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! PullRequestCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as PullRequestCollectionViewCell
         let removeSeparator = (viewModel.getPullRequestViewModelNumberOfItems()-1) == indexPath.item
         cell.set(item: viewModel.getPullRequestViewModelItem(with: indexPath), removeSeparator: removeSeparator)
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {        
-        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footerCellID, for: indexPath)
+        return collectionView.dequeueReusableSupplementaryView(ofKind: kind, indexPath: indexPath) as FooterLoaderCell
     }
     
     override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
@@ -93,10 +91,6 @@ extension PullRequestCollectionViewController{
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let viewModelItem = viewModel.getPullRequestViewModelItem(with: indexPath)
-        
-        let pullRequestDetailViewModel = DefautPullRequestDetailsViewModel(login: viewModel.ownerName, repoName: viewModel.repoName, pullRequestNumber: viewModelItem.number, service: DefaultPullRequestDetailsService())
-        
-        navigationController?.pushViewController(PullRequestDetailViewController(viewModel: pullRequestDetailViewModel), animated: true)
+        navigationController?.pushViewController(viewModel.didSelectPullRequest(indexPath: indexPath), animated: true)
     }
 }

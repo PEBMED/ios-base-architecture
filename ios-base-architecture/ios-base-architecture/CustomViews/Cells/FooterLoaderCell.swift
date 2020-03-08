@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class FooterLoaderCell: UICollectionReusableView {
+final class FooterLoaderCell: UICollectionReusableView {        
     
     let loader: UIActivityIndicatorView = {
         let ac = UIActivityIndicatorView(style: .medium)

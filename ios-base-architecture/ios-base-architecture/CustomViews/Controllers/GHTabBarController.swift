@@ -30,7 +30,7 @@ class GHTabBarController: UITabBarController {
     }
     
     func setupFavoritesController()->UIViewController{
-        let favoritesViewController = UIViewController()
+        let favoritesViewController = FavoritesViewController()
         favoritesViewController.view.backgroundColor = .white
         favoritesViewController.title = "Favorites"
         favoritesViewController.tabBarItem.image = SFSymbols.star

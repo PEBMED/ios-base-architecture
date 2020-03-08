@@ -16,6 +16,7 @@ enum GHError: String, Error {
     case titleError = "Bad Stuff Happend"
     case userExist = "This user has already been saved as Favorite. Try add another user. 😉"
     case genericError = "Error to processing your request. Please try again later."
+    case fetchImage = "Error to fetch image"
 }
 
 enum SFSymbols {

@@ -13,6 +13,8 @@
 		2519BDAC240828EF00316111 /* PullRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519BDAB240828EF00316111 /* PullRequestDetail.swift */; };
 		2519BDAF24084F3E00316111 /* PullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519BDAE24084F3E00316111 /* PullRequestDetailsViewModel.swift */; };
 		2519BDB124084F5D00316111 /* DefautPullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519BDB024084F5D00316111 /* DefautPullRequestDetailsViewModel.swift */; };
+		2519E85D240E8CBF0096230B /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519E85C240E8CBF0096230B /* EmptyView.swift */; };
+		2519E860240E90EC0096230B /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2519E85F240E90EC0096230B /* FavoritesViewController.swift */; };
 		2526D7B124032B9E0074A9A4 /* UICollectionViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B024032B9E0074A9A4 /* UICollectionViewController+Ext.swift */; };
 		2526D7B3240332930074A9A4 /* RepositoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B2240332930074A9A4 /* RepositoryCollectionViewCell.swift */; };
 		2526D7B62403389B0074A9A4 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2526D7B52403389B0074A9A4 /* UILabel+Ext.swift */; };
@@ -88,6 +90,8 @@
 		2519BDAB240828EF00316111 /* PullRequestDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetail.swift; sourceTree = "<group>"; };
 		2519BDAE24084F3E00316111 /* PullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		2519BDB024084F5D00316111 /* DefautPullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefautPullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
+		2519E85C240E8CBF0096230B /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		2519E85F240E90EC0096230B /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		2526D7B024032B9E0074A9A4 /* UICollectionViewController+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewController+Ext.swift"; sourceTree = "<group>"; };
 		2526D7B2240332930074A9A4 /* RepositoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		2526D7B52403389B0074A9A4 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
@@ -184,6 +188,14 @@
 				2519BDAE24084F3E00316111 /* PullRequestDetailsViewModel.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		2519E85E240E90C20096230B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				2519E85F240E90EC0096230B /* FavoritesViewController.swift */,
+			);
+			name = Favorites;
 			sourceTree = "<group>";
 		};
 		2526D7BC2403F4880074A9A4 /* Protocol */ = {
@@ -299,6 +311,7 @@
 				25E77D20240174A100239F40 /* RepositoryInfoView.swift */,
 				257DC6D52407062400051554 /* BranchNameView.swift */,
 				257DC6D7240729C000051554 /* BranchStateView.swift */,
+				2519E85C240E8CBF0096230B /* EmptyView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -558,6 +571,7 @@
 		25CE7C3C2400685300A54079 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				2519E85E240E90C20096230B /* Favorites */,
 				2526D7C424046F660074A9A4 /* PullRequest */,
 				254EB01E24007259004A4E11 /* RepositoriesList */,
 			);
@@ -775,6 +789,8 @@
 				255D6F7A2403279F00419359 /* UIViewController+Ext.swift in Sources */,
 				2519BDB124084F5D00316111 /* DefautPullRequestDetailsViewModel.swift in Sources */,
 				2526D7B92403F1F10074A9A4 /* GHTabBarController.swift in Sources */,
+				2519E85D240E8CBF0096230B /* EmptyView.swift in Sources */,
+				2519E860240E90EC0096230B /* FavoritesViewController.swift in Sources */,
 				2526D7D524055A4E0074A9A4 /* DefaultPullRequestService.swift in Sources */,
 				25E77D2F2401FBF700239F40 /* DefaultRepositoryViewModel.swift in Sources */,
 				25CE7C0E2400472400A54079 /* SceneDelegate.swift in Sources */,

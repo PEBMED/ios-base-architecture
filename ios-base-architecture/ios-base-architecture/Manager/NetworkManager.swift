@@ -12,7 +12,7 @@ class NetworkManager {
     
     static let shared = NetworkManager()
     let cache = NSCache<NSString, UIImage>()
-    let baseUrl = "https://api.github.com/"
+    let baseUrl = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as! String
     
     func fetchData<T: Codable>(stringURL: String, type: T.Type, completion: @escaping (Result<T, GHError>)->Void){
         guard let url = URL(string: baseUrl+stringURL) else {return}
@@ -54,7 +54,7 @@ class NetworkManager {
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             
             guard error == nil, let data = data, let image = UIImage(data: data) else {
-                print("Error to fetch image")
+                print(GHError.fetchImage.rawValue)
                 completion(nil)
                 return
             }
