@@ -193,7 +193,10 @@
 		2519E85E240E90C20096230B /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				2519E85F240E90EC0096230B /* FavoritesViewController.swift */,
+				25C78B2524157E6D000950CF /* View */,
+				25C78B2924157E90000950CF /* ViewModel */,
+				25C78B2824157E87000950CF /* Model */,
+				25C78B2A24157EAE000950CF /* Service */,
 			);
 			name = Favorites;
 			sourceTree = "<group>";
@@ -320,9 +323,9 @@
 			isa = PBXGroup;
 			children = (
 				254EB0262400734F004A4E11 /* View */,
-				254EB0222400729B004A4E11 /* Service */,
 				254EB0202400728D004A4E11 /* ViewModel */,
 				254EB01F24007284004A4E11 /* Model */,
+				254EB0222400729B004A4E11 /* Service */,
 			);
 			name = RepositoriesList;
 			sourceTree = "<group>";
@@ -502,6 +505,51 @@
 				257DC6E92408205700051554 /* PullRequestUserInfoView.swift */,
 			);
 			name = CustomView;
+			sourceTree = "<group>";
+		};
+		25C78B2524157E6D000950CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				25C78B2724157E7D000950CF /* Controller */,
+				25C78B2624157E78000950CF /* View */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		25C78B2624157E78000950CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		25C78B2724157E7D000950CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2519E85F240E90EC0096230B /* FavoritesViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		25C78B2824157E87000950CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		25C78B2924157E90000950CF /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		25C78B2A24157EAE000950CF /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Service;
 			sourceTree = "<group>";
 		};
 		25CE7BFF2400472400A54079 = {
