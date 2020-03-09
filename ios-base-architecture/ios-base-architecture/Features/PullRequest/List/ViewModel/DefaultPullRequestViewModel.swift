@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefaultPullRequestViewModel: PullRequestViewModel {
+final class DefaultPullRequestViewModel: PullRequestViewModel {
     let ownerName: String
     let repoName: String
     var hasMoreData: Bool = true
@@ -40,7 +40,12 @@ class DefaultPullRequestViewModel: PullRequestViewModel {
         pullRequestViewModelItens += pullRequestsData.map { item -> PullRequestViewModelItem in
             let strDate = item.createdAt.convertToMonthDayYearFormat() ?? Date().description
             let body = item.body?.filter { !$0.isNewline }
-            return PullRequestViewModelItem(login: item.user.login, number: item.number, title: item.title, body: body, createdAt: strDate, avatarUrl: item.user.avatarUrl)
+            return PullRequestViewModelItem(login: item.user.login,
+                                            number: item.number,
+                                            title: item.title,
+                                            body: body,
+                                            createdAt: strDate,
+                                            avatarUrl: item.user.avatarUrl)
         }
     }
 

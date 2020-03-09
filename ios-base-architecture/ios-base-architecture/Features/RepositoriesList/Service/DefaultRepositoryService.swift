@@ -13,7 +13,8 @@ final class DefaultRepositoryService: RepositoryService {
     var hasMoreFollowers = true
 
     func fetchRepositoriesData(completion: @escaping (SearchRepositories?, String?, Bool) -> Void) {
-        NetworkManager.shared.fetchData(stringURL: "search/repositories?q=topic:javascript&per_page=20&page=\(page)", type: SearchRepositories.self) { [weak self] result in
+        let stringURL = "search/repositories?q=topic:javascript&per_page=20&page=\(page)"
+        NetworkManager.shared.fetchData(stringURL: stringURL, type: SearchRepositories.self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let repositories):

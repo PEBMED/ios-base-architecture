@@ -16,6 +16,7 @@ class RepositoriesCollectionViewController: UICollectionViewController {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,7 +44,8 @@ class RepositoriesCollectionViewController: UICollectionViewController {
 
         viewModel.fetchRepositories { [weak self] success, errorMessage in
             guard success else {
-                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: errorMessage ?? GHError.genericError.rawValue)
+                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue,
+                                                   message: errorMessage ?? GHError.genericError.rawValue)
                 return
             }
             self?.reloadDataOnMainThread()
@@ -52,11 +54,15 @@ class RepositoriesCollectionViewController: UICollectionViewController {
 }
 
 extension RepositoriesCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         return RepositoryCollectionViewCell.getCellHeight(with: viewModel.getRepositoryViewModelItem(with: indexPath).description)
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 14
     }
 }
@@ -73,16 +79,22 @@ extension RepositoriesCollectionViewController {
         return cell
     }
 
-    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 viewForSupplementaryElementOfKind kind: String,
+                                 at indexPath: IndexPath) -> UICollectionReusableView {
         return collectionView.dequeueReusableSupplementaryView(ofKind: kind, indexPath: indexPath) as FooterLoaderCell
     }
 
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForFooterInSection section: Int) -> CGSize {
         let height = viewModel.hasMoreData ? 40 : 0
         return CGSize(width: 0, height: height)
     }
 
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+    override func collectionView(_ collectionView: UICollectionView,
+                                 willDisplay cell: UICollectionViewCell,
+                                 forItemAt indexPath: IndexPath) {
         if viewModel.getRepositoryViewModelNumberOfItems() - 1 == indexPath.item {
             getRepositories()
         }

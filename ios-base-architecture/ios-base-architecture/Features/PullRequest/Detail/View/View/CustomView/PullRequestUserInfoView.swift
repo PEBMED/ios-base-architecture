@@ -46,6 +46,7 @@ class PullRequestUserInfoView: UIView {
         set(item: item)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,11 +54,17 @@ class PullRequestUserInfoView: UIView {
     func setupViews() {
         addSubviews(avatarImageView, menuButton, descriptionLabel)
 
-        avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil,
+        avatarImageView.anchor(top: topAnchor,
+                               leading: leadingAnchor,
+                               bottom: nil,
+                               trailing: nil,
                                padding: UIEdgeInsets(top: 12, left: 18, bottom: 0, right: 0),
                                size: CGSize(width: 27, height: 27))
 
-        menuButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor,
+        menuButton.anchor(top: topAnchor,
+                          leading: nil,
+                          bottom: nil,
+                          trailing: trailingAnchor,
                           padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 14))
 
         let titleLabelsStackView = UIStackView(arrangedSubviews: [userLoginLabel, dateLabel])

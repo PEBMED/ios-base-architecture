@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PullRequestInfoView: UIView {
+final class PullRequestInfoView: UIView {
     let logoImageView = GHAvatarImageView(size: CGSize(width: 16, height: 16))
 
     let originBranchNameView = BranchNameView()
@@ -92,14 +92,16 @@ class PullRequestInfoView: UIView {
                                    padding: UIEdgeInsets(top: 0, left: 6, bottom: 0, right: 10))
         repositoryNameLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor).isActive = true
 
-        repositoryNumberLabel.anchor(top: nil, leading: repositoryNameLabel.trailingAnchor,
+        repositoryNumberLabel.anchor(top: nil,
+                                     leading: repositoryNameLabel.trailingAnchor,
                                      bottom: nil,
                                      trailing: nil,
                                      padding: UIEdgeInsets(top: 0, left: 4, bottom: 0, right: 10))
         repositoryNumberLabel.centerYAnchor.constraint(equalTo: logoImageView.centerYAnchor).isActive = true
 
         titleLabel.anchor(top: repositoryNumberLabel.bottomAnchor,
-                          leading: leadingAnchor, bottom: nil,
+                          leading: leadingAnchor,
+                          bottom: nil,
                           trailing: trailingAnchor,
                           padding: UIEdgeInsets(top: 13, left: 15, bottom: 0, right: 10))
     }
@@ -173,7 +175,8 @@ class PullRequestInfoView: UIView {
         footerContainerView.addSubviews(labelStackView, deleteAddLabel)
         labelStackView.anchor(top: nil,
                               leading: leadingAnchor,
-                              bottom: nil, trailing: nil,
+                              bottom: nil,
+                              trailing: nil,
                               padding: UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 0))
         labelStackView.centerYAnchor.constraint(equalTo: footerContainerView.centerYAnchor).isActive = true
     }
