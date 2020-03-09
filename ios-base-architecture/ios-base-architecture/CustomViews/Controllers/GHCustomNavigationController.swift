@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CustomNavigationController: UINavigationController {
+class GHCustomNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()

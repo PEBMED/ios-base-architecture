@@ -20,22 +20,20 @@ class GHTabBarController: UITabBarController {
     }
 
     func setupRepositoriesController() -> UIViewController {
-        let service = DefaultRepositoryService()
-        let viewModel = DefaultRepositoryViewModel(service: service)
-        let repositoriesCollectionViewController = RepositoriesCollectionViewController(viewModel: viewModel)
+        let repositoriesCollectionViewController = RepositoriesCollectionViewController(viewModel: DefaultRepositoryViewModel(service: DefaultRepositoryService()))
 
         repositoriesCollectionViewController.title = "Repositories"
-        repositoriesCollectionViewController.tabBarItem.image = UIImage(systemName: "folder.fill")
+        repositoriesCollectionViewController.tabBarItem.image = SFSymbols.folder
 
-        return CustomNavigationController(rootViewController: repositoriesCollectionViewController)
+        return GHCustomNavigationController(rootViewController: repositoriesCollectionViewController)
     }
 
     func setupFavoritesController() -> UIViewController {
-        let favoritesViewController = UIViewController()
+        let favoritesViewController = FavoritesViewController()
         favoritesViewController.view.backgroundColor = .white
         favoritesViewController.title = "Favorites"
-        favoritesViewController.tabBarItem.image = UIImage(systemName: "star.fill")
+        favoritesViewController.tabBarItem.image = SFSymbols.star
 
-        return CustomNavigationController(rootViewController: favoritesViewController)
+        return GHCustomNavigationController(rootViewController: favoritesViewController)
     }
 }

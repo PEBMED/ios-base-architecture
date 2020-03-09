@@ -6,7 +6,7 @@
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol RepositoryViewModel {
     var service: RepositoryService { get }
@@ -15,6 +15,6 @@ protocol RepositoryViewModel {
     func fetchRepositories(completion: @escaping (Bool, String?) -> Void)
     func getRepositoryViewModelItem(with indexPath: IndexPath) -> RepositoryViewModelItem
     func getRepositoryViewModelNumberOfItems() -> Int
-    func getSearchRepository() -> SearchRepositories?
+    func didSelectRepository(indexPath: IndexPath) -> UIViewController
     init(service: RepositoryService)
 }

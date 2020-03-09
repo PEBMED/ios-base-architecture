@@ -44,12 +44,11 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
         self.addSubviews(avatarImageView, titleStackView, titleLabel, desciprionLabel, separatorView)
 
         avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, size: avatarImageSize)
-
         titleStackView.anchor(top: topAnchor,
                               leading: avatarImageView.trailingAnchor,
                               bottom: nil,
                               trailing: trailingAnchor,
-                              padding: UIEdgeInsets(top: 8, left: 10, bottom: 0, right: 5))
+                              padding: UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 5))
 
         titleLabel.anchor(top: titleStackView.bottomAnchor,
                           leading: titleStackView.leadingAnchor,
@@ -73,7 +72,7 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
 
     func createTitleStackView() -> UIStackView {
         let calendarImage = UIImageView()
-        calendarImage.image = UIImage(systemName: "calendar.circle")
+        calendarImage.image = SFSymbols.calendar
         calendarImage.contentMode = .scaleAspectFit
         calendarImage.tintColor = #colorLiteral(red: 0, green: 0.6745098039, blue: 0.9294117647, alpha: 1)
 

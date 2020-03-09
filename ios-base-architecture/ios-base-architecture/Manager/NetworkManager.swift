@@ -10,8 +10,14 @@ import UIKit
 
 class NetworkManager {
     static let shared = NetworkManager()
-    let cache = NSCache<NSString, UIImage>()
-    let baseUrl = "https://api.github.com/"
+
+    private let cache = NSCache<NSString, UIImage>()
+    private let baseUrl: String = {
+        guard let url = Bundle.main.object(forInfoDictionaryKey: "BASE_URL") as? String else {
+            fatalError("No such url as BASE_URL in info.plist")
+        }
+        return url
+    }()
 
     func fetchData<T: Codable>(stringURL: String, type: T.Type, completion: @escaping (Result<T, GHError>) -> Void) {
         guard let url = URL(string: baseUrl + stringURL) else { return }
@@ -25,6 +31,7 @@ class NetworkManager {
                 completion(.failure(.invalidResponse))
                 return
             }
+
             let decoder = JSONDecoder()
             decoder.keyDecodingStrategy = .convertFromSnakeCase
             decoder.dateDecodingStrategy = .iso8601
@@ -50,7 +57,7 @@ class NetworkManager {
 
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard error == nil, let data = data, let image = UIImage(data: data) else {
-                print("Error to fetch image")
+                print(GHError.fetchImage.rawValue)
                 completion(nil)
                 return
             }

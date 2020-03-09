@@ -6,7 +6,7 @@
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 enum GHError: String, Error {
     case invalidUsername = "This username created a invalid request. Please try again."
@@ -15,4 +15,15 @@ enum GHError: String, Error {
     case invalidData = "The data received from the server was invalid. Please try again."
     case titleError = "Bad Stuff Happend"
     case userExist = "This user has already been saved as Favorite. Try add another user. 😉"
+    case genericError = "Error to processing your request. Please try again later."
+    case fetchImage = "Error to fetch image"
+}
+
+enum SFSymbols {
+    static let branch = UIImageView(image: UIImage(systemName: "arrow.branch"))
+    static let folder = UIImage(systemName: "folder.fill")
+    static let star = UIImage(systemName: "star.fill")
+    static let arrow = UIImage(systemName: "arrow.right")
+    static let chevron = UIImage(systemName: "chevron.right")
+    static let calendar = UIImage(systemName: "calendar.circle")
 }
