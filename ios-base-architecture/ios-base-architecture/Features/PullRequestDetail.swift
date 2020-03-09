@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PullRequestDetail: Codable{
+struct PullRequestDetail: Codable {
     let id: Int
     let number: Int
     let changedFiles: Int
@@ -22,7 +22,7 @@ struct PullRequestDetail: Codable{
     let head: Base
 }
 
-struct PullRequestDetailViewModelItem{
+struct PullRequestDetailViewModelItem {
     let number: String
     let changedFiles: String
     let title: String
@@ -37,4 +37,3 @@ struct PullRequestDetailViewModelItem{
     let headBranchName: String
     let userName: String
 }
-

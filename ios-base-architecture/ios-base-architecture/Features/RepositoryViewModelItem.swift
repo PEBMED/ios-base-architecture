@@ -17,7 +17,7 @@ struct RepositoryViewModelItem {
     let stargazersCount: Int
     let forksCount: Int
     let openIssuesCount: Int
-    
+
     init(name: String, description: String?, avatarUrl: String?, stargazersCount: Int, forksCount: Int, openIssuesCount: Int, ownerName: String, login: String) {
         self.name = name
         self.login = login

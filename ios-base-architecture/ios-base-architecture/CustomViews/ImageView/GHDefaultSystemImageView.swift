@@ -10,18 +10,17 @@ import Foundation
 
 import UIKit
 
-class GHDefaultSystemImageView: UIImageView {    
-    
+class GHDefaultSystemImageView: UIImageView {
     override init(image: UIImage?) {
         super.init(image: image)
         setupLayout()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupLayout(){
+
+    func setupLayout() {
         contentMode = .scaleAspectFit
         tintColor = .systemGray
     }

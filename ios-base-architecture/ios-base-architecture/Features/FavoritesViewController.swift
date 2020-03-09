@@ -9,15 +9,14 @@
 import UIKit
 
 class FavoritesViewController: UIViewController {
-    
     let emptyView = GHEmptyView(text: "Sorry! 😅\nWe are working to release this feature as soon as possible.\nPlease stay tuned!")
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         view.addSubview(emptyView)
         emptyView.fillSuperview()
     }

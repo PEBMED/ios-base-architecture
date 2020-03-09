@@ -9,17 +9,17 @@
 import UIKit
 
 class GHSecondaryLabel: UILabel {
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupLayout()
     }
-    
+
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupLayout(){
+
+    func setupLayout() {
         font = UIFont.systemFont(ofSize: 16)
         minimumScaleFactor = 0.9
         numberOfLines = 1
@@ -27,4 +27,3 @@ class GHSecondaryLabel: UILabel {
         textColor = .systemGray
     }
 }
-

@@ -9,10 +9,9 @@
 import Foundation
 
 final class DefaultPullRequestDetailsService: PullRequestDetailsService {
-            
-    func fetchPullRequestDetailsData(_ owner: String, repository: String, id: Int, completion: @escaping (PullRequestDetail?, String?)->Void){
-        NetworkManager.shared.fetchData(stringURL: "repos/\(owner)/\(repository)/pulls/\(id)", type: PullRequestDetail.self) { (result) in
-            switch result{
+    func fetchPullRequestDetailsData(_ owner: String, repository: String, id: Int, completion: @escaping (PullRequestDetail?, String?) -> Void) {
+        NetworkManager.shared.fetchData(stringURL: "repos/\(owner)/\(repository)/pulls/\(id)", type: PullRequestDetail.self) { result in
+            switch result {
             case .success(let pullRequestDetail):
                 completion(pullRequestDetail, nil)
             case .failure(let error):

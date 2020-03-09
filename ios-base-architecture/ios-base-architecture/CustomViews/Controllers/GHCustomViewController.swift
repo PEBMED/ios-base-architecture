@@ -8,14 +8,13 @@
 
 import UIKit
 
-class GHCustomViewController<CustomView: UIView>: UIViewController{
-    
-    var customView: CustomView{
+class GHCustomViewController<CustomView: UIView>: UIViewController {
+    var customView: CustomView {
+        // swiftlint:disable force_cast
         return view as! CustomView
     }
-    
+
     override func loadView() {
-        super.loadView()
         self.view = CustomView()
     }
 }

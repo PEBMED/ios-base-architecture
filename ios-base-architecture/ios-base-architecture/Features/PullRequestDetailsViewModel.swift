@@ -8,8 +8,8 @@
 
 import Foundation
 
-protocol PullRequestDetailsViewModel {    
-    init(login: String, repoName: String, pullRequestNumber: Int ,service: PullRequestDetailsService)
-    func fetchPullRequests(completion: @escaping (Bool, String?)->Void)
-    func getPullRequestDetailViewModelItem()->PullRequestDetailViewModelItem?
+protocol PullRequestDetailsViewModel {
+    init(login: String, repoName: String, pullRequestNumber: Int, service: PullRequestDetailsService)
+    func fetchPullRequests(completion: @escaping (Bool, String?) -> Void)
+    func getPullRequestDetailViewModelItem() -> PullRequestDetailViewModelItem?
 }

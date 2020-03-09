@@ -9,83 +9,85 @@
 import UIKit
 
 final class RepositoryCollectionViewCell: UICollectionViewCell {
-    
     let titleLabel = GHTitleLabel()
     let companyLabel = GHSecondaryLabel()
     let desciprionLabel = GHBodyLabel()
-    
+
     let startsRepositoryView = RepositoryInfoView()
     let forkRepositoryView = RepositoryInfoView()
     let issuesRepositoryView = RepositoryInfoView()
-    
+
     let separatorView = SeparatorView()
     let avatarImageView = GHAvatarImageView(size: CGSize(width: 60, height: 60))
-    
-    static func getCellHeight(with text: String)->CGSize{
-        let padding:CGFloat = 36
+
+    static func getCellHeight(with text: String) -> CGSize {
+        let padding: CGFloat = 36
         let label = GHBodyLabel()
         label.text = text
         let labelHeight = label.height(width: UIScreen.main.bounds.width - 108)
-        let height:CGFloat = 112 + (labelHeight - 36)
+        let height: CGFloat = 112 + (labelHeight - 36)
         return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
     }
-    
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupViews()        
+        setupViews()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setupViews(){
+
+    func setupViews() {
         setupHeaderViews()
         setupProjectInfoStackView()
     }
-    
-    func setupHeaderViews(){
+
+    func setupHeaderViews() {
         avatarImageView.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        
+
         let titleLabelStackView = UIStackView(arrangedSubviews: [titleLabel, companyLabel, UIView()])
         titleLabelStackView.spacing = 8
         titleLabelStackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        
+
         let labelsStackView = UIStackView(arrangedSubviews: [titleLabelStackView, desciprionLabel])
         labelsStackView.axis = .vertical
         labelsStackView.isLayoutMarginsRelativeArrangement = true
         labelsStackView.layoutMargins = UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 0)
         labelsStackView.spacing = 6
-        
+
         let headerStackView = UIStackView(arrangedSubviews: [avatarImageView, labelsStackView])
         headerStackView.alignment = .top
         headerStackView.spacing = 12
-        
+
         addSubviews(headerStackView)
-        
-        headerStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
+
+        headerStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                               padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
-    
-    func setupProjectInfoStackView(){
+
+    func setupProjectInfoStackView() {
         let stackView = UIStackView(arrangedSubviews: [startsRepositoryView, forkRepositoryView, issuesRepositoryView, UIView()])
         stackView.distribution = .equalSpacing
-        
+
         addSubviews(stackView, separatorView)
-        
-        stackView.anchor(top: desciprionLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14), size: CGSize(width: 0, height: 19))
-        
-        separatorView.anchor(top: stackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
+
+        stackView.anchor(top: desciprionLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                         padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14), size: CGSize(width: 0, height: 19))
+
+        separatorView.anchor(top: stackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
+                             padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
     }
-    
-    func set(item: RepositoryViewModelItem, removeSeparator: Bool){
+
+    func set(item: RepositoryViewModelItem, removeSeparator: Bool) {
         titleLabel.text = item.name
         companyLabel.text = item.ownerName
         desciprionLabel.text = item.description
-        
+
         startsRepositoryView.set(imageName: "star.fill", value: item.stargazersCount)
         forkRepositoryView.set(imageName: "arrow.merge", value: item.forksCount)
         issuesRepositoryView.set(imageName: "exclamationmark.circle", value: item.openIssuesCount)
-        
+
         avatarImageView.fetchImage(stringUrl: item.avatarUrl)
         separatorView.isHidden = removeSeparator
     }

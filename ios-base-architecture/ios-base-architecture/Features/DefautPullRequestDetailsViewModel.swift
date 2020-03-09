@@ -9,44 +9,42 @@
 import UIKit
 
 class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
-        
-    let login:String
-    let repoName:String
-    let pullRequestNumber:Int
+    let login: String
+    let repoName: String
+    let pullRequestNumber: Int
     let service: PullRequestDetailsService
     private var pullRequestDetailViewModelItem: PullRequestDetailViewModelItem?
-    
+
     required init(login: String, repoName: String, pullRequestNumber: Int, service: PullRequestDetailsService) {
         self.login = login
         self.repoName = repoName
         self.pullRequestNumber = pullRequestNumber
         self.service = service
     }
-    
-    func fetchPullRequests(completion: @escaping (Bool, String?)->Void){
-        service.fetchPullRequestDetailsData(login, repository: repoName, id: pullRequestNumber) { [weak self] (pullRequestDetail, errorMessage) in
-            
+
+    func fetchPullRequests(completion: @escaping (Bool, String?) -> Void) {
+        service.fetchPullRequestDetailsData(login, repository: repoName, id: pullRequestNumber) { [weak self] pullRequestDetail, errorMessage in
             guard let pullRequestsData = pullRequestDetail else {
                 completion(false, errorMessage ?? "")
                 return
             }
-            
+
             self?.setPullRequestsDetailData(pullRequestsData)
             completion(true, nil)
         }
     }
-    
-    func setPullRequestsDetailData(_ pullRequestsDetailData: PullRequestDetail){
-        let atributtedString = NSMutableAttributedString(string: "+\(pullRequestsDetailData.additions) ", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemGreen])
-        atributtedString.append(NSAttributedString(string: " -\(pullRequestsDetailData.deletions)", attributes: [NSAttributedString.Key.foregroundColor : UIColor.systemRed]))
-        
+
+    func setPullRequestsDetailData(_ pullRequestsDetailData: PullRequestDetail) {
+        let atributtedString = NSMutableAttributedString(string: "+\(pullRequestsDetailData.additions) ", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemGreen])
+        atributtedString.append(NSAttributedString(string: " -\(pullRequestsDetailData.deletions)", attributes: [NSAttributedString.Key.foregroundColor: UIColor.systemRed]))
+
         let createdDate = pullRequestsDetailData.createdAt.convertToMonthDayYearFormat() ?? Date().description
-        
+
         pullRequestDetailViewModelItem = PullRequestDetailViewModelItem(number: "#\(pullRequestsDetailData.number)",
                                        changedFiles: "\(pullRequestsDetailData.changedFiles) files changed",
                                        title: pullRequestsDetailData.title,
                                        state: pullRequestsDetailData.state,
-                                       body: pullRequestsDetailData.body.filter({!$0.isNewline}),
+                                       body: pullRequestsDetailData.body.filter({ !$0.isNewline }),
                                        createdAt: createdDate,
                                        baseAvatarUrl: pullRequestsDetailData.base.repo.owner.avatarUrl ?? "",
                                        headAvatarUrl: pullRequestsDetailData.head.repo.owner.avatarUrl ?? "",
@@ -56,7 +54,7 @@ class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
                                        headBranchName: pullRequestsDetailData.base.label,
                                        userName: pullRequestsDetailData.head.repo.owner.login)
     }
-    
+
     func getPullRequestDetailViewModelItem() -> PullRequestDetailViewModelItem? {
         return pullRequestDetailViewModelItem
     }

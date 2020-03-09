@@ -9,5 +9,5 @@
 import Foundation
 
 protocol PullRequestDetailsService {
-    func fetchPullRequestDetailsData(_ owner: String, repository: String, id: Int, completion: @escaping (PullRequestDetail?, String?)->Void)
+    func fetchPullRequestDetailsData(_ owner: String, repository: String, id: Int, completion: @escaping (PullRequestDetail?, String?) -> Void)
 }

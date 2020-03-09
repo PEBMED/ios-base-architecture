@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Date{
-    func convertToMonthDayYearFormat()->String?{
+extension Date {
+    func convertToMonthDayYearFormat() -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         dateFormatter.timeZone = .current

@@ -9,13 +9,12 @@
 import UIKit
 
 class GHCustomNavigationController: UINavigationController {
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
     }
-    
-    func setupLayout(){
+
+    func setupLayout() {
         navigationBar.barTintColor = .systemBackground
         navigationBar.tintColor = .systemBlue
         navigationBar.prefersLargeTitles = true
