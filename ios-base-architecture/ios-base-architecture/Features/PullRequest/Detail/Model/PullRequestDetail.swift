@@ -21,17 +21,3 @@ struct PullRequestDetail: Codable {
     let base: Base
     let head: Base
 }
-
-struct PullRequestDetail2: Codable {
-    let id: Int
-    let number: Int
-    let changedFiles: Int
-    let additions: Int
-    let deletions: Int
-    let title: String
-    let state: String
-    let body: String
-    let createdAt: Date
-    let base: Base
-    let head: Base
-}
