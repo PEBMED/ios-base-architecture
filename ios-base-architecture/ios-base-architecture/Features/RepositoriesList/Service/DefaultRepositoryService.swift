@@ -10,17 +10,29 @@ import UIKit
 
 final class DefaultRepositoryService: RepositoryService {
     private var page = 1
+    private let networkManager: NetworkManager
+
     var hasMoreFollowers = true
 
-    func fetchRepositoriesData(completion: @escaping (SearchRepositories?, String?, Bool) -> Void) {
+    init(page: Int = 1, networkManager: NetworkManager = DefaultNetworkManager()) {
+        self.page = page
+        self.networkManager = networkManager
+    }
+
+    func fetchRepositoriesData(completion: @escaping (Result<SearchRepositories, GHError>, Bool) -> Void) {
         let stringURL = "search/repositories?q=topic:javascript&per_page=20&page=\(page)"
-        NetworkManager.shared.fetchData(stringURL: stringURL, type: SearchRepositories.self) { [weak self] result in
-            guard let self = self else { return }
+
+        networkManager.fetch(urlString: stringURL, method: .get, parameters: [:], headers: [:]) { result in
             switch result {
-            case .success(let repositories):
-                completion(repositories, nil, self.checkAndUpdatePage(repositories))
+            case .success(let data):
+                 do {
+                    let decodedObject = try GHDecoder().decode(SearchRepositories.self, from: data)
+                    completion(.success(decodedObject), self.checkAndUpdatePage(decodedObject))
+                 } catch {
+                    completion(.failure(GHError.invalidData), false)
+                 }
             case .failure(let error):
-                completion(nil, error.rawValue, false)
+                completion(.failure(error), false)
             }
         }
     }

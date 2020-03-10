@@ -19,15 +19,17 @@ final class DefaultRepositoryViewModel: RepositoryViewModel {
     }
 
     func fetchRepositories(completion: @escaping (Bool, String?) -> Void) {
-        service.fetchRepositoriesData { [weak self] searchRepostioriesData, errorMessage, hasMoreData in
-            guard let searchRepostioriesData = searchRepostioriesData else {
-                completion(false, errorMessage ?? "Default error message")
-                return
-            }
+        service.fetchRepositoriesData { [weak self] result, hasMoreData in
+            guard let self = self else { return }
 
-            self?.hasMoreData = hasMoreData
-            self?.setSearchReposityData(searchRepostioriesData)
-            completion(true, nil)
+            switch result {
+            case .success(let searchRepostioriesData):
+                self.hasMoreData = hasMoreData
+                self.setSearchReposityData(searchRepostioriesData)
+                completion(true, nil)
+            case .failure(let error):
+                completion(false, error.localizedDescription)
+            }
         }
     }
 

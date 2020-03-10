@@ -27,14 +27,14 @@ final class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
             login,
             repository: repoName,
             id: pullRequestNumber
-        ) { [weak self] pullRequestDetail, errorMessage in
-            guard let pullRequestsData = pullRequestDetail else {
-                completion(false, errorMessage ?? "")
-                return
+        ) { [weak self] result in
+            switch result {
+            case .success(let pullRequestDetail):
+                self?.setPullRequestsDetailData(pullRequestDetail)
+                completion(true, nil)
+            case .failure(let error):
+                completion(false, error.localizedDescription)
             }
-
-            self?.setPullRequestsDetailData(pullRequestsData)
-            completion(true, nil)
         }
     }
 
