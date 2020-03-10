@@ -24,15 +24,17 @@ final class DefaultPullRequestViewModel: PullRequestViewModel {
     }
 
     func fetchPullRequests(completion: @escaping (Bool, String?) -> Void) {
-        service.fetchPullRequestData(ownerName, repository: repoName) { [weak self] pullRequestsData, errorMessage, hasMoreData in
-            guard let pullRequestsData = pullRequestsData else {
-                completion(false, errorMessage ?? "Default error message")
-                return
-            }
+        service.fetchPullRequestData(ownerName, repository: repoName) { [weak self] result, hasMoreData in
+            guard let self = self else { return }
 
-            self?.hasMoreData = hasMoreData
-            self?.setPullRequestsData(pullRequestsData)
-            completion(true, nil)
+            switch result {
+            case .success(let pullRequestsData):
+                self.hasMoreData = hasMoreData
+                self.setPullRequestsData(pullRequestsData)
+                completion(true, nil)
+            case .failure(let error):
+                completion(false, error.localizedDescription)
+            }
         }
     }
 

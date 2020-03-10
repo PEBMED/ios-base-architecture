@@ -10,5 +10,5 @@ protocol PullRequestDetailsService {
     func fetchPullRequestDetailsData(_ owner: String,
                                      repository: String,
                                      id: Int,
-                                     completion: @escaping (PullRequestDetail?, String?) -> Void)
+                                     completion: @escaping (Result<PullRequestDetail, GHError>) -> Void)
 }

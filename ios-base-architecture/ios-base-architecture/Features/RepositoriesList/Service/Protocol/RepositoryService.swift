@@ -9,5 +9,5 @@
 import Foundation
 
 protocol RepositoryService {
-    func fetchRepositoriesData(completion: @escaping (SearchRepositories?, String?, Bool) -> Void)
+    func fetchRepositoriesData(completion: @escaping (Result<SearchRepositories, GHError>, Bool) -> Void)
 }

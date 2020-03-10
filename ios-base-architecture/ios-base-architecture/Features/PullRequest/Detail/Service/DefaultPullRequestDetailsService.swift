@@ -9,16 +9,29 @@
 import Foundation
 
 final class DefaultPullRequestDetailsService: PullRequestDetailsService {
+    private let networkManager: NetworkManager
+
+    init(networkManager: NetworkManager = DefaultNetworkManager()) {
+        self.networkManager = networkManager
+    }
+
     func fetchPullRequestDetailsData(_ owner: String,
                                      repository: String,
                                      id: Int,
-                                     completion: @escaping (PullRequestDetail?, String?) -> Void) {
-        NetworkManager.shared.fetchData(stringURL: "repos/\(owner)/\(repository)/pulls/\(id)", type: PullRequestDetail.self) { result in
+                                     completion: @escaping (Result<PullRequestDetail, GHError>) -> Void) {
+        let urlString = "repos/\(owner)/\(repository)/pulls/\(id)"
+
+        networkManager.fetch(urlString: urlString, method: .get, parameters: [:], headers: [:]) { result in
             switch result {
-            case .success(let pullRequestDetail):
-                completion(pullRequestDetail, nil)
+            case .success(let data):
+                 do {
+                    let decodedObject = try GHDecoder().decode(PullRequestDetail.self, from: data)
+                    completion(.success(decodedObject))
+                 } catch {
+                    completion(.failure(GHError.invalidData))
+                 }
             case .failure(let error):
-                completion(nil, error.rawValue)
+                completion(.failure(error))
             }
         }
     }
