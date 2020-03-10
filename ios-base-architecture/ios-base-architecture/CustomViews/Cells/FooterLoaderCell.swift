@@ -9,7 +9,7 @@
 import UIKit
 
 final class FooterLoaderCell: UICollectionReusableView {
-    let loader: UIActivityIndicatorView = {
+    private let loader: UIActivityIndicatorView = {
         let ac = UIActivityIndicatorView(style: .medium)
         ac.color = .systemGray
         return ac
@@ -20,11 +20,12 @@ final class FooterLoaderCell: UICollectionReusableView {
         setupLayout()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupLayout() {
+    private func setupLayout() {
         self.addSubview(loader)
         loader.centerInSuperview()
 

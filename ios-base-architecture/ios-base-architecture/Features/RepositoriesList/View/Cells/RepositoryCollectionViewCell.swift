@@ -20,6 +20,16 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
     let separatorView = SeparatorView()
     let avatarImageView = GHAvatarImageView(size: CGSize(width: 60, height: 60))
 
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     static func getCellHeight(with text: String) -> CGSize {
         let padding: CGFloat = 36
         let label = GHBodyLabel()
@@ -27,15 +37,6 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
         let labelHeight = label.height(width: UIScreen.main.bounds.width - 108)
         let height: CGFloat = 112 + (labelHeight - 36)
         return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
-    }
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 
     func setupViews() {
@@ -62,7 +63,10 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
 
         addSubviews(headerStackView)
 
-        headerStackView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
+        headerStackView.anchor(top: topAnchor,
+                               leading: leadingAnchor,
+                               bottom: nil,
+                               trailing: trailingAnchor,
                                padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0))
     }
 
@@ -72,11 +76,17 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
 
         addSubviews(stackView, separatorView)
 
-        stackView.anchor(top: desciprionLabel.bottomAnchor, leading: titleLabel.leadingAnchor, bottom: nil, trailing: trailingAnchor,
-                         padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14), size: CGSize(width: 0, height: 19))
+        stackView.anchor(top: desciprionLabel.bottomAnchor,
+                         leading: titleLabel.leadingAnchor,
+                         trailing: trailingAnchor,
+                         padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14))
+        stackView.anchor(height: 19)
 
-        separatorView.anchor(top: stackView.bottomAnchor, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor,
-                             padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0), size: CGSize(width: 0, height: 1))
+        separatorView.anchor(top: stackView.bottomAnchor,
+                             leading: leadingAnchor,
+                             trailing: trailingAnchor,
+                             padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0))
+        separatorView.anchor(height: 1)
     }
 
     func set(item: RepositoryViewModelItem, removeSeparator: Bool) {

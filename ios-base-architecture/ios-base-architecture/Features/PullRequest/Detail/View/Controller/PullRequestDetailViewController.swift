@@ -16,6 +16,7 @@ class PullRequestDetailViewController: GHCustomViewController<PullRequestDetailV
         super.init(nibName: nil, bundle: nil)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -33,7 +34,7 @@ class PullRequestDetailViewController: GHCustomViewController<PullRequestDetailV
 
     func getPullRequestDetail() {
         showLoader()
-        viewModel.fetchPullRequests { [weak self]success, error in
+        viewModel.fetchPullRequests { [weak self] success, error in
             self?.removeLoader()
             guard success else {
                 self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: error ?? GHError.genericError.rawValue)

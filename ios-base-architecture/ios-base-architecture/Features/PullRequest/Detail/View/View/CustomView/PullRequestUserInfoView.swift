@@ -46,6 +46,7 @@ class PullRequestUserInfoView: UIView {
         set(item: item)
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -53,12 +54,10 @@ class PullRequestUserInfoView: UIView {
     func setupViews() {
         addSubviews(avatarImageView, menuButton, descriptionLabel)
 
-        avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil,
-                               padding: UIEdgeInsets(top: 12, left: 18, bottom: 0, right: 0),
-                               size: CGSize(width: 27, height: 27))
+        avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, padding: UIEdgeInsets(top: 12, left: 18, bottom: 0, right: 0))
+        avatarImageView.anchor(height: 27, width: 27)
 
-        menuButton.anchor(top: topAnchor, leading: nil, bottom: nil, trailing: trailingAnchor,
-                          padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 14))
+        menuButton.anchor(top: topAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 5, left: 0, bottom: 0, right: 14))
 
         let titleLabelsStackView = UIStackView(arrangedSubviews: [userLoginLabel, dateLabel])
         titleLabelsStackView.axis = .vertical
@@ -67,13 +66,11 @@ class PullRequestUserInfoView: UIView {
         addSubview(titleLabelsStackView)
         titleLabelsStackView.anchor(top: avatarImageView.topAnchor,
                                     leading: avatarImageView.trailingAnchor,
-                                    bottom: nil,
                                     trailing: trailingAnchor,
                                     padding: UIEdgeInsets(top: -2, left: 10, bottom: 0, right: 14))
 
         descriptionLabel.anchor(top: avatarImageView.bottomAnchor,
                                 leading: avatarImageView.leadingAnchor,
-                                bottom: nil,
                                 trailing: trailingAnchor,
                                 padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 20))
     }

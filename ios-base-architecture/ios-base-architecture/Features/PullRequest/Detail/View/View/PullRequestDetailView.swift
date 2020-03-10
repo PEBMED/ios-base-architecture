@@ -20,6 +20,7 @@ class PullRequestDetailView: UIView {
         setupScrollView()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -50,7 +51,8 @@ class PullRequestDetailView: UIView {
         stackView.spacing = 25
         contentView.addSubview(stackView)
 
-        let secondContainerHeight: CGFloat = 85 + descriptionText.height(withConstrainedWidth: frame.width - 38, font: .systemFont(ofSize: 14))
+        let secondContainerHeight: CGFloat = 85 + descriptionText.height(withConstrainedWidth: frame.width - 38,
+                                                                         font: .systemFont(ofSize: 14))
 
         firstContainer.heightAnchor.constraint(equalToConstant: 195).isActive = true
         secondContainer.heightAnchor.constraint(equalToConstant: secondContainerHeight).isActive = true
