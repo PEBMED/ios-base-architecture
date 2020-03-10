@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GHAvatarImageView: UIImageView {
+final class GHAvatarImageView: UIImageView {
     let size: CGSize
 
     override var intrinsicContentSize: CGSize {
@@ -34,7 +34,7 @@ class GHAvatarImageView: UIImageView {
     }
 
     func fetchImage(stringUrl: String) {
-        NetworkManager.shared.downloadImage(stringURL: stringUrl) { [weak self] image in
+        DefaultNetworkManager().downloadImage(stringURL: stringUrl) { [weak self] image in
             guard let image = image else { return }
             DispatchQueue.main.async {
                 self?.image = image

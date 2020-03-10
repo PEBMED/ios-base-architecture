@@ -17,4 +17,5 @@ enum GHError: String, Error {
     case userExist = "This user has already been saved as Favorite. Try add another user. 😉"
     case genericError = "Error to processing your request. Please try again later."
     case fetchImage = "Error to fetch image"
+    case invalidURL = "Invalid URL"
 }
