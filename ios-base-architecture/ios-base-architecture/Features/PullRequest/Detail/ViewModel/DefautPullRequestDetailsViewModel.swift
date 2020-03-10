@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
+final class DefautPullRequestDetailsViewModel: PullRequestDetailsViewModel {
     let login: String
     let repoName: String
     let pullRequestNumber: Int

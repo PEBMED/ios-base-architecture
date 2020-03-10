@@ -8,19 +8,21 @@
 
 import UIKit
 
-class GHTabBarController: UITabBarController {
+final class GHTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
     }
 
-    func setupLayout() {
+    private func setupLayout() {
         UITabBar.appearance().tintColor = #colorLiteral(red: 0, green: 0.6745098039, blue: 0.9294117647, alpha: 1)
-         viewControllers = [setupRepositoriesController(), setupFavoritesController()]
+        viewControllers = [setupRepositoriesController(), setupFavoritesController()]
     }
 
     func setupRepositoriesController() -> UIViewController {
-        let repositoriesCollectionViewController = RepositoriesCollectionViewController(viewModel: DefaultRepositoryViewModel(service: DefaultRepositoryService()))
+        let service = DefaultRepositoryService()
+        let viewModel = DefaultRepositoryViewModel(service: service)
+        let repositoriesCollectionViewController = RepositoriesCollectionViewController(viewModel: viewModel)
 
         repositoriesCollectionViewController.title = "Repositories"
         repositoriesCollectionViewController.tabBarItem.image = SFSymbols.folder

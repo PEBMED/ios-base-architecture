@@ -9,15 +9,15 @@
 import UIKit
 
 final class PullRequestCollectionViewCell: UICollectionViewCell {
-    let userLoginLabel = GHTitleLabel()
-    let titleLabel = GHSubtitleLabel()
-    let dateLabel = GHSecondaryLabel()
-    let desciprionLabel = GHBodyLabel()
+    private let userLoginLabel = GHTitleLabel()
+    private let titleLabel = GHSubtitleLabel()
+    private let dateLabel = GHSecondaryLabel()
+    private let desciprionLabel = GHBodyLabel()
 
-    let separatorView = SeparatorView()
-    lazy var avatarImageView = GHAvatarImageView(size: avatarImageSize)
+    private let separatorView = SeparatorView()
+    private lazy var avatarImageView = GHAvatarImageView(size: avatarImageSize)
 
-    let avatarImageSize = CGSize(width: 58, height: 58)
+    private let avatarImageSize = CGSize(width: 58, height: 58)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -38,12 +38,13 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
         return CGSize(width: UIScreen.main.bounds.width - padding, height: height)
     }
 
-    func setupViews() {
+    private func setupViews() {
         let titleStackView = createTitleStackView()
 
         self.addSubviews(avatarImageView, titleStackView, titleLabel, desciprionLabel, separatorView)
 
-        avatarImageView.anchor(top: topAnchor, leading: leadingAnchor, bottom: nil, trailing: nil, size: avatarImageSize)
+        avatarImageView.anchor(top: topAnchor, leading: leadingAnchor)
+        avatarImageView.anchor(height: avatarImageSize.height, width: avatarImageSize.width)
         titleStackView.anchor(top: topAnchor,
                               leading: avatarImageView.trailingAnchor,
                               bottom: nil,
@@ -64,10 +65,9 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
 
         separatorView.anchor(top: desciprionLabel.bottomAnchor,
                              leading: leadingAnchor,
-                             bottom: nil,
                              trailing: trailingAnchor,
-                             padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0),
-                             size: CGSize(width: 0, height: 1))
+                             padding: UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0))
+        separatorView.anchor(height: 1)
     }
 
     func createTitleStackView() -> UIStackView {

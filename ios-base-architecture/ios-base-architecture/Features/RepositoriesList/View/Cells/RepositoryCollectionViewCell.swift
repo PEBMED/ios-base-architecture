@@ -78,17 +78,15 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
 
         stackView.anchor(top: desciprionLabel.bottomAnchor,
                          leading: titleLabel.leadingAnchor,
-                         bottom: nil,
                          trailing: trailingAnchor,
-                         padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14),
-                         size: CGSize(width: 0, height: 19))
+                         padding: UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 14))
+        stackView.anchor(height: 19)
 
         separatorView.anchor(top: stackView.bottomAnchor,
                              leading: leadingAnchor,
-                             bottom: nil,
                              trailing: trailingAnchor,
-                             padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0),
-                             size: CGSize(width: 0, height: 1))
+                             padding: UIEdgeInsets(top: 14, left: 0, bottom: 0, right: 0))
+        separatorView.anchor(height: 1)
     }
 
     func set(item: RepositoryViewModelItem, removeSeparator: Bool) {

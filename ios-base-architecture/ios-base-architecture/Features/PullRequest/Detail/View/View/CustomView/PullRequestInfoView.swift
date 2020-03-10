@@ -82,8 +82,8 @@ final class PullRequestInfoView: UIView {
                              leading: leadingAnchor,
                              bottom: nil,
                              trailing: nil,
-                             padding: UIEdgeInsets(top: 14, left: 14, bottom: 0, right: 0),
-                             size: CGSize(width: 15, height: 15))
+                             padding: UIEdgeInsets(top: 14, left: 14, bottom: 0, right: 0))
+        logoImageView.anchor(height: 15, width: 15)
 
         repositoryNameLabel.anchor(top: nil,
                                    leading: logoImageView.trailingAnchor,
@@ -117,12 +117,9 @@ final class PullRequestInfoView: UIView {
                                     trailing: nil,
                                     padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
 
-        arrowImage.anchor(top: nil,
-                          leading: originBranchNameView.trailingAnchor,
-                          bottom: nil,
-                          trailing: nil,
-                          size: CGSize(width: 25, height: 17))
-        arrowImage.centerYAnchor.constraint(equalTo: originBranchNameView.centerYAnchor).isActive = true
+        arrowImage.anchor(leading: originBranchNameView.trailingAnchor)
+        arrowImage.anchor(height: 17, width: 25)
+        arrowImage.centerY(in: originBranchNameView)
 
         destinationBranchNameView.anchor(top: nil,
                                          leading: arrowImage.trailingAnchor,
@@ -149,19 +146,12 @@ final class PullRequestInfoView: UIView {
                                    trailing: trailingAnchor,
                                    padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
 
-        separator.anchor(top: footerContainerView.topAnchor,
-                         leading: leadingAnchor,
-                         bottom: nil,
-                         trailing: trailingAnchor,
-                         size: CGSize(width: 0, height: 1))
+        separator.anchor(top: footerContainerView.topAnchor, leading: leadingAnchor, trailing: trailingAnchor)
+        separator.anchor(height: 1)
 
-        chevronImage.anchor(top: nil,
-                            leading: nil,
-                            bottom: nil,
-                            trailing: trailingAnchor,
-                            padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10),
-                            size: CGSize(width: 14, height: 14))
-        chevronImage.centerYAnchor.constraint(equalTo: footerContainerView.centerYAnchor).isActive = true
+        chevronImage.anchor(trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10))
+        chevronImage.anchor(height: 14, width: 14)
+        chevronImage.centerY(in: footerContainerView)
 
         setupFilesChangedLabel()
         setupDeleteAddLabel()
@@ -173,23 +163,15 @@ final class PullRequestInfoView: UIView {
         labelStackView.spacing = 2
 
         footerContainerView.addSubviews(labelStackView, deleteAddLabel)
-        labelStackView.anchor(top: nil,
-                              leading: leadingAnchor,
-                              bottom: nil,
-                              trailing: nil,
-                              padding: UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 0))
-        labelStackView.centerYAnchor.constraint(equalTo: footerContainerView.centerYAnchor).isActive = true
+        labelStackView.anchor(leading: leadingAnchor, padding: UIEdgeInsets(top: 0, left: 14, bottom: 0, right: 0))
+        labelStackView.centerY(in: footerContainerView)
     }
 
     func setupDeleteAddLabel() {
         footerContainerView.addSubview(deleteAddLabel)
 
         deleteAddLabel.centerYInSuperview()
-        deleteAddLabel.anchor(top: nil,
-                              leading: nil,
-                              bottom: nil,
-                              trailing: trailingAnchor,
-                              padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 32))
+        deleteAddLabel.anchor(trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 32))
     }
 
     func set(with item: PullRequestDetailViewModelItem) {

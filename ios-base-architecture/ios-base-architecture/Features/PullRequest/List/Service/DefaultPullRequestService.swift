@@ -9,10 +9,17 @@
 import Foundation
 
 final class DefaultPullRequestService: PullRequestService {
-    private var page = 1
+    private var page: Int
+    private let networkManager: NetworkManager
+
+    init(page: Int = 1, networkManager: NetworkManager = NetworkManager.shared) {
+        self.page = page
+        self.networkManager = networkManager
+    }
 
     func fetchPullRequestData(_ owner: String, repository: String, completion: @escaping ([PullRequest]?, String?, Bool) -> Void) {
-        NetworkManager.shared.fetchData(stringURL: "repos/\(owner)/\(repository)/pulls?per_page=20&page=\(page)", type: [PullRequest].self) { [weak self] result in
+        let stringURL = "repos/\(owner)/\(repository)/pulls?per_page=20&page=\(page)"
+        networkManager.fetchData(stringURL: stringURL, type: [PullRequest].self) { [weak self] result in
             guard let self = self else { return }
             switch result {
             case .success(let pullRequests):

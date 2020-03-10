@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DefaultRepositoryViewModel: RepositoryViewModel {
+final class DefaultRepositoryViewModel: RepositoryViewModel {
     private var repositoriesViewModelItem: [RepositoryViewModelItem]
     let service: RepositoryService
     var hasMoreData = true

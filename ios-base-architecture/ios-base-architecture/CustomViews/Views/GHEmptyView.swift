@@ -1,5 +1,5 @@
 //
-//  EmptyView.swift
+//  GHEmptyView.swift
 //  ios-base-architecture
 //
 //  Created by Luiz on 03/03/20.
@@ -8,15 +8,15 @@
 
 import UIKit
 
-class GHEmptyView: UIView {
-    let imageView: UIImageView = {
+final class GHEmptyView: UIView {
+    private let imageView: UIImageView = {
         let imageView = UIImageView(image: #imageLiteral(resourceName: "lauch-image"))
         imageView.contentMode = .scaleAspectFit
         imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
         return imageView
     }()
 
-    let label: UILabel = {
+    private let label: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textAlignment = .center
@@ -30,17 +30,22 @@ class GHEmptyView: UIView {
         setupViews()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
+    private func setupViews() {
         let stackView = UIStackView(arrangedSubviews: [imageView, label])
         stackView.axis = .vertical
         stackView.spacing = 4
 
         addSubview(stackView)
-        stackView.anchor(top: nil, leading: leadingAnchor, bottom: nil, trailing: trailingAnchor, padding: UIEdgeInsets(top: 10, left: 30, bottom: 0, right: 30))
+        stackView.anchor(top: nil,
+                         leading: leadingAnchor,
+                         bottom: nil,
+                         trailing: trailingAnchor,
+                         padding: UIEdgeInsets(top: 10, left: 30, bottom: 0, right: 30))
         stackView.centerYInSuperview()
     }
 }

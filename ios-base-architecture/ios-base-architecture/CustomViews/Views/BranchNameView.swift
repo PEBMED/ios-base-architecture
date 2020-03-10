@@ -8,7 +8,7 @@
 
 import UIKit
 
-class BranchNameView: UIView {
+final class BranchNameView: UIView {
     let branchNameLabel: UILabel = {
         let view = UILabel()
         view.textColor = .systemBlue
@@ -24,13 +24,14 @@ class BranchNameView: UIView {
         setupViews()
     }
 
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
+    private func setupViews() {
         addSubviews(branchNameLabel)
-        branchNameLabel.anchor(top: topAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6))
+        branchNameLabel.fillSuperview(padding: UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6))
     }
 
     func set(branchName: String) {

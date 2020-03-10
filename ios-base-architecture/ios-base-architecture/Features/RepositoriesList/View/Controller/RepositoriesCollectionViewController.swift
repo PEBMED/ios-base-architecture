@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RepositoriesCollectionViewController: UICollectionViewController {
+final class RepositoriesCollectionViewController: UICollectionViewController {
     let viewModel: RepositoryViewModel
 
     init(viewModel: RepositoryViewModel) {
