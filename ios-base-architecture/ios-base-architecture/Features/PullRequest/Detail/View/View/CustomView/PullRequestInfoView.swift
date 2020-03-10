@@ -109,23 +109,17 @@ final class PullRequestInfoView: UIView {
     func setupBanchView() {
         let arrowImage = GHDefaultSystemImageView(image: UIImage(systemName: "arrow.right"))
 
-        addSubviews(originBranchNameView, arrowImage, destinationBranchNameView, branchStateView)
+        let branchNameStackView = UIStackView(arrangedSubviews: [originBranchNameView, arrowImage, destinationBranchNameView, UIView()])
+        branchNameStackView.alignment = .center
+        
+        addSubviews(branchNameStackView, branchStateView)
 
-        originBranchNameView.anchor(top: titleLabel.bottomAnchor,
-                                    leading: titleLabel.leadingAnchor,
-                                    bottom: nil,
-                                    trailing: nil,
-                                    padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
+        branchNameStackView.anchor(top: titleLabel.bottomAnchor,
+                                   leading: titleLabel.leadingAnchor,
+                                   trailing: self.trailingAnchor,
+                                   padding: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 10))
 
-        arrowImage.anchor(leading: originBranchNameView.trailingAnchor)
         arrowImage.anchor(height: 17, width: 25)
-        arrowImage.centerY(in: originBranchNameView)
-
-        destinationBranchNameView.anchor(top: nil,
-                                         leading: arrowImage.trailingAnchor,
-                                         bottom: nil,
-                                         trailing: nil)
-        originBranchNameView.centerYAnchor.constraint(equalTo: destinationBranchNameView.centerYAnchor).isActive = true
 
         branchStateView.anchor(top: destinationBranchNameView.bottomAnchor,
                                leading: originBranchNameView.leadingAnchor,
@@ -186,3 +180,4 @@ final class PullRequestInfoView: UIView {
         logoImageView.fetchImage(stringUrl: item.baseAvatarUrl)
     }
 }
+
