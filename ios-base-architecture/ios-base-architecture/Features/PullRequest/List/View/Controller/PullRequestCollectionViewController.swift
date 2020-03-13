@@ -9,9 +9,11 @@
 import UIKit
 
 class PullRequestCollectionViewController: UICollectionViewController {
+    private let coordinator: PullRequestListCoordinatorProtocol
     private let viewModel: PullRequestViewModel
 
-    init(viewModel: PullRequestViewModel) {
+    init(coordinator: PullRequestListCoordinatorProtocol, viewModel: PullRequestViewModel) {
+        self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }

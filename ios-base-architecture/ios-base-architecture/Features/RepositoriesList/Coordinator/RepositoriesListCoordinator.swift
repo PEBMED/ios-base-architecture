@@ -9,7 +9,7 @@
 import UIKit
 
 protocol RepositoriesListCoordinatorProtocol: AnyObject {
-    func goToPullRequest(pullRequest: PullRequest)
+    func goToPullRequestList(repository: RepositoryViewModelItem)
 }
 
 final class RepositoriesListCoordinator: Coordinator {
@@ -25,7 +25,7 @@ final class RepositoriesListCoordinator: Coordinator {
     func start() {
         let service = DefaultRepositoryService()
         let viewModel = DefaultRepositoryViewModel(service: service)
-        let controller = RepositoriesCollectionViewController(viewModel: viewModel)
+        let controller = RepositoriesCollectionViewController(coordinator: self, viewModel: viewModel)
         controller.title = "Repositories"
         controller.tabBarItem.image = SFSymbols.folder
 
@@ -40,5 +40,8 @@ final class RepositoriesListCoordinator: Coordinator {
 
 // MARK: - RepositoriesListCoordinatorProtocol
 extension RepositoriesListCoordinator: RepositoriesListCoordinatorProtocol {
-    func goToPullRequest(pullRequest: PullRequest) {}
+    func goToPullRequestList(repository: RepositoryViewModelItem) {
+        let coordinator = PullRequestListCoordinator(navigationController: navigationController, repository: repository)
+        coordinator.start()
+    }
 }

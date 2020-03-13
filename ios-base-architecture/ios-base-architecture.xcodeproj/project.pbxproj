@@ -48,6 +48,8 @@
 		A9B564EE241BB15500C1EE52 /* RepositoriesListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */; };
 		A9B564F2241BB7FB00C1EE52 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564F1241BB7FB00C1EE52 /* FavoritesCoordinator.swift */; };
 		A9B564F5241BB8A000C1EE52 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564F4241BB8A000C1EE52 /* TabbarCoordinator.swift */; };
+		A9B564F8241BC13B00C1EE52 /* PullRequestDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564F7241BC13B00C1EE52 /* PullRequestDetailCoordinator.swift */; };
+		A9B564FA241BC39000C1EE52 /* PullRequestListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564F9241BC39000C1EE52 /* PullRequestListCoordinator.swift */; };
 		A9D3CE652416E20900BED70D /* PullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2B2416E20900BED70D /* PullRequestDetailsViewModel.swift */; };
 		A9D3CE662416E20900BED70D /* DefautPullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2C2416E20900BED70D /* DefautPullRequestDetailsViewModel.swift */; };
 		A9D3CE672416E20900BED70D /* PullRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2E2416E20900BED70D /* PullRequestDetail.swift */; };
@@ -157,6 +159,8 @@
 		A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCoordinator.swift; sourceTree = "<group>"; };
 		A9B564F1241BB7FB00C1EE52 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
 		A9B564F4241BB8A000C1EE52 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		A9B564F7241BC13B00C1EE52 /* PullRequestDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailCoordinator.swift; sourceTree = "<group>"; };
+		A9B564F9241BC39000C1EE52 /* PullRequestListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListCoordinator.swift; sourceTree = "<group>"; };
 		A9D3CE2B2416E20900BED70D /* PullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		A9D3CE2C2416E20900BED70D /* DefautPullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefautPullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		A9D3CE2E2416E20900BED70D /* PullRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestDetail.swift; sourceTree = "<group>"; };
@@ -512,6 +516,14 @@
 			path = Coordinator;
 			sourceTree = "<group>";
 		};
+		A9B564F6241BC11300C1EE52 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A9B564F7241BC13B00C1EE52 /* PullRequestDetailCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
 		A9D3CE272416E20900BED70D /* PullRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -524,6 +536,7 @@
 		A9D3CE282416E20900BED70D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				A9B564F6241BC11300C1EE52 /* Coordinator */,
 				A9D3CE292416E20900BED70D /* ViewModel */,
 				A9D3CE2D2416E20900BED70D /* Model */,
 				A9D3CE2F2416E20900BED70D /* View */,
@@ -617,6 +630,7 @@
 				A9D3CE412416E20900BED70D /* Model */,
 				A9D3CE432416E20900BED70D /* View */,
 				A9D3CE482416E20900BED70D /* Service */,
+				A9B564F9241BC39000C1EE52 /* PullRequestListCoordinator.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -1088,6 +1102,7 @@
 			files = (
 				A94FCCF92417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift in Sources */,
 				A9D3CE652416E20900BED70D /* PullRequestDetailsViewModel.swift in Sources */,
+				A9B564FA241BC39000C1EE52 /* PullRequestListCoordinator.swift in Sources */,
 				254EB031240079C2004A4E11 /* UIView+Ext.swift in Sources */,
 				A9D3CE6E2416E20900BED70D /* DefaultPullRequestViewModel.swift in Sources */,
 				A9D3CE662416E20900BED70D /* DefautPullRequestDetailsViewModel.swift in Sources */,
@@ -1152,6 +1167,7 @@
 				2526D7B124032B9E0074A9A4 /* UICollectionViewController+Ext.swift in Sources */,
 				25E77D2324017A9500239F40 /* SeparatorView.swift in Sources */,
 				A9B564F2241BB7FB00C1EE52 /* FavoritesCoordinator.swift in Sources */,
+				A9B564F8241BC13B00C1EE52 /* PullRequestDetailCoordinator.swift in Sources */,
 				A9D3CE722416E20900BED70D /* PullRequestCollectionViewCell.swift in Sources */,
 				A9D3CE942417E2C500BED70D /* WebserviceRequest.swift in Sources */,
 				A9D3CE752416E20900BED70D /* PullRequestService.swift in Sources */,

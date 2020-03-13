@@ -9,9 +9,12 @@
 import UIKit
 
 final class RepositoriesCollectionViewController: UICollectionViewController {
-    let viewModel: RepositoryViewModel
+    private let coordinator: RepositoriesListCoordinatorProtocol
+    private let viewModel: RepositoryViewModel
 
-    init(viewModel: RepositoryViewModel) {
+    // MARK: - Init
+    init(coordinator: RepositoriesListCoordinatorProtocol, viewModel: RepositoryViewModel) {
+        self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -21,6 +24,7 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
@@ -28,18 +32,19 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
         getRepositories()
     }
 
-    func setupController() {
+    // MARK: - Private functions
+    private func setupController() {
         collectionView.backgroundColor = .systemBackground
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         navigationItem.searchController = UISearchController()
     }
 
-    func registerCells() {
+    private func registerCells() {
         collectionView.register(RepositoryCollectionViewCell.self)
         collectionView.register(FooterLoaderCell.self, ofKind: UICollectionView.elementKindSectionFooter)
     }
 
-    func getRepositories() {
+    private func getRepositories() {
         guard viewModel.hasMoreData else { return }
 
         viewModel.fetchRepositories { [weak self] success, errorMessage in
@@ -51,13 +56,18 @@ final class RepositoriesCollectionViewController: UICollectionViewController {
             self?.reloadDataOnMainThread()
         }
     }
+
+    deinit {
+        debugPrint("Deinit RepositoriesCollectionViewController")
+    }
 }
 
 extension RepositoriesCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return RepositoryCollectionViewCell.getCellHeight(with: viewModel.getRepositoryViewModelItem(with: indexPath).description)
+        let text = viewModel.getRepositoryViewModelItem(with: indexPath).description
+        return RepositoryCollectionViewCell.getCellHeight(with: text)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -67,6 +77,7 @@ extension RepositoriesCollectionViewController: UICollectionViewDelegateFlowLayo
     }
 }
 
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate & UICollectionViewFlowLayoutDelegate
 extension RepositoriesCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getRepositoryViewModelNumberOfItems()
@@ -101,6 +112,7 @@ extension RepositoriesCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(viewModel.didSelectRepository(indexPath: indexPath), animated: true)
+        let repository = viewModel.getRepositoryViewModelItem(with: indexPath)
+        coordinator.goToPullRequestList(repository: repository)
     }
 }

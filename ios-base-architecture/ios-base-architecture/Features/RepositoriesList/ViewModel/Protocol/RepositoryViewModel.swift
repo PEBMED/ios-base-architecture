@@ -16,5 +16,4 @@ protocol RepositoryViewModel {
     func fetchRepositories(completion: @escaping (Bool, String?) -> Void)
     func getRepositoryViewModelItem(with indexPath: IndexPath) -> RepositoryViewModelItem
     func getRepositoryViewModelNumberOfItems() -> Int
-    func didSelectRepository(indexPath: IndexPath) -> UIViewController
 }
