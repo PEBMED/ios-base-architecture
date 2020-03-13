@@ -11,10 +11,11 @@ extension DependencyContainer: PullRequestDetailFactory {
                                              viewModelItem: PullRequestViewModelItem,
                                              ownerName: String,
                                              repoName: String) -> PullRequestDetailViewController {
+        let service = DefaultPullRequestDetailsService()
         let pullRequestDetailViewModel = DefautPullRequestDetailsViewModel(login: ownerName,
                                                                            repoName: repoName,
                                                                            pullRequestNumber: viewModelItem.number,
-                                                                           service: DefaultPullRequestDetailsService())
+                                                                           service: service)
 
         return PullRequestDetailViewController(coordinator: coordinator, viewModel: pullRequestDetailViewModel)
     }
