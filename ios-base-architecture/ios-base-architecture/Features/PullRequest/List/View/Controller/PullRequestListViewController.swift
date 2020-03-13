@@ -1,5 +1,5 @@
 //
-//  PullRequestCollectionViewController.swift
+//  PullRequestListViewController.swift
 //  ios-base-architecture
 //
 //  Created by Luiz on 24/02/20.
@@ -8,10 +8,14 @@
 
 import UIKit
 
-class PullRequestCollectionViewController: UICollectionViewController {
+final class PullRequestListViewController: UICollectionViewController {
+    // MARK: - Properties
+    private let coordinator: PullRequestListCoordinatorProtocol
     private let viewModel: PullRequestViewModel
 
-    init(viewModel: PullRequestViewModel) {
+    // MARK: - Init
+    init(coordinator: PullRequestListCoordinatorProtocol, viewModel: PullRequestViewModel) {
+        self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -21,6 +25,7 @@ class PullRequestCollectionViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
@@ -28,18 +33,19 @@ class PullRequestCollectionViewController: UICollectionViewController {
         getPullRequests()
     }
 
-    func setupController() {
+    // MARK: - Private functions
+    private func setupController() {
         collectionView.backgroundColor = .systemBackground
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         self.title = viewModel.repoName
     }
 
-    func registerCells() {
+    private func registerCells() {
         collectionView.register(PullRequestCollectionViewCell.self)
         collectionView.register(FooterLoaderCell.self, ofKind: UICollectionView.elementKindSectionFooter)
     }
 
-    func getPullRequests() {
+    private func getPullRequests() {
         guard viewModel.hasMoreData else { return }
 
         viewModel.fetchPullRequests { [weak self] success, message in
@@ -51,12 +57,14 @@ class PullRequestCollectionViewController: UICollectionViewController {
         }
     }
 
+    // MARK: - Deinit
     deinit {
-        debugPrint("Deinit PullRequestCollectionViewController")
+        debugPrint("DEINIT PullRequestListViewController")
     }
 }
 
-extension PullRequestCollectionViewController: UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDelegateFlowLayout
+extension PullRequestListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -76,7 +84,8 @@ extension PullRequestCollectionViewController: UICollectionViewDelegateFlowLayou
     }
 }
 
-extension PullRequestCollectionViewController {
+// MARK: - UIColletionViewDelegate & UICollectionViewDataSource
+extension PullRequestListViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getPullRequestViewModelNumberOfItems()
     }
@@ -103,6 +112,9 @@ extension PullRequestCollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(viewModel.didSelectPullRequest(indexPath: indexPath), animated: true)
+        let viewModelItem = viewModel.getPullRequestViewModelItem(with: indexPath)
+        let ownerName = viewModel.ownerName
+        let repoName = viewModel.repoName
+        coordinator.goToDetail(viewModelItem: viewModelItem, ownerName: ownerName, repoName: repoName)
     }
 }

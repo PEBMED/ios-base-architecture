@@ -8,12 +8,13 @@
 
 import UIKit
 
-class FavoritesViewController: UIViewController {
+final class FavoritesViewController: UIViewController {
     let emptyView = GHEmptyView(text: "Sorry! 😅\nWe are working to release this feature as soon as possible.\nPlease stay tuned!")
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        view.backgroundColor = .white
     }
 
     func setupViews() {
