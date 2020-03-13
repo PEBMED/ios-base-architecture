@@ -9,26 +9,25 @@
 import UIKit
 
 protocol RepositoriesListCoordinatorProtocol: AnyObject {
-    func goToPullRequestList(repository: RepositoryViewModelItem)
+    func goToPullRequestList(viewModelItem: RepositoryViewModelItem)
 }
 
 final class RepositoriesListCoordinator: Coordinator {
+    // MARK: - Typealias
+    typealias Factory = RepositoryFactory & PullRequestListFactory
     // MARK: - Properties
     private let navigationController: UINavigationController
+    private let factory: Factory
 
     // MARK: - Init
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, factory: Factory) {
         self.navigationController = navigationController
+        self.factory = factory
     }
 
     // MARK: - Coordinator
     func start() {
-        let service = DefaultRepositoryService()
-        let viewModel = DefaultRepositoryViewModel(service: service)
-        let controller = RepositoriesListViewController(coordinator: self, viewModel: viewModel)
-        controller.title = "Repositories"
-        controller.tabBarItem.image = SFSymbols.folder
-
+        let controller = factory.makeRepositoriesListViewController(coordinator: self)
         navigationController.viewControllers = [controller]
     }
 
@@ -40,8 +39,10 @@ final class RepositoriesListCoordinator: Coordinator {
 
 // MARK: - RepositoriesListCoordinatorProtocol
 extension RepositoriesListCoordinator: RepositoriesListCoordinatorProtocol {
-    func goToPullRequestList(repository: RepositoryViewModelItem) {
-        let coordinator = PullRequestListCoordinator(navigationController: navigationController, repository: repository)
+    func goToPullRequestList(viewModelItem: RepositoryViewModelItem) {
+        let coordinator = PullRequestListCoordinator(navigationController: navigationController,
+                                                     factory: factory,
+                                                     viewModelItem: viewModelItem)
         coordinator.start()
     }
 }

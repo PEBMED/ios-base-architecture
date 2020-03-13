@@ -112,7 +112,7 @@ extension RepositoriesListViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let repository = viewModel.getRepositoryViewModelItem(with: indexPath)
-        coordinator.goToPullRequestList(repository: repository)
+        let viewModelItem = viewModel.getRepositoryViewModelItem(with: indexPath)
+        coordinator.goToPullRequestList(viewModelItem: viewModelItem)
     }
 }

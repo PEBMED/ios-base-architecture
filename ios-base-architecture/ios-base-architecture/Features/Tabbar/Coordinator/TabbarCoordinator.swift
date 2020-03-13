@@ -9,12 +9,17 @@
 import UIKit
 
 final class TabbarCoordinator: Coordinator {
+    // MARK: - Typealias
+    typealias Factory = RepositoryFactory & PullRequestListFactory & FavoritesFactory
+
     // MARK: - Properties
     private let window: UIWindow
+    private let factory: Factory
 
     // MARK: - Init
-    init(window: UIWindow) {
+    init(window: UIWindow, factory: Factory) {
         self.window = window
+        self.factory = factory
     }
 
     // MARK: - Coordinator
@@ -23,13 +28,13 @@ final class TabbarCoordinator: Coordinator {
 
         // Repositories
         let repositoriesNavigationController = GHCustomNavigationController()
-        let repositoriesCoordinator = RepositoriesListCoordinator(navigationController: repositoriesNavigationController)
+        let repositoriesCoordinator = RepositoriesListCoordinator(navigationController: repositoriesNavigationController, factory: factory)
         repositoriesCoordinator.start()
         navigationControllers.append(repositoriesNavigationController)
 
         // Favorites
         let favoritesNavigationController = GHCustomNavigationController()
-        let favoritesCoordinator = FavoritesCoordinator(navigationController: favoritesNavigationController)
+        let favoritesCoordinator = FavoritesCoordinator(navigationController: favoritesNavigationController, factory: factory)
         favoritesCoordinator.start()
         navigationControllers.append(favoritesNavigationController)
 

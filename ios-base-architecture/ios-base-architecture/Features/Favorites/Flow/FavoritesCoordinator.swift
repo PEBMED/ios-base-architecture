@@ -13,17 +13,17 @@ protocol FavoritesCoordinatorProtocol: AnyObject {}
 final class FavoritesCoordinator: Coordinator {
     // MARK: - Properties
     private let navigationController: UINavigationController
+    private let factory: FavoritesFactory
 
     // MARK: - Init
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, factory: FavoritesFactory) {
         self.navigationController = navigationController
+        self.factory = factory
     }
 
     // MARK: - Coordinator
     func start() {
-        let controller = FavoritesViewController()
-        controller.title = "Favorites"
-        controller.tabBarItem.image = SFSymbols.star
+        let controller = factory.makeFavoritesViewController(coordinator: self)
 
         navigationController.viewControllers = [controller]
     }

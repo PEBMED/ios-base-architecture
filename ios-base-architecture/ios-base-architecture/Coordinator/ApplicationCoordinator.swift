@@ -16,7 +16,8 @@ final class ApplicationCoordinator: Coordinator {
     // MARK: - Init
     init(window: UIWindow, coordinator: Coordinator? = nil) {
         self.window = window
-        self.coordinator = coordinator ?? TabbarCoordinator(window: window)
+        let dependencyContainer = DependencyContainer()
+        self.coordinator = coordinator ?? TabbarCoordinator(window: window, factory: dependencyContainer)
     }
 
     // MARK: - Coordinator
