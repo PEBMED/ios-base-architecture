@@ -45,6 +45,9 @@
 		A94FCD03241809C000BC0F34 /* GHDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCD02241809C000BC0F34 /* GHDecoder.swift */; };
 		A9B01558241C20070050CF09 /* FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01557241C20070050CF09 /* FavoritesFactory.swift */; };
 		A9B0155A241C203A0050CF09 /* DependencyContainer+FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01559241C203A0050CF09 /* DependencyContainer+FavoritesFactory.swift */; };
+		A9B0155D241C20ED0050CF09 /* PullRequestDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0155C241C20ED0050CF09 /* PullRequestDetailCoordinator.swift */; };
+		A9B0155F241C21520050CF09 /* PullRequestDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0155E241C21520050CF09 /* PullRequestDetailFactory.swift */; };
+		A9B01561241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01560241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift */; };
 		A9B564E9241BAFDF00C1EE52 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564E8241BAFDF00C1EE52 /* Coordinator.swift */; };
 		A9B564EB241BB02100C1EE52 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564EA241BB02100C1EE52 /* ApplicationCoordinator.swift */; };
 		A9B564EE241BB15500C1EE52 /* RepositoriesListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */; };
@@ -162,6 +165,9 @@
 		A94FCD02241809C000BC0F34 /* GHDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHDecoder.swift; sourceTree = "<group>"; };
 		A9B01557241C20070050CF09 /* FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFactory.swift; sourceTree = "<group>"; };
 		A9B01559241C203A0050CF09 /* DependencyContainer+FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+FavoritesFactory.swift"; sourceTree = "<group>"; };
+		A9B0155C241C20ED0050CF09 /* PullRequestDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailCoordinator.swift; sourceTree = "<group>"; };
+		A9B0155E241C21520050CF09 /* PullRequestDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailFactory.swift; sourceTree = "<group>"; };
+		A9B01560241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+PullRequestDetailFactory.swift"; sourceTree = "<group>"; };
 		A9B564E8241BAFDF00C1EE52 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		A9B564EA241BB02100C1EE52 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
 		A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCoordinator.swift; sourceTree = "<group>"; };
@@ -488,6 +494,16 @@
 			path = Decoder;
 			sourceTree = "<group>";
 		};
+		A9B0155B241C20DC0050CF09 /* Flow */ = {
+			isa = PBXGroup;
+			children = (
+				A9B0155C241C20ED0050CF09 /* PullRequestDetailCoordinator.swift */,
+				A9B0155E241C21520050CF09 /* PullRequestDetailFactory.swift */,
+				A9B01560241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift */,
+			);
+			path = Flow;
+			sourceTree = "<group>";
+		};
 		A9B564E7241BAFD300C1EE52 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +579,7 @@
 		A9D3CE282416E20900BED70D /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				A9B0155B241C20DC0050CF09 /* Flow */,
 				A9D3CE292416E20900BED70D /* ViewModel */,
 				A9D3CE2D2416E20900BED70D /* Model */,
 				A9D3CE2F2416E20900BED70D /* View */,
@@ -1131,6 +1148,7 @@
 				A9D3CE6B2416E20900BED70D /* PullRequestInfoView.swift in Sources */,
 				A9D3CE772416E20900BED70D /* RepositoryViewModelItem.swift in Sources */,
 				A9D3CE792416E20900BED70D /* DefaultRepositoryViewModel.swift in Sources */,
+				A9B0155F241C21520050CF09 /* PullRequestDetailFactory.swift in Sources */,
 				A9D3CE742416E20900BED70D /* DefaultPullRequestService.swift in Sources */,
 				2526D7B62403389B0074A9A4 /* UILabel+Ext.swift in Sources */,
 				A9D3CE902417E08900BED70D /* NetworkManager.swift in Sources */,
@@ -1152,6 +1170,7 @@
 				25E77D282401973400239F40 /* GHError.swift in Sources */,
 				A9D3CE712416E20900BED70D /* PullRequest.swift in Sources */,
 				A9D3CE6C2416E20900BED70D /* DefaultPullRequestDetailsService.swift in Sources */,
+				A9B01561241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift in Sources */,
 				A9D3CE682416E20900BED70D /* PullRequestDetailViewController.swift in Sources */,
 				A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */,
 				25E77D1B2400ADEF00239F40 /* GHBodyLabel.swift in Sources */,
@@ -1168,6 +1187,7 @@
 				A9D3CE842416E4C800BED70D /* PullRequestDetailViewModelItem.swift in Sources */,
 				A9D3CE762416E20900BED70D /* FavoritesViewController.swift in Sources */,
 				2526D7D32404A8C10074A9A4 /* GHSubtitleLabel.swift in Sources */,
+				A9B0155D241C20ED0050CF09 /* PullRequestDetailCoordinator.swift in Sources */,
 				A9D3CE782416E20900BED70D /* RepositoryViewModel.swift in Sources */,
 				A9D3CE6A2416E20900BED70D /* PullRequestUserInfoView.swift in Sources */,
 				A9D3CE8E2417D03C00BED70D /* SFSymbols.swift in Sources */,

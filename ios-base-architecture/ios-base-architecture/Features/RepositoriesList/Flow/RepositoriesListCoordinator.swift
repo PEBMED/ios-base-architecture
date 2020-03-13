@@ -14,7 +14,7 @@ protocol RepositoriesListCoordinatorProtocol: AnyObject {
 
 final class RepositoriesListCoordinator: Coordinator {
     // MARK: - Typealias
-    typealias Factory = RepositoryFactory & PullRequestListFactory
+    typealias Factory = RepositoryFactory & PullRequestListFactory & PullRequestDetailFactory
     // MARK: - Properties
     private let navigationController: UINavigationController
     private let factory: Factory

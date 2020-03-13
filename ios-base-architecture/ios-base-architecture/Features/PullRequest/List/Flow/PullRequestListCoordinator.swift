@@ -8,16 +8,20 @@
 
 import UIKit
 
-protocol PullRequestListCoordinatorProtocol: AnyObject {}
+protocol PullRequestListCoordinatorProtocol: AnyObject {
+    func goToDetail(viewModelItem: PullRequestViewModelItem, ownerName: String, repoName: String)
+}
 
 final class PullRequestListCoordinator: Coordinator {
+    // MARK: - Typealias
+    typealias Factory = PullRequestListFactory & PullRequestDetailFactory
     // MARK: - Properties
     private let navigationController: UINavigationController
-    private let factory: PullRequestListFactory
+    private let factory: Factory
     private let viewModelItem: RepositoryViewModelItem
 
     // MARK: - Init
-    init(navigationController: UINavigationController, factory: PullRequestListFactory, viewModelItem: RepositoryViewModelItem) {
+    init(navigationController: UINavigationController, factory: Factory, viewModelItem: RepositoryViewModelItem) {
         self.navigationController = navigationController
         self.factory = factory
         self.viewModelItem = viewModelItem
@@ -37,4 +41,13 @@ final class PullRequestListCoordinator: Coordinator {
 }
 
 // MARK: - PullRequestListCoordinatorProtocol
-extension PullRequestListCoordinator: PullRequestListCoordinatorProtocol {}
+extension PullRequestListCoordinator: PullRequestListCoordinatorProtocol {
+    func goToDetail(viewModelItem: PullRequestViewModelItem, ownerName: String, repoName: String) {
+        let coordinator = PullRequestDetailCoordinator(navigationController: navigationController,
+                                                       factory: factory,
+                                                       viewModelItem: viewModelItem,
+                                                       ownerName: ownerName,
+                                                       repoName: repoName)
+        coordinator.start()
+    }
+}

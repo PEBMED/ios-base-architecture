@@ -13,7 +13,6 @@ extension DependencyContainer: PullRequestListFactory {
         let defaultPullRequestViewModel = DefaultPullRequestViewModel(ownerName: viewModelItem.login,
                                                                       repoName: viewModelItem.name,
                                                                       service: service)
-        let controller = PullRequestListViewController(coordinator: coordinator, viewModel: defaultPullRequestViewModel)
-        return controller
+        return PullRequestListViewController(coordinator: coordinator, viewModel: defaultPullRequestViewModel)
     }
 }

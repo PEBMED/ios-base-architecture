@@ -58,7 +58,7 @@ final class RepositoriesListViewController: UICollectionViewController {
     }
 
     deinit {
-        debugPrint("Deinit RepositoriesListViewController")
+        debugPrint("DEINIT RepositoriesListViewController")
     }
 }
 
