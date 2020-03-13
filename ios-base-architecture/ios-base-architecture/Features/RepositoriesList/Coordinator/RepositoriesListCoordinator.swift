@@ -25,7 +25,7 @@ final class RepositoriesListCoordinator: Coordinator {
     func start() {
         let service = DefaultRepositoryService()
         let viewModel = DefaultRepositoryViewModel(service: service)
-        let controller = RepositoriesCollectionViewController(coordinator: self, viewModel: viewModel)
+        let controller = RepositoriesListViewController(coordinator: self, viewModel: viewModel)
         controller.title = "Repositories"
         controller.tabBarItem.image = SFSymbols.folder
 

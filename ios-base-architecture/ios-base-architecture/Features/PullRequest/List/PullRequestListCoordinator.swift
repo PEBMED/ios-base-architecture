@@ -29,7 +29,7 @@ final class PullRequestListCoordinator: Coordinator {
         let defaultPullRequestViewModel = DefaultPullRequestViewModel(ownerName: repository.login,
                                                                       repoName: repository.name,
                                                                       service: service)
-        let controller = PullRequestCollectionViewController(coordinator: self, viewModel: defaultPullRequestViewModel)
+        let controller = PullRequestListViewController(coordinator: self, viewModel: defaultPullRequestViewModel)
 
         navigationController.pushViewController(controller, animated: true)
     }

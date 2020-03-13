@@ -1,18 +1,19 @@
 //
-//  PullRequestCollectionViewController.swift
+//  RepositoriesListViewController.swift
 //  ios-base-architecture
 //
-//  Created by Luiz on 24/02/20.
+//  Created by Luiz on 21/02/20.
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
 import UIKit
 
-class PullRequestCollectionViewController: UICollectionViewController {
-    private let coordinator: PullRequestListCoordinatorProtocol
-    private let viewModel: PullRequestViewModel
+final class RepositoriesListViewController: UICollectionViewController {
+    private let coordinator: RepositoriesListCoordinatorProtocol
+    private let viewModel: RepositoryViewModel
 
-    init(coordinator: PullRequestListCoordinatorProtocol, viewModel: PullRequestViewModel) {
+    // MARK: - Init
+    init(coordinator: RepositoriesListCoordinatorProtocol, viewModel: RepositoryViewModel) {
         self.coordinator = coordinator
         self.viewModel = viewModel
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -23,30 +24,33 @@ class PullRequestCollectionViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
         registerCells()
-        getPullRequests()
+        getRepositories()
     }
 
-    func setupController() {
+    // MARK: - Private functions
+    private func setupController() {
         collectionView.backgroundColor = .systemBackground
         collectionView.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
-        self.title = viewModel.repoName
+        navigationItem.searchController = UISearchController()
     }
 
-    func registerCells() {
-        collectionView.register(PullRequestCollectionViewCell.self)
+    private func registerCells() {
+        collectionView.register(RepositoryCollectionViewCell.self)
         collectionView.register(FooterLoaderCell.self, ofKind: UICollectionView.elementKindSectionFooter)
     }
 
-    func getPullRequests() {
+    private func getRepositories() {
         guard viewModel.hasMoreData else { return }
 
-        viewModel.fetchPullRequests { [weak self] success, message in
+        viewModel.fetchRepositories { [weak self] success, errorMessage in
             guard success else {
-                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue, message: message ?? GHError.genericError.rawValue)
+                self?.showDefaultAlertOnMainThread(title: GHError.titleError.rawValue,
+                                                   message: errorMessage ?? GHError.genericError.rawValue)
                 return
             }
             self?.reloadDataOnMainThread()
@@ -54,15 +58,16 @@ class PullRequestCollectionViewController: UICollectionViewController {
     }
 
     deinit {
-        debugPrint("Deinit PullRequestCollectionViewController")
+        debugPrint("Deinit RepositoriesListViewController")
     }
 }
 
-extension PullRequestCollectionViewController: UICollectionViewDelegateFlowLayout {
+extension RepositoriesListViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return PullRequestCollectionViewCell.getCellHeight(with: viewModel.getPullRequestViewModelItem(with: indexPath).body ?? "")
+        let text = viewModel.getRepositoryViewModelItem(with: indexPath).description
+        return RepositoryCollectionViewCell.getCellHeight(with: text)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -70,23 +75,18 @@ extension PullRequestCollectionViewController: UICollectionViewDelegateFlowLayou
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 14
     }
-
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: viewModel.hasMoreData ? 44 : 0)
-    }
 }
 
-extension PullRequestCollectionViewController {
+// MARK: - UICollectionViewDataSource, UICollectionViewDelegate & UICollectionViewFlowLayoutDelegate
+extension RepositoriesListViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return viewModel.getPullRequestViewModelNumberOfItems()
+        return viewModel.getRepositoryViewModelNumberOfItems()
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as PullRequestCollectionViewCell
-        let removeSeparator = (viewModel.getPullRequestViewModelNumberOfItems() - 1) == indexPath.item
-        cell.set(item: viewModel.getPullRequestViewModelItem(with: indexPath), removeSeparator: removeSeparator)
+        let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as RepositoryCollectionViewCell
+        let removeSeparator = indexPath.item == viewModel.getRepositoryViewModelNumberOfItems() - 1
+        cell.set(item: viewModel.getRepositoryViewModelItem(with: indexPath), removeSeparator: removeSeparator)
         return cell
     }
 
@@ -96,15 +96,23 @@ extension PullRequestCollectionViewController {
         return collectionView.dequeueReusableSupplementaryView(ofKind: kind, indexPath: indexPath) as FooterLoaderCell
     }
 
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForFooterInSection section: Int) -> CGSize {
+        let height = viewModel.hasMoreData ? 40 : 0
+        return CGSize(width: 0, height: height)
+    }
+
     override func collectionView(_ collectionView: UICollectionView,
                                  willDisplay cell: UICollectionViewCell,
                                  forItemAt indexPath: IndexPath) {
-        if viewModel.getPullRequestViewModelNumberOfItems() - 1 == indexPath.item {
-            getPullRequests()
+        if viewModel.getRepositoryViewModelNumberOfItems() - 1 == indexPath.item {
+            getRepositories()
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        navigationController?.pushViewController(viewModel.didSelectPullRequest(indexPath: indexPath), animated: true)
+        let repository = viewModel.getRepositoryViewModelItem(with: indexPath)
+        coordinator.goToPullRequestList(repository: repository)
     }
 }
