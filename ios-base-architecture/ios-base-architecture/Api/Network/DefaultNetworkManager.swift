@@ -57,6 +57,12 @@ final class DefaultNetworkManager: NetworkManager {
             completion(image)
         }
         .resume()
+
+        print("Deinit DefaultNetworkManager")
+        requests.forEach { $0.cancel() }
+
+        print("Deinit DefaultNetworkManager")
+        requests.forEach { $0.cancel() }
     }
 
     deinit {
