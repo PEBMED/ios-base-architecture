@@ -9,6 +9,17 @@
 import UIKit
 
 final class GHTabBarController: UITabBarController {
+    // MARK: - Init
+    init(viewControllers: [UIViewController]) {
+        super.init(nibName: nil, bundle: nil)
+        setViewControllers(viewControllers, animated: false)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLayout()
@@ -32,9 +43,6 @@ final class GHTabBarController: UITabBarController {
 
     func setupFavoritesController() -> UIViewController {
         let favoritesViewController = FavoritesViewController()
-        favoritesViewController.view.backgroundColor = .white
-        favoritesViewController.title = "Favorites"
-        favoritesViewController.tabBarItem.image = SFSymbols.star
 
         return GHCustomNavigationController(rootViewController: favoritesViewController)
     }

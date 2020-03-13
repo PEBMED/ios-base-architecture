@@ -111,7 +111,7 @@ final class PullRequestInfoView: UIView {
 
         let branchNameStackView = UIStackView(arrangedSubviews: [originBranchNameView, arrowImage, destinationBranchNameView, UIView()])
         branchNameStackView.alignment = .center
-        
+
         addSubviews(branchNameStackView, branchStateView)
 
         branchNameStackView.anchor(top: titleLabel.bottomAnchor,
@@ -180,4 +180,3 @@ final class PullRequestInfoView: UIView {
         logoImageView.fetchImage(stringUrl: item.baseAvatarUrl)
     }
 }
-

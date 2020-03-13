@@ -14,6 +14,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
+        view.backgroundColor = .white
     }
 
     func setupViews() {

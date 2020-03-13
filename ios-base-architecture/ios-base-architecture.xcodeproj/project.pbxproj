@@ -43,6 +43,11 @@
 		A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */; };
 		A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFF241804ED00BC0F34 /* DataRequest.swift */; };
 		A94FCD03241809C000BC0F34 /* GHDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCD02241809C000BC0F34 /* GHDecoder.swift */; };
+		A9B564E9241BAFDF00C1EE52 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564E8241BAFDF00C1EE52 /* Coordinator.swift */; };
+		A9B564EB241BB02100C1EE52 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564EA241BB02100C1EE52 /* ApplicationCoordinator.swift */; };
+		A9B564EE241BB15500C1EE52 /* RepositoriesListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */; };
+		A9B564F2241BB7FB00C1EE52 /* FavoritesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564F1241BB7FB00C1EE52 /* FavoritesCoordinator.swift */; };
+		A9B564F5241BB8A000C1EE52 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B564F4241BB8A000C1EE52 /* TabbarCoordinator.swift */; };
 		A9D3CE652416E20900BED70D /* PullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2B2416E20900BED70D /* PullRequestDetailsViewModel.swift */; };
 		A9D3CE662416E20900BED70D /* DefautPullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2C2416E20900BED70D /* DefautPullRequestDetailsViewModel.swift */; };
 		A9D3CE672416E20900BED70D /* PullRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2E2416E20900BED70D /* PullRequestDetail.swift */; };
@@ -147,6 +152,11 @@
 		A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataRequest.swift; sourceTree = "<group>"; };
 		A94FCCFF241804ED00BC0F34 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		A94FCD02241809C000BC0F34 /* GHDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHDecoder.swift; sourceTree = "<group>"; };
+		A9B564E8241BAFDF00C1EE52 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		A9B564EA241BB02100C1EE52 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCoordinator.swift; sourceTree = "<group>"; };
+		A9B564F1241BB7FB00C1EE52 /* FavoritesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCoordinator.swift; sourceTree = "<group>"; };
+		A9B564F4241BB8A000C1EE52 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		A9D3CE2B2416E20900BED70D /* PullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		A9D3CE2C2416E20900BED70D /* DefautPullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefautPullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		A9D3CE2E2416E20900BED70D /* PullRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestDetail.swift; sourceTree = "<group>"; };
@@ -323,6 +333,7 @@
 		25CE7C0A2400472400A54079 /* ios-base-architecture */ = {
 			isa = PBXGroup;
 			children = (
+				A9B564E7241BAFD300C1EE52 /* Coordinator */,
 				A9D3CE892417C88500BED70D /* Models */,
 				25CE7C402400695C00A54079 /* Support */,
 				254EB028240073DF004A4E11 /* Utilities */,
@@ -368,6 +379,7 @@
 		25CE7C3C2400685300A54079 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A9B564EF241BB2CA00C1EE52 /* Tabbar */,
 				A9D3CE4C2416E20900BED70D /* Favorites */,
 				A9D3CE272416E20900BED70D /* PullRequest */,
 				A9D3CE542416E20900BED70D /* RepositoriesList */,
@@ -457,6 +469,47 @@
 				A94FCD02241809C000BC0F34 /* GHDecoder.swift */,
 			);
 			path = Decoder;
+			sourceTree = "<group>";
+		};
+		A9B564E7241BAFD300C1EE52 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A9B564E8241BAFDF00C1EE52 /* Coordinator.swift */,
+				A9B564EA241BB02100C1EE52 /* ApplicationCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A9B564EC241BB0C200C1EE52 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A9B564ED241BB15500C1EE52 /* RepositoriesListCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A9B564EF241BB2CA00C1EE52 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				A9B564F3241BB89300C1EE52 /* Coordinator */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		A9B564F0241BB7EE00C1EE52 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A9B564F1241BB7FB00C1EE52 /* FavoritesCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A9B564F3241BB89300C1EE52 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A9B564F4241BB8A000C1EE52 /* TabbarCoordinator.swift */,
+			);
+			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		A9D3CE272416E20900BED70D /* PullRequest */ = {
@@ -638,26 +691,10 @@
 		A9D3CE4C2416E20900BED70D /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				A9D3CE4D2416E20900BED70D /* ViewModel */,
-				A9D3CE4E2416E20900BED70D /* Model */,
+				A9B564F0241BB7EE00C1EE52 /* Coordinator */,
 				A9D3CE4F2416E20900BED70D /* View */,
-				A9D3CE532416E20900BED70D /* Service */,
 			);
 			path = Favorites;
-			sourceTree = "<group>";
-		};
-		A9D3CE4D2416E20900BED70D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A9D3CE4E2416E20900BED70D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A9D3CE4F2416E20900BED70D /* View */ = {
@@ -684,18 +721,11 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		A9D3CE532416E20900BED70D /* Service */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		A9D3CE542416E20900BED70D /* RepositoriesList */ = {
 			isa = PBXGroup;
 			children = (
+				A9B564EC241BB0C200C1EE52 /* Coordinator */,
 				A9D3CE552416E20900BED70D /* ViewModel */,
-				A9D3CE5A2416E20900BED70D /* Model */,
 				A9D3CE5C2416E20900BED70D /* View */,
 				A9D3CE612416E20900BED70D /* Service */,
 			);
@@ -718,13 +748,6 @@
 				A9D3CE582416E20900BED70D /* RepositoryViewModel.swift */,
 			);
 			path = Protocol;
-			sourceTree = "<group>";
-		};
-		A9D3CE5A2416E20900BED70D /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A9D3CE5C2416E20900BED70D /* View */ = {
@@ -1103,6 +1126,7 @@
 				A9D3CE7C2416E20900BED70D /* RepositoriesCollectionViewController.swift in Sources */,
 				A9D3CE672416E20900BED70D /* PullRequestDetail.swift in Sources */,
 				A9D3CE802416E3FC00BED70D /* Owner.swift in Sources */,
+				A9B564E9241BAFDF00C1EE52 /* Coordinator.swift in Sources */,
 				25CE7C0C2400472400A54079 /* AppDelegate.swift in Sources */,
 				2526D7C224041F8F0074A9A4 /* FooterLoaderCell.swift in Sources */,
 				A9D3CE842416E4C800BED70D /* PullRequestDetailViewModelItem.swift in Sources */,
@@ -1112,7 +1136,9 @@
 				A9D3CE6A2416E20900BED70D /* PullRequestUserInfoView.swift in Sources */,
 				A9D3CE8E2417D03C00BED70D /* SFSymbols.swift in Sources */,
 				A9D3CE7E2416E20900BED70D /* RepositoryService.swift in Sources */,
+				A9B564F5241BB8A000C1EE52 /* TabbarCoordinator.swift in Sources */,
 				25E77D1D2400AF3C00239F40 /* GHTitleLabel.swift in Sources */,
+				A9B564EB241BB02100C1EE52 /* ApplicationCoordinator.swift in Sources */,
 				255D6F7A2403279F00419359 /* UIViewController+Ext.swift in Sources */,
 				2526D7B92403F1F10074A9A4 /* GHTabBarController.swift in Sources */,
 				2519E85D240E8CBF0096230B /* GHEmptyView.swift in Sources */,
@@ -1120,10 +1146,12 @@
 				A9D3CE6F2416E20900BED70D /* PullRequestViewModelItem.swift in Sources */,
 				A9D3CE7D2416E20900BED70D /* DefaultRepositoryService.swift in Sources */,
 				A9D3CE6D2416E20900BED70D /* PullRequestDetailsService.swift in Sources */,
+				A9B564EE241BB15500C1EE52 /* RepositoriesListCoordinator.swift in Sources */,
 				257DC6CF24059DBB00051554 /* Date+Ext.swift in Sources */,
 				A9D3CE732416E20900BED70D /* PullRequestCollectionViewController.swift in Sources */,
 				2526D7B124032B9E0074A9A4 /* UICollectionViewController+Ext.swift in Sources */,
 				25E77D2324017A9500239F40 /* SeparatorView.swift in Sources */,
+				A9B564F2241BB7FB00C1EE52 /* FavoritesCoordinator.swift in Sources */,
 				A9D3CE722416E20900BED70D /* PullRequestCollectionViewCell.swift in Sources */,
 				A9D3CE942417E2C500BED70D /* WebserviceRequest.swift in Sources */,
 				A9D3CE752416E20900BED70D /* PullRequestService.swift in Sources */,
