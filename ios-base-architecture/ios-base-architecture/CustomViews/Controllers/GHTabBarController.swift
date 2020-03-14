@@ -15,7 +15,7 @@ final class GHTabBarController: UITabBarController {
     }
 
     private func setupLayout() {
-        UITabBar.appearance().tintColor = #colorLiteral(red: 0, green: 0.6745098039, blue: 0.9294117647, alpha: 1)
+        UITabBar.appearance().tintColor = UIColor(named: "tabBarActive")
         viewControllers = [setupRepositoriesController(), setupFavoritesController()]
     }
 
@@ -32,7 +32,7 @@ final class GHTabBarController: UITabBarController {
 
     func setupFavoritesController() -> UIViewController {
         let favoritesViewController = FavoritesViewController()
-        favoritesViewController.view.backgroundColor = .white
+        favoritesViewController.view.backgroundColor = UIColor(named: "favoritesBackground")
         favoritesViewController.title = "Favorites"
         favoritesViewController.tabBarItem.image = SFSymbols.star
 

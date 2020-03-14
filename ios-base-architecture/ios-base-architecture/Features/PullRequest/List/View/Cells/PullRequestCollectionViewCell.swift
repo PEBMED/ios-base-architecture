@@ -74,7 +74,7 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
         let calendarImage = UIImageView()
         calendarImage.image = SFSymbols.calendar
         calendarImage.contentMode = .scaleAspectFit
-        calendarImage.tintColor = #colorLiteral(red: 0, green: 0.6745098039, blue: 0.9294117647, alpha: 1)
+        calendarImage.tintColor = UIColor(named: "pullRequestCalendar")
 
         dateLabel.widthAnchor.constraint(equalToConstant: 80).isActive = true
         calendarImage.widthAnchor.constraint(equalToConstant: 20).isActive = true
