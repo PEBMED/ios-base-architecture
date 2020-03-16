@@ -8,19 +8,24 @@
 
 import UIKit
 
-protocol PullRequestDetailCoordinatorProtocol: AnyObject {}
+protocol PullRequestDetailCoordinatorProtocol: AnyObject {
+    func goToUserDetail(userName: String)
+}
 
 final class PullRequestDetailCoordinator: Coordinator {
+    // MARK: - Typealias
+    typealias Factory = PullRequestDetailFactory & UserDetailFactory
+
     // MARK: - Properties
     private let navigationController: UINavigationController
-    private let factory: PullRequestDetailFactory
+    private let factory: Factory
     private let viewModelItem: PullRequestViewModelItem
     private let ownerName: String
     private let repoName: String
 
     // MARK: - Init
     init(navigationController: UINavigationController,
-         factory: PullRequestDetailFactory,
+         factory: Factory,
          viewModelItem: PullRequestViewModelItem,
          ownerName: String,
          repoName: String) {
@@ -48,4 +53,9 @@ final class PullRequestDetailCoordinator: Coordinator {
 }
 
 // MARK: - PullRequestDetailCoordinatorProtocol
-extension PullRequestDetailCoordinator: PullRequestDetailCoordinatorProtocol {}
+extension PullRequestDetailCoordinator: PullRequestDetailCoordinatorProtocol {
+    func goToUserDetail(userName: String) {
+        let userDetailCoordinator = UserDetailCoordinator(userName: userName, factory: factory, navigationController: navigationController)
+        userDetailCoordinator.start()
+    }
+}

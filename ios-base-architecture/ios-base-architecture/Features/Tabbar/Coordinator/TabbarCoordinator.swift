@@ -10,7 +10,7 @@ import UIKit
 
 final class TabbarCoordinator: Coordinator {
     // MARK: - Typealias
-    typealias Factory = RepositoryFactory & PullRequestListFactory & PullRequestDetailFactory & FavoritesFactory
+    typealias Factory = RepositoryFactory & PullRequestListFactory & PullRequestDetailFactory & FavoritesFactory & UserDetailFactory
 
     // MARK: - Properties
     private let window: UIWindow

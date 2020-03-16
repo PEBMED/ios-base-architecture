@@ -15,4 +15,7 @@ enum SFSymbols {
     static let arrow = UIImage(systemName: "arrow.right")
     static let chevron = UIImage(systemName: "chevron.right")
     static let calendar = UIImage(systemName: "calendar.circle")
+    static let mail = UIImage(systemName: "envelope")
+    static let persons = UIImage(systemName: "person.2.fill")
+    static let location = UIImage(systemName: "mappin.and.ellipse")
 }

@@ -14,7 +14,7 @@ protocol PullRequestListCoordinatorProtocol: AnyObject {
 
 final class PullRequestListCoordinator: Coordinator {
     // MARK: - Typealias
-    typealias Factory = PullRequestListFactory & PullRequestDetailFactory
+    typealias Factory = PullRequestListFactory & PullRequestDetailFactory & UserDetailFactory
     // MARK: - Properties
     private let navigationController: UINavigationController
     private let factory: Factory
@@ -30,7 +30,6 @@ final class PullRequestListCoordinator: Coordinator {
     // MARK: - Coordinator
     func start() {
         let controller = factory.makePullRequestListViewController(coordinator: self, viewModelItem: viewModelItem)
-
         navigationController.pushViewController(controller, animated: true)
     }
 
