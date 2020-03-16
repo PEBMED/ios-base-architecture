@@ -30,6 +30,7 @@ class UserDetailViewController: GHCustomViewController <UserDetailView> {
     }
 
     func setupTargets() {
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close, target: self, action: #selector(didSelectCloseButton))
         customView.profileButton.addTarget(self, action: #selector(didSelectButton), for: .touchUpInside)
     }
 
@@ -50,5 +51,10 @@ class UserDetailViewController: GHCustomViewController <UserDetailView> {
     @objc
     func didSelectButton() {
         coordinator.goToProfile(stringUrl: viewModel.getUserViewModelItem()?.profileUrl ?? "")
+    }
+
+    @objc
+    func didSelectCloseButton() {
+        coordinator.closeViewController()
     }
 }

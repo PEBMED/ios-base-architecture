@@ -11,6 +11,7 @@ import UIKit
 
 protocol UserDetailCoordinatorProtocol: AnyObject {
     func goToProfile(stringUrl: String)
+     func closeViewController()
 }
 
 class UserDetailCoordinator: Coordinator {
@@ -40,5 +41,9 @@ extension UserDetailCoordinator: UserDetailCoordinatorProtocol {
         guard let url = URL(string: stringUrl) else { return }
         let safariController = SFSafariViewController(url: url)
         navigationController.pushViewController(safariController, animated: true)
+    }
+
+    func closeViewController(){
+        navigationController.dismiss(animated: true, completion: nil)
     }
 }

@@ -41,7 +41,7 @@ class UserDetailView: UIView {
         let button = UIButton(type: .system)
         button.setTitle("Show All Github Profile", for: .normal)
         button.layer.cornerRadius = 5
-        button.layer.borderColor = UIColor.darkGray.cgColor
+        button.layer.borderColor = UIColor.lightGray.withAlphaComponent(0.8).cgColor
         button.layer.borderWidth = 0.7
         button.setTitleColor(.darkGray, for: .normal)
         return button
