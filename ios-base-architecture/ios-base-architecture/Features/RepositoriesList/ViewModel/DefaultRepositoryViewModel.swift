@@ -53,12 +53,4 @@ final class DefaultRepositoryViewModel: RepositoryViewModel {
     func getRepositoryViewModelNumberOfItems() -> Int {
         return repositoriesViewModelItem.count
     }
-
-    func didSelectRepository(indexPath: IndexPath) -> UIViewController {
-        let viewModelItem = getRepositoryViewModelItem(with: indexPath)
-        let defaultPullRequestViewModel = DefaultPullRequestViewModel(ownerName: viewModelItem.login,
-                                                                      repoName: viewModelItem.name,
-                                                                      service: DefaultPullRequestService())
-        return PullRequestCollectionViewController(viewModel: defaultPullRequestViewModel)
-    }
 }

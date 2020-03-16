@@ -9,33 +9,15 @@
 import UIKit
 
 final class GHTabBarController: UITabBarController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupLayout()
-    }
-
-    private func setupLayout() {
+    // MARK: - Init
+    init(viewControllers: [UIViewController]) {
+        super.init(nibName: nil, bundle: nil)
         UITabBar.appearance().tintColor = UIColor(named: "tabBarActive")
-        viewControllers = [setupRepositoriesController(), setupFavoritesController()]
+        setViewControllers(viewControllers, animated: false)
     }
 
-    func setupRepositoriesController() -> UIViewController {
-        let service = DefaultRepositoryService()
-        let viewModel = DefaultRepositoryViewModel(service: service)
-        let repositoriesCollectionViewController = RepositoriesCollectionViewController(viewModel: viewModel)
-
-        repositoriesCollectionViewController.title = "Repositories"
-        repositoriesCollectionViewController.tabBarItem.image = SFSymbols.folder
-
-        return GHCustomNavigationController(rootViewController: repositoriesCollectionViewController)
-    }
-
-    func setupFavoritesController() -> UIViewController {
-        let favoritesViewController = FavoritesViewController()
-        favoritesViewController.view.backgroundColor = UIColor(named: "favoritesBackground")
-        favoritesViewController.title = "Favorites"
-        favoritesViewController.tabBarItem.image = SFSymbols.star
-
-        return GHCustomNavigationController(rootViewController: favoritesViewController)
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }

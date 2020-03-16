@@ -18,5 +18,4 @@ protocol PullRequestViewModel {
     func fetchPullRequests(completion: @escaping (Bool, String?) -> Void)
     func getPullRequestViewModelItem(with indexPath: IndexPath) -> PullRequestViewModelItem
     func getPullRequestViewModelNumberOfItems() -> Int
-    func didSelectPullRequest(indexPath: IndexPath) -> UIViewController
 }
