@@ -12,7 +12,7 @@ final class GHTabBarController: UITabBarController {
     // MARK: - Init
     init(viewControllers: [UIViewController]) {
         super.init(nibName: nil, bundle: nil)
-        UITabBar.appearance().tintColor = #colorLiteral(red: 0, green: 0.6745098039, blue: 0.9294117647, alpha: 1)
+        UITabBar.appearance().tintColor = UIColor(named: "tabBarActive")
         setViewControllers(viewControllers, animated: false)
     }
 

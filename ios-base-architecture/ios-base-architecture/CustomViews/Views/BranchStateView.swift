@@ -12,7 +12,7 @@ final class BranchStateView: UIView {
     private let label: UILabel = {
         let view = UILabel()
         view.text = "Open"
-        view.textColor = #colorLiteral(red: 0.2941176471, green: 0.5411764706, blue: 0.2980392157, alpha: 1)
+        view.textColor = UIColor(named: "branchStatusOpen")
         view.font = .systemFont(ofSize: 11, weight: .semibold)
         return view
     }()
@@ -20,13 +20,13 @@ final class BranchStateView: UIView {
     private let imageView: UIImageView = {
         let imageView = SFSymbols.branch
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = #colorLiteral(red: 0.2941176471, green: 0.5411764706, blue: 0.2980392157, alpha: 1)
+        imageView.tintColor = UIColor(named: "branchStatusOpen")
         return imageView
     }()
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.9843137255, blue: 0.9529411765, alpha: 1)
+        backgroundColor = UIColor(named: "branchStatusBackground")
         layer.cornerRadius = 3
         setupViews()
     }
