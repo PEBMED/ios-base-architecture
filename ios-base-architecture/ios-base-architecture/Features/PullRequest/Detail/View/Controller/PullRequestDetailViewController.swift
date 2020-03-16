@@ -30,6 +30,7 @@ final class PullRequestDetailViewController: GHCustomViewController<PullRequestD
         super.viewDidLoad()
         setupController()
         getPullRequestDetail()
+        customView.secondContainer.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didSelecUserInfo)))
     }
 
     // MARK: - Private functions
@@ -54,6 +55,12 @@ final class PullRequestDetailViewController: GHCustomViewController<PullRequestD
                 self?.customView.setUpContainersSubviews(item: viewModelItem)
             }
         }
+    }
+
+  @objc
+    func didSelecUserInfo() {
+        guard let userName = viewModel.getPullRequestDetailViewModelItem()?.userName else { return }
+        coordinator.goToUserDetail(userName: userName)
     }
 
     // MARK: - Deinit
