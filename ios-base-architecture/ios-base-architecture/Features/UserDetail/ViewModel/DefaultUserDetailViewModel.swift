@@ -6,7 +6,7 @@
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class DefaultUserDetailViewModel: UserDetailViewModel {
     let userName: String
@@ -41,6 +41,31 @@ class DefaultUserDetailViewModel: UserDetailViewModel {
                                        company: user.company ?? "Not Available",
                                        bio: user.bio ?? "No Bio Info Available",
                                        avatarUrl: user.avatarUrl ?? "",
-                                       profileUrl: user.htmlUrl)
+                                       profileUrl: user.htmlUrl,
+                                       followersAtributtedText: setupFollowersAtributtedText(following: user.following ?? 0,
+                                                                                             followers: user.followers ?? 0))
+    }
+
+    func setupFollowersAtributtedText(following: Int, followers: Int) -> NSMutableAttributedString {
+        let atributtedString = NSMutableAttributedString(
+            string: "\(followers) ",
+            attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 13.5)])
+
+        atributtedString.append(NSAttributedString(string: "followers",
+                                                   attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14),
+                                                                NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+
+        atributtedString.append(NSAttributedString(string: " • ",
+                                                   attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 12),
+                                                                NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+
+        atributtedString.append(NSAttributedString(string: "\(following) ",
+                                                   attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 14)]))
+
+        atributtedString.append(NSAttributedString(string: "following",
+                                                   attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 13.5),
+                                                                NSAttributedString.Key.foregroundColor: UIColor.darkGray]))
+
+        return atributtedString
     }
 }

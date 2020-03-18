@@ -13,19 +13,19 @@ class UserDetailView: UIView {
         let imageView = GHAvatarImageView(size: CGSize(width: 70, height: 70))
         imageView.image = #imageLiteral(resourceName: "avatar-placeholder-dark")
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 4
+        imageView.layer.cornerRadius = 12
         return imageView
     }()
 
     let userNameLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 28, weight: .bold)
+        label.font = .systemFont(ofSize: 24, weight: .bold)
         return label
     }()
 
     let userLoginLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 22, weight: .thin)
+        label.font = .systemFont(ofSize: 19, weight: .thin)
         label.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         return label
     }()
@@ -47,11 +47,19 @@ class UserDetailView: UIView {
         return button
     }()
 
-    let companyInfoView = GHUserInfoView(color: .darkGray, icon: SFSymbols.persons ?? UIImage())
-    let locationInfoView = GHUserInfoView(color: .darkGray, icon: SFSymbols.location ?? UIImage())
-    let emailInfoView = GHUserInfoView(color: .darkGray,
+    let companyInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.persons ?? UIImage())
+    let locationInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.location ?? UIImage())
+
+    let emailInfoView = GHUserInfoView(color: .gray,
                                        icon: SFSymbols.mail ?? UIImage(),
-                                       labelColor: .systemBlue)
+                                       bold: true)
+
+    let followInfoView = GHUserInfoView(color: .gray,
+                                        icon: SFSymbols.mail ?? UIImage(),
+                                        bold: true)
+
+    let personInfoView = GHUserInfoView(color: .gray,
+                                        icon: SFSymbols.person ?? UIImage())
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -81,16 +89,23 @@ class UserDetailView: UIView {
 
         addSubview(labelStackView)
 
-        labelStackView.anchor(top: profileImageView.topAnchor,
+        labelStackView.anchor(top: nil,
                               leading: profileImageView.trailingAnchor,
                               trailing: trailingAnchor,
-                              padding: UIEdgeInsets(top: 2, left: 24, bottom: 0, right: 10))
+                              padding: UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 10))
+        labelStackView.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
     }
 
     func setupUserProfile() {
-        let stackView = UIStackView(arrangedSubviews: [bioLabel, companyInfoView, locationInfoView, emailInfoView, UIView()])
+        let stackView = UIStackView(arrangedSubviews: [bioLabel,
+                                                       UIView(),
+                                                       companyInfoView,
+                                                       locationInfoView,
+                                                       emailInfoView,
+                                                       personInfoView,
+                                                       UIView()])
         stackView.axis = .vertical
-        stackView.spacing = 10
+        stackView.spacing = 9
 
         addSubviews(stackView, profileButton)
 
@@ -114,5 +129,6 @@ class UserDetailView: UIView {
         companyInfoView.nameLabel.text = viewModelItem.company
         locationInfoView.nameLabel.text = viewModelItem.location
         emailInfoView.nameLabel.text = "\(viewModelItem.login)@gmail.com"
+        personInfoView.nameLabel.attributedText = viewModelItem.followersAtributtedText
     }
 }

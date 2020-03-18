@@ -16,4 +16,5 @@ struct UserDetailViewModelItem {
     let bio: String
     let avatarUrl: String
     let profileUrl: String
+    let followersAtributtedText: NSMutableAttributedString
 }

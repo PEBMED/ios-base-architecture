@@ -43,7 +43,7 @@ extension UserDetailCoordinator: UserDetailCoordinatorProtocol {
         navigationController.pushViewController(safariController, animated: true)
     }
 
-    func closeViewController(){
+    func closeViewController() {
         navigationController.dismiss(animated: true, completion: nil)
     }
 }

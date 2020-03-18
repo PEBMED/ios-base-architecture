@@ -17,16 +17,12 @@ class GHUserInfoView: UIView {
         return imageView
     }()
 
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
-        return label
-    }()
+    let nameLabel = UILabel()
 
-    init(color: UIColor, icon: UIImage, labelColor: UIColor = .black) {
+    init(color: UIColor, icon: UIImage, bold: Bool = false) {
         super.init(frame: .zero)
         setupViews()
-        setData(color: color, icon: icon, labelColor: labelColor)
+        setData(color: color, icon: icon, bold: bold)
     }
 
     @available(*, unavailable)
@@ -34,8 +30,8 @@ class GHUserInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setData(color: UIColor, icon: UIImage, labelColor: UIColor) {
-        nameLabel.textColor = labelColor
+    func setData(color: UIColor, icon: UIImage, bold: Bool) {
+        nameLabel.font = bold ? .boldSystemFont(ofSize: 14) : .systemFont(ofSize: 14)
         iconImageView.image = icon
         iconImageView.tintColor = color
     }
