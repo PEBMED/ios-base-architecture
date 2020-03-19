@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct UserDetailViewModelItem {
+struct UserProfessionalDataViewModelItem {
     let login: String
     let name: String
     let location: String

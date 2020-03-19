@@ -1,14 +1,14 @@
 //
-//  UserDetailView.swift
+//  UserDetailHeaderCell.swift
 //  ios-base-architecture
 //
-//  Created by Luiz on 15/03/20.
+//  Created by Luiz on 19/03/20.
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
 import UIKit
 
-class UserDetailView: UIView {
+class UserDetailHeaderCell: UICollectionViewCell {
     let profileImageView: GHAvatarImageView = {
         let imageView = GHAvatarImageView(size: CGSize(width: 70, height: 70))
         imageView.image = #imageLiteral(resourceName: "avatar-placeholder-dark")
@@ -26,7 +26,6 @@ class UserDetailView: UIView {
     let userLoginLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 19, weight: .thin)
-        label.textColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
         return label
     }()
 
@@ -61,6 +60,8 @@ class UserDetailView: UIView {
     let personInfoView = GHUserInfoView(color: .gray,
                                         icon: SFSymbols.person ?? UIImage())
 
+    let separator = CellSeparatorView()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -71,7 +72,7 @@ class UserDetailView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews(viewModelItem: UserDetailViewModelItem) {
+    func setupViews(viewModelItem: UserProfessionalDataViewModelItem) {
         setupHeader()
         setupUserProfile()
         set(viewModelItem: viewModelItem)
@@ -107,21 +108,18 @@ class UserDetailView: UIView {
         stackView.axis = .vertical
         stackView.spacing = 9
 
-        addSubviews(stackView, profileButton)
+        addSubviews(stackView, separator)
 
         stackView.anchor(top: profileImageView.bottomAnchor,
                          leading: profileImageView.leadingAnchor,
                          trailing: trailingAnchor,
                          padding: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 10))
 
-        profileButton.anchor(top: stackView.bottomAnchor,
-                             leading: leadingAnchor,
-                             trailing: trailingAnchor,
-                             padding: UIEdgeInsets(top: 16, left: 20, bottom: 0, right: 20))
-        profileButton.anchor(height: 42)
+        separator.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
+        separator.anchor(height: 0.5)
     }
 
-    func set(viewModelItem: UserDetailViewModelItem) {
+    func set(viewModelItem: UserProfessionalDataViewModelItem) {
         profileImageView.fetchImage(stringUrl: viewModelItem.avatarUrl)
         userNameLabel.text = viewModelItem.name
         userLoginLabel.text = viewModelItem.login
