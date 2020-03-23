@@ -10,6 +10,6 @@ import Foundation
 
 protocol UserDetailViewModel {
     init(userName: String, service: UserDetailService)
-    func fetchUserDetail(_ completion: @escaping (UserDetailViewModelItem?, String?) -> Void)
-    func getUserViewModelItem() -> UserDetailViewModelItem?
+    func fetchUserDetail(_ completion: @escaping (Bool, String?) -> Void)
+    func getUserViewModelItem() -> UserProfessionalDataViewModelItem?
 }

@@ -31,9 +31,8 @@
 		257DC6E624081DB900051554 /* GHCustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257DC6E524081DB900051554 /* GHCustomViewController.swift */; };
 		258CAFB6241D2DE6003F3E78 /* DefaultUserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFB5241D2DE5003F3E78 /* DefaultUserDetailService.swift */; };
 		258CAFB9241D38EC003F3E78 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFB8241D38EC003F3E78 /* UserDetailViewModel.swift */; };
-		258CAFBB241D3EEA003F3E78 /* UserDetailViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFBA241D3EEA003F3E78 /* UserDetailViewModelItem.swift */; };
+		258CAFBB241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFBA241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift */; };
 		258CAFBD241D41C2003F3E78 /* DefaultUserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFBC241D41C2003F3E78 /* DefaultUserDetailViewModel.swift */; };
-		258CAFBF241EAE67003F3E78 /* UserDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFBE241EAE67003F3E78 /* UserDetailView.swift */; };
 		25CE7C0C2400472400A54079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0B2400472400A54079 /* AppDelegate.swift */; };
 		25CE7C0E2400472400A54079 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0D2400472400A54079 /* SceneDelegate.swift */; };
 		25CE7C152400472700A54079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CE7C142400472700A54079 /* Assets.xcassets */; };
@@ -45,10 +44,15 @@
 		25E77D1D2400AF3C00239F40 /* GHTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D1C2400AF3C00239F40 /* GHTitleLabel.swift */; };
 		25E77D1F2400B57A00239F40 /* GHSecondaryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D1E2400B57A00239F40 /* GHSecondaryLabel.swift */; };
 		25E77D21240174A100239F40 /* RepositoryInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D20240174A100239F40 /* RepositoryInfoView.swift */; };
-		25E77D2324017A9500239F40 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D2224017A9500239F40 /* SeparatorView.swift */; };
 		25E77D252401821D00239F40 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D242401821D00239F40 /* String+Ext.swift */; };
 		25E77D282401973400239F40 /* GHError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D272401973400239F40 /* GHError.swift */; };
+		25F08E272423DF1600ABADF3 /* UserRepoCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F08E262423DF1600ABADF3 /* UserRepoCollectionViewController.swift */; };
+		25F08E2A2423E37F00ABADF3 /* RepoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F08E292423E37F00ABADF3 /* RepoCollectionViewCell.swift */; };
 		25F19777241EE9D400CCC496 /* GHUserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F19776241EE9D400CCC496 /* GHUserInfoView.swift */; };
+		25F197B32423AAEE00CCC496 /* UserDetailHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197B22423AAED00CCC496 /* UserDetailHeaderCell.swift */; };
+		25F197B62423D1E600CCC496 /* UserReposCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197B52423D1E600CCC496 /* UserReposCollectionViewCell.swift */; };
+		25F197BA2423D61800CCC496 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197B92423D61800CCC496 /* SeparatorView.swift */; };
+		25F197BC2423D71D00CCC496 /* CellSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197BB2423D71C00CCC496 /* CellSeparatorView.swift */; };
 		3AA865ABA8C63E28D5DFEE36 /* Pods_ios_base_architecture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CA6340F78C1F32C5AF31A4 /* Pods_ios_base_architecture.framework */; };
 		A94FCCF92417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */; };
 		A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */; };
@@ -151,9 +155,8 @@
 		257DC6E524081DB900051554 /* GHCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHCustomViewController.swift; sourceTree = "<group>"; };
 		258CAFB5241D2DE5003F3E78 /* DefaultUserDetailService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultUserDetailService.swift; sourceTree = "<group>"; };
 		258CAFB8241D38EC003F3E78 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
-		258CAFBA241D3EEA003F3E78 /* UserDetailViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModelItem.swift; sourceTree = "<group>"; };
+		258CAFBA241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfessionalDataViewModelItem.swift; sourceTree = "<group>"; };
 		258CAFBC241D41C2003F3E78 /* DefaultUserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDetailViewModel.swift; sourceTree = "<group>"; };
-		258CAFBE241EAE67003F3E78 /* UserDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailView.swift; sourceTree = "<group>"; };
 		25CE7C082400472400A54079 /* GHProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CE7C0B2400472400A54079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25CE7C0D2400472400A54079 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,10 +174,15 @@
 		25E77D1C2400AF3C00239F40 /* GHTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTitleLabel.swift; sourceTree = "<group>"; };
 		25E77D1E2400B57A00239F40 /* GHSecondaryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHSecondaryLabel.swift; sourceTree = "<group>"; };
 		25E77D20240174A100239F40 /* RepositoryInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryInfoView.swift; sourceTree = "<group>"; };
-		25E77D2224017A9500239F40 /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		25E77D242401821D00239F40 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		25E77D272401973400239F40 /* GHError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHError.swift; sourceTree = "<group>"; };
+		25F08E262423DF1600ABADF3 /* UserRepoCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoCollectionViewController.swift; sourceTree = "<group>"; };
+		25F08E292423E37F00ABADF3 /* RepoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCollectionViewCell.swift; sourceTree = "<group>"; };
 		25F19776241EE9D400CCC496 /* GHUserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHUserInfoView.swift; sourceTree = "<group>"; };
+		25F197B22423AAED00CCC496 /* UserDetailHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserDetailHeaderCell.swift; path = ../CustomViews/UserDetailHeaderCell.swift; sourceTree = "<group>"; };
+		25F197B52423D1E600CCC496 /* UserReposCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserReposCollectionViewCell.swift; sourceTree = "<group>"; };
+		25F197B92423D61800CCC496 /* SeparatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
+		25F197BB2423D71C00CCC496 /* CellSeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellSeparatorView.swift; sourceTree = "<group>"; };
 		4FC4592164E5C0C6EFAEB9DC /* Pods-ios-base-architecture.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-base-architecture.release.xcconfig"; path = "Target Support Files/Pods-ios-base-architecture/Pods-ios-base-architecture.release.xcconfig"; sourceTree = "<group>"; };
 		65CA6340F78C1F32C5AF31A4 /* Pods_ios_base_architecture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ios_base_architecture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		731BDDCE5F0D717D3E61BD91 /* Pods-ios-base-architectureTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-base-architectureTests.release.xcconfig"; path = "Target Support Files/Pods-ios-base-architectureTests/Pods-ios-base-architectureTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -297,6 +305,7 @@
 				257DC6D52407062400051554 /* BranchNameView.swift */,
 				257DC6D7240729C000051554 /* BranchStateView.swift */,
 				2519E85C240E8CBF0096230B /* GHEmptyView.swift */,
+				25F197B92423D61800CCC496 /* SeparatorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -376,8 +385,8 @@
 		257BE0DA241D23B30092A693 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				25F197B42423AAF200CCC496 /* Cells */,
 				257BE0DC241D23C60092A693 /* CustomViews */,
-				257BE0E0241D24610092A693 /* View */,
 				257BE0DB241D23C00092A693 /* Controller */,
 			);
 			path = View;
@@ -387,6 +396,7 @@
 			isa = PBXGroup;
 			children = (
 				257BE0E1241D247A0092A693 /* UserDetailViewController.swift */,
+				25F08E262423DF1600ABADF3 /* UserRepoCollectionViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,6 +404,7 @@
 		257BE0DC241D23C60092A693 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				25F197BB2423D71C00CCC496 /* CellSeparatorView.swift */,
 				25F19776241EE9D400CCC496 /* GHUserInfoView.swift */,
 			);
 			path = CustomViews;
@@ -412,18 +423,10 @@
 			isa = PBXGroup;
 			children = (
 				258CAFB7241D38D8003F3E78 /* Protocol */,
-				258CAFBA241D3EEA003F3E78 /* UserDetailViewModelItem.swift */,
+				258CAFBA241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift */,
 				258CAFBC241D41C2003F3E78 /* DefaultUserDetailViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		257BE0E0241D24610092A693 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				258CAFBE241EAE67003F3E78 /* UserDetailView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		257BE0E5241D250E0092A693 /* Protocol */ = {
@@ -551,7 +554,6 @@
 				25E77D1C2400AF3C00239F40 /* GHTitleLabel.swift */,
 				2526D7D22404A8C10074A9A4 /* GHSubtitleLabel.swift */,
 				25E77D1E2400B57A00239F40 /* GHSecondaryLabel.swift */,
-				25E77D2224017A9500239F40 /* SeparatorView.swift */,
 			);
 			path = Label;
 			sourceTree = "<group>";
@@ -563,6 +565,16 @@
 				A9D3CE8D2417D03C00BED70D /* SFSymbols.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		25F197B42423AAF200CCC496 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				25F197B22423AAED00CCC496 /* UserDetailHeaderCell.swift */,
+				25F197B52423D1E600CCC496 /* UserReposCollectionViewCell.swift */,
+				25F08E292423E37F00ABADF3 /* RepoCollectionViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		A94FCCF72417FF4200BC0F34 /* Extensions */ = {
@@ -1265,16 +1277,19 @@
 				A9D3CE772416E20900BED70D /* RepositoryViewModelItem.swift in Sources */,
 				A9D3CE792416E20900BED70D /* DefaultRepositoryViewModel.swift in Sources */,
 				A9B0155F241C21520050CF09 /* PullRequestDetailFactory.swift in Sources */,
+				25F197B62423D1E600CCC496 /* UserReposCollectionViewCell.swift in Sources */,
 				A9D3CE742416E20900BED70D /* DefaultPullRequestService.swift in Sources */,
 				2526D7B62403389B0074A9A4 /* UILabel+Ext.swift in Sources */,
 				A9D3CE902417E08900BED70D /* NetworkManager.swift in Sources */,
 				25CE7C3F240068A400A54079 /* GHCustomNavigationController.swift in Sources */,
+				25F197BA2423D61800CCC496 /* SeparatorView.swift in Sources */,
 				A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */,
+				25F197B32423AAEE00CCC496 /* UserDetailHeaderCell.swift in Sources */,
 				254EB02F240077D6004A4E11 /* GHAvatarImageView.swift in Sources */,
 				257BE0D7241D1E770092A693 /* UserDetailFactory.swift in Sources */,
 				257BE0E7241D25310092A693 /* UserDetailService.swift in Sources */,
 				A9D3CE702416E20900BED70D /* PullRequestViewModel.swift in Sources */,
-				258CAFBB241D3EEA003F3E78 /* UserDetailViewModelItem.swift in Sources */,
+				258CAFBB241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift in Sources */,
 				A9D3CE7A2416E20900BED70D /* Repository.swift in Sources */,
 				257DC6E624081DB900051554 /* GHCustomViewController.swift in Sources */,
 				254EB025240072FF004A4E11 /* DefaultNetworkManager.swift in Sources */,
@@ -1286,6 +1301,7 @@
 				257DC6DA2407E80400051554 /* GHDefaultSystemImageView.swift in Sources */,
 				A9B56507241C183F00C1EE52 /* PullRequestListFactory.swift in Sources */,
 				25E77D21240174A100239F40 /* RepositoryInfoView.swift in Sources */,
+				25F08E2A2423E37F00ABADF3 /* RepoCollectionViewCell.swift in Sources */,
 				A94FCD03241809C000BC0F34 /* GHDecoder.swift in Sources */,
 				25E77D282401973400239F40 /* GHError.swift in Sources */,
 				A9D3CE712416E20900BED70D /* PullRequest.swift in Sources */,
@@ -1310,6 +1326,7 @@
 				A9B0155D241C20ED0050CF09 /* PullRequestDetailCoordinator.swift in Sources */,
 				A9D3CE782416E20900BED70D /* RepositoryViewModel.swift in Sources */,
 				A9D3CE6A2416E20900BED70D /* PullRequestUserInfoView.swift in Sources */,
+				25F08E272423DF1600ABADF3 /* UserRepoCollectionViewController.swift in Sources */,
 				A9D3CE8E2417D03C00BED70D /* SFSymbols.swift in Sources */,
 				A9B564FD241C140200C1EE52 /* DependencyContainer.swift in Sources */,
 				258CAFB6241D2DE6003F3E78 /* DefaultUserDetailService.swift in Sources */,
@@ -1317,7 +1334,6 @@
 				A9B564F5241BB8A000C1EE52 /* TabbarCoordinator.swift in Sources */,
 				25E77D1D2400AF3C00239F40 /* GHTitleLabel.swift in Sources */,
 				258CAFB9241D38EC003F3E78 /* UserDetailViewModel.swift in Sources */,
-				258CAFBF241EAE67003F3E78 /* UserDetailView.swift in Sources */,
 				A9B564EB241BB02100C1EE52 /* ApplicationCoordinator.swift in Sources */,
 				A9B56509241C1DA300C1EE52 /* DependencyContainer+PullRequestListFactory.swift in Sources */,
 				257BE0D5241D1D5A0092A693 /* UserDetailCoordinator.swift in Sources */,
@@ -1329,12 +1345,12 @@
 				A9D3CE6F2416E20900BED70D /* PullRequestViewModelItem.swift in Sources */,
 				A9D3CE7D2416E20900BED70D /* DefaultRepositoryService.swift in Sources */,
 				A9D3CE6D2416E20900BED70D /* PullRequestDetailsService.swift in Sources */,
+				25F197BC2423D71D00CCC496 /* CellSeparatorView.swift in Sources */,
 				A9B56502241C17AF00C1EE52 /* DependencyContainer+RepositoryFactory.swift in Sources */,
 				A9B564EE241BB15500C1EE52 /* RepositoriesListCoordinator.swift in Sources */,
 				257DC6CF24059DBB00051554 /* Date+Ext.swift in Sources */,
 				A9D3CE732416E20900BED70D /* PullRequestListViewController.swift in Sources */,
 				2526D7B124032B9E0074A9A4 /* UICollectionViewController+Ext.swift in Sources */,
-				25E77D2324017A9500239F40 /* SeparatorView.swift in Sources */,
 				A9B564F2241BB7FB00C1EE52 /* FavoritesCoordinator.swift in Sources */,
 				A9D3CE722416E20900BED70D /* PullRequestCollectionViewCell.swift in Sources */,
 				A9D3CE942417E2C500BED70D /* WebserviceRequest.swift in Sources */,

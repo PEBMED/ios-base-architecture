@@ -11,39 +11,39 @@ import UIKit
 class DefaultUserDetailViewModel: UserDetailViewModel {
     let userName: String
     let service: UserDetailService
-    var userDetailViewModelItem: UserDetailViewModelItem?
+    var userProfessionalDataViewModelItem: UserProfessionalDataViewModelItem?
 
     required init(userName: String, service: UserDetailService) {
         self.service = service
         self.userName = userName
     }
 
-    func fetchUserDetail(_ completion: @escaping (UserDetailViewModelItem?, String?) -> Void) {
+    func fetchUserDetail(_ completion: @escaping (Bool, String?) -> Void) {
         service.fetchUserDetailData(userName: userName) { result in
             switch result {
             case .success(let user):
-                self.userDetailViewModelItem = self.setViewModelItem(user: user)
-                completion(self.getUserViewModelItem(), nil)
+                self.userProfessionalDataViewModelItem = self.setupUserProfessionalDataViewModelItem(user: user)
+                completion(true, nil)
             case .failure(let error):
-                completion(nil, error.rawValue)
+                completion(false, error.rawValue)
             }
         }
     }
 
-    func getUserViewModelItem() -> UserDetailViewModelItem? {
-        return userDetailViewModelItem
+    func getUserViewModelItem() -> UserProfessionalDataViewModelItem? {
+        return userProfessionalDataViewModelItem
     }
 
-    func setViewModelItem(user: User) -> UserDetailViewModelItem {
-        return UserDetailViewModelItem(login: user.login,
-                                       name: user.name ?? "",
-                                       location: user.location ?? "No Location Available",
-                                       company: user.company ?? "Not Available",
-                                       bio: user.bio ?? "No Bio Info Available",
-                                       avatarUrl: user.avatarUrl ?? "",
-                                       profileUrl: user.htmlUrl,
-                                       followersAtributtedText: setupFollowersAtributtedText(following: user.following ?? 0,
-                                                                                             followers: user.followers ?? 0))
+    func setupUserProfessionalDataViewModelItem(user: User) -> UserProfessionalDataViewModelItem {
+        return UserProfessionalDataViewModelItem(login: user.login,
+                                                 name: user.name ?? "",
+                                                 location: user.location ?? "No Location Available",
+                                                 company: user.company ?? "Not Available",
+                                                 bio: user.bio ?? "No Bio Info Available",
+                                                 avatarUrl: user.avatarUrl ?? "",
+                                                 profileUrl: user.htmlUrl,
+                                                 followersAtributtedText: setupFollowersAtributtedText(following: user.following ?? 0,
+                                                                                                       followers: user.followers ?? 0))
     }
 
     func setupFollowersAtributtedText(following: Int, followers: Int) -> NSMutableAttributedString {
