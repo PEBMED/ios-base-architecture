@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -38,7 +38,6 @@
 		25CE7C152400472700A54079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CE7C142400472700A54079 /* Assets.xcassets */; };
 		25CE7C182400472700A54079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25CE7C162400472700A54079 /* LaunchScreen.storyboard */; };
 		25CE7C232400472700A54079 /* ios_base_architectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C222400472700A54079 /* ios_base_architectureTests.swift */; };
-		25CE7C2E2400472700A54079 /* ios_base_architectureUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C2D2400472700A54079 /* ios_base_architectureUITests.swift */; };
 		25CE7C3F240068A400A54079 /* GHCustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C3E240068A400A54079 /* GHCustomNavigationController.swift */; };
 		25E77D1B2400ADEF00239F40 /* GHBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D1A2400ADEF00239F40 /* GHBodyLabel.swift */; };
 		25E77D1D2400AF3C00239F40 /* GHTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D1C2400AF3C00239F40 /* GHTitleLabel.swift */; };
@@ -54,6 +53,11 @@
 		25F197BA2423D61800CCC496 /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197B92423D61800CCC496 /* SeparatorView.swift */; };
 		25F197BC2423D71D00CCC496 /* CellSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197BB2423D71C00CCC496 /* CellSeparatorView.swift */; };
 		265ECBBB0F98CDECD72C9246 /* Pods_GHProjectsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE1AE14CB55A13F3E23C01E /* Pods_GHProjectsTests.framework */; };
+		82471529BA5A1A17D5B05024 /* Pods_GHProjects_GHProjectsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC856D7BC489F66FD47205BB /* Pods_GHProjects_GHProjectsUITests.framework */; };
+		A908735F24294364009ADE96 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908735E24294364009ADE96 /* TabbarCoordinator.swift */; };
+		A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736324294487009ADE96 /* XCTestCase+Tester.swift */; };
+		A90873662429452F009ADE96 /* UIApplication+Wdinow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */; };
+		A9087369242945BF009ADE96 /* SimpleDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9087368242945BF009ADE96 /* SimpleDependencyContainer.swift */; };
 		A94FCCF92417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */; };
 		A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */; };
 		A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFF241804ED00BC0F34 /* DataRequest.swift */; };
@@ -110,7 +114,6 @@
 		A9D3CE942417E2C500BED70D /* WebserviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE932417E2C400BED70D /* WebserviceRequest.swift */; };
 		A9D3CE972417E35500BED70D /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE962417E35500BED70D /* HTTPMethod.swift */; };
 		BD9FC15DCF92A498CDBDA9E5 /* Pods_GHProjects.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3727B211A3DAE31064A36A62 /* Pods_GHProjects.framework */; };
-		DCE80C017F23044ADA8D4A22 /* Pods_GHProjects_GHProjectsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC856D7BC489F66FD47205BB /* Pods_GHProjects_GHProjectsUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,12 +124,12 @@
 			remoteGlobalIDString = 25CE7C072400472400A54079;
 			remoteInfo = "ios-base-architecture";
 		};
-		25CE7C2A2400472700A54079 /* PBXContainerItemProxy */ = {
+		A934AF9224293D3B00CAEBB8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 25CE7C002400472400A54079 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 25CE7C072400472400A54079;
-			remoteInfo = "ios-base-architecture";
+			remoteInfo = GHProjects;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -166,9 +169,6 @@
 		25CE7C1E2400472700A54079 /* GHProjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CE7C222400472700A54079 /* ios_base_architectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_base_architectureTests.swift; sourceTree = "<group>"; };
 		25CE7C242400472700A54079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		25CE7C292400472700A54079 /* GHProjectsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		25CE7C2D2400472700A54079 /* ios_base_architectureUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_base_architectureUITests.swift; sourceTree = "<group>"; };
-		25CE7C2F2400472700A54079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25CE7C3E240068A400A54079 /* GHCustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHCustomNavigationController.swift; sourceTree = "<group>"; };
 		25E77D1A2400ADEF00239F40 /* GHBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHBodyLabel.swift; sourceTree = "<group>"; };
 		25E77D1C2400AF3C00239F40 /* GHTitleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHTitleLabel.swift; sourceTree = "<group>"; };
@@ -193,6 +193,13 @@
 		9D1E0FF61E5256443688AB00 /* Pods-GHProjects.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHProjects.debug.xcconfig"; path = "Target Support Files/Pods-GHProjects/Pods-GHProjects.debug.xcconfig"; sourceTree = "<group>"; };
 		9E3B0D602E67992EC95B42AF /* Pods-GHProjects-GHProjectsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHProjects-GHProjectsUITests.release.xcconfig"; path = "Target Support Files/Pods-GHProjects-GHProjectsUITests/Pods-GHProjects-GHProjectsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A17CA7E5378D532D7E42B89F /* Pods-ios-base-architecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-base-architecture.debug.xcconfig"; path = "Target Support Files/Pods-ios-base-architecture/Pods-ios-base-architecture.debug.xcconfig"; sourceTree = "<group>"; };
+		A908735824294267009ADE96 /* GHProjectsUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHProjectsUITests-Bridging-Header.h"; sourceTree = "<group>"; };
+		A908735E24294364009ADE96 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		A908736324294487009ADE96 /* XCTestCase+Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Tester.swift"; sourceTree = "<group>"; };
+		A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Wdinow.swift"; sourceTree = "<group>"; };
+		A9087368242945BF009ADE96 /* SimpleDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDependencyContainer.swift; sourceTree = "<group>"; };
+		A934AF8D24293D3B00CAEBB8 /* GHProjectsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A934AF9124293D3B00CAEBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultDataRequest+WebserviceRequest.swift"; sourceTree = "<group>"; };
 		A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataRequest.swift; sourceTree = "<group>"; };
 		A94FCCFF241804ED00BC0F34 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
@@ -272,11 +279,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		25CE7C262400472700A54079 /* Frameworks */ = {
+		A934AF8A24293D3B00CAEBB8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DCE80C017F23044ADA8D4A22 /* Pods_GHProjects_GHProjectsUITests.framework in Frameworks */,
+				82471529BA5A1A17D5B05024 /* Pods_GHProjects_GHProjectsUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,6 +367,7 @@
 				2526D7B52403389B0074A9A4 /* UILabel+Ext.swift */,
 				25E77D242401821D00239F40 /* String+Ext.swift */,
 				257DC6CE24059DBB00051554 /* Date+Ext.swift */,
+				A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -462,7 +470,7 @@
 			children = (
 				25CE7C0A2400472400A54079 /* GHProjects */,
 				25CE7C212400472700A54079 /* GHProjectsTests */,
-				25CE7C2C2400472700A54079 /* GHProjectsUITests */,
+				A934AF8E24293D3B00CAEBB8 /* GHProjectsUITests */,
 				25CE7C092400472400A54079 /* Products */,
 				205F805AA05679F58D40E7B1 /* Pods */,
 				B6402A9C28B7C4B2F65B80A9 /* Frameworks */,
@@ -474,7 +482,7 @@
 			children = (
 				25CE7C082400472400A54079 /* GHProjects.app */,
 				25CE7C1E2400472700A54079 /* GHProjectsTests.xctest */,
-				25CE7C292400472700A54079 /* GHProjectsUITests.xctest */,
+				A934AF8D24293D3B00CAEBB8 /* GHProjectsUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -505,15 +513,6 @@
 			path = GHProjectsTests;
 			sourceTree = "<group>";
 		};
-		25CE7C2C2400472700A54079 /* GHProjectsUITests */ = {
-			isa = PBXGroup;
-			children = (
-				25CE7C2D2400472700A54079 /* ios_base_architectureUITests.swift */,
-				25CE7C2F2400472700A54079 /* Info.plist */,
-			);
-			path = GHProjectsUITests;
-			sourceTree = "<group>";
-		};
 		25CE7C3B2400683A00A54079 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,7 +541,6 @@
 			isa = PBXGroup;
 			children = (
 				257DC6E524081DB900051554 /* GHCustomViewController.swift */,
-				2526D7B82403F1F10074A9A4 /* GHTabBarController.swift */,
 				25CE7C3E240068A400A54079 /* GHCustomNavigationController.swift */,
 			);
 			path = Controllers;
@@ -587,6 +585,74 @@
 				25F08E292423E37F00ABADF3 /* RepoCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		A908735B24294344009ADE96 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				A908735C24294353009ADE96 /* Tabbar */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		A908735C24294353009ADE96 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				A908735D24294359009ADE96 /* Coordinator */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		A908735D24294359009ADE96 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				A908735E24294364009ADE96 /* TabbarCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		A9087360242943D2009ADE96 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A9087361242943D7009ADE96 /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A9087361242943D7009ADE96 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2526D7B82403F1F10074A9A4 /* GHTabBarController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A908736224294475009ADE96 /* TestExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				A908736324294487009ADE96 /* XCTestCase+Tester.swift */,
+			);
+			path = TestExtensions;
+			sourceTree = "<group>";
+		};
+		A90873672429456A009ADE96 /* DependencyContainer */ = {
+			isa = PBXGroup;
+			children = (
+				A9087368242945BF009ADE96 /* SimpleDependencyContainer.swift */,
+			);
+			path = DependencyContainer;
+			sourceTree = "<group>";
+		};
+		A934AF8E24293D3B00CAEBB8 /* GHProjectsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A90873672429456A009ADE96 /* DependencyContainer */,
+				A908735B24294344009ADE96 /* Features */,
+				A908736224294475009ADE96 /* TestExtensions */,
+				A934AF9124293D3B00CAEBB8 /* Info.plist */,
+				A908735824294267009ADE96 /* GHProjectsUITests-Bridging-Header.h */,
+			);
+			path = GHProjectsUITests;
 			sourceTree = "<group>";
 		};
 		A94FCCF72417FF4200BC0F34 /* Extensions */ = {
@@ -663,6 +729,7 @@
 		A9B564EF241BB2CA00C1EE52 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
+				A9087360242943D2009ADE96 /* View */,
 				A9B564F3241BB89300C1EE52 /* Coordinator */,
 			);
 			path = Tabbar;
@@ -1092,24 +1159,25 @@
 			productReference = 25CE7C1E2400472700A54079 /* GHProjectsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		25CE7C282400472700A54079 /* GHProjectsUITests */ = {
+		A934AF8C24293D3B00CAEBB8 /* GHProjectsUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 25CE7C382400472700A54079 /* Build configuration list for PBXNativeTarget "GHProjectsUITests" */;
+			buildConfigurationList = A934AF9424293D3B00CAEBB8 /* Build configuration list for PBXNativeTarget "GHProjectsUITests" */;
 			buildPhases = (
-				E3E7B1BDF27E0AA6710D21D0 /* [CP] Check Pods Manifest.lock */,
-				25CE7C252400472700A54079 /* Sources */,
-				25CE7C262400472700A54079 /* Frameworks */,
-				25CE7C272400472700A54079 /* Resources */,
+				4BF53603754A92B5032E68E1 /* [CP] Check Pods Manifest.lock */,
+				A934AF8924293D3B00CAEBB8 /* Sources */,
+				A934AF8A24293D3B00CAEBB8 /* Frameworks */,
+				A934AF8B24293D3B00CAEBB8 /* Resources */,
+				C53A7DB89939BDF2F85867B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				25CE7C2B2400472700A54079 /* PBXTargetDependency */,
+				A934AF9324293D3B00CAEBB8 /* PBXTargetDependency */,
 			);
 			name = GHProjectsUITests;
-			productName = "ios-base-architectureUITests";
-			productReference = 25CE7C292400472700A54079 /* GHProjectsUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
+			productName = GHProjectsUITests;
+			productReference = A934AF8D24293D3B00CAEBB8 /* GHProjectsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -1128,8 +1196,9 @@
 						CreatedOnToolsVersion = 11.3;
 						TestTargetID = 25CE7C072400472400A54079;
 					};
-					25CE7C282400472700A54079 = {
-						CreatedOnToolsVersion = 11.3;
+					A934AF8C24293D3B00CAEBB8 = {
+						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1130;
 						TestTargetID = 25CE7C072400472400A54079;
 					};
 				};
@@ -1149,7 +1218,7 @@
 			targets = (
 				25CE7C072400472400A54079 /* GHProjects */,
 				25CE7C1D2400472700A54079 /* GHProjectsTests */,
-				25CE7C282400472700A54079 /* GHProjectsUITests */,
+				A934AF8C24293D3B00CAEBB8 /* GHProjectsUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1171,7 +1240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		25CE7C272400472700A54079 /* Resources */ = {
+		A934AF8B24293D3B00CAEBB8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1181,6 +1250,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		4BF53603754A92B5032E68E1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GHProjects-GHProjectsUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		4C2B0C82D23CC27CBCC73903 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1221,26 +1312,21 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"\n";
 		};
-		E3E7B1BDF27E0AA6710D21D0 /* [CP] Check Pods Manifest.lock */ = {
+		C53A7DB89939BDF2F85867B2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GHProjects-GHProjectsUITests/Pods-GHProjects-GHProjectsUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-GHProjects-GHProjectsUITests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-GHProjects-GHProjectsUITests/Pods-GHProjects-GHProjectsUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GHProjects-GHProjectsUITests/Pods-GHProjects-GHProjectsUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E6D7F15C18BA286EFEEA0AD2 /* [CP] Check Pods Manifest.lock */ = {
@@ -1320,6 +1406,7 @@
 				A9D3CE6C2416E20900BED70D /* DefaultPullRequestDetailsService.swift in Sources */,
 				A9B01561241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift in Sources */,
 				A9D3CE682416E20900BED70D /* PullRequestDetailViewController.swift in Sources */,
+				A90873662429452F009ADE96 /* UIApplication+Wdinow.swift in Sources */,
 				A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */,
 				25E77D1B2400ADEF00239F40 /* GHBodyLabel.swift in Sources */,
 				257DC6D8240729C000051554 /* BranchStateView.swift in Sources */,
@@ -1380,11 +1467,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		25CE7C252400472700A54079 /* Sources */ = {
+		A934AF8924293D3B00CAEBB8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25CE7C2E2400472700A54079 /* ios_base_architectureUITests.swift in Sources */,
+				A9087369242945BF009ADE96 /* SimpleDependencyContainer.swift in Sources */,
+				A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */,
+				A908735F24294364009ADE96 /* TabbarCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1396,10 +1485,10 @@
 			target = 25CE7C072400472400A54079 /* GHProjects */;
 			targetProxy = 25CE7C1F2400472700A54079 /* PBXContainerItemProxy */;
 		};
-		25CE7C2B2400472700A54079 /* PBXTargetDependency */ = {
+		A934AF9324293D3B00CAEBB8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 25CE7C072400472400A54079 /* GHProjects */;
-			targetProxy = 25CE7C2A2400472700A54079 /* PBXContainerItemProxy */;
+			targetProxy = A934AF9224293D3B00CAEBB8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1613,13 +1702,13 @@
 			};
 			name = Release;
 		};
-		25CE7C392400472700A54079 /* Debug */ = {
+		A934AF9524293D3B00CAEBB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 47E0CC947FFCA8E7E4949D2D /* Pods-GHProjects-GHProjectsUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7VX4BB4FYN;
 				INFOPLIST_FILE = GHProjectsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1628,19 +1717,21 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PEBMED.GHProjectsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GHProjectsUITests/GHProjectsUITests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GHProjectsUITests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHProjects.app/GHProjects";
 			};
 			name = Debug;
 		};
-		25CE7C3A2400472700A54079 /* Release */ = {
+		A934AF9624293D3B00CAEBB8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9E3B0D602E67992EC95B42AF /* Pods-GHProjects-GHProjectsUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7VX4BB4FYN;
 				INFOPLIST_FILE = GHProjectsUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1649,9 +1740,10 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = PEBMED.GHProjectsUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GHProjectsUITests/GHProjectsUITests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = GHProjectsUITests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHProjects.app/GHProjects";
 			};
 			name = Release;
 		};
@@ -1685,11 +1777,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		25CE7C382400472700A54079 /* Build configuration list for PBXNativeTarget "GHProjectsUITests" */ = {
+		A934AF9424293D3B00CAEBB8 /* Build configuration list for PBXNativeTarget "GHProjectsUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				25CE7C392400472700A54079 /* Debug */,
-				25CE7C3A2400472700A54079 /* Release */,
+				A934AF9524293D3B00CAEBB8 /* Debug */,
+				A934AF9624293D3B00CAEBB8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
