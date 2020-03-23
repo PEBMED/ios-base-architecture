@@ -57,7 +57,9 @@
 		A908735F24294364009ADE96 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908735E24294364009ADE96 /* TabbarCoordinator.swift */; };
 		A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736324294487009ADE96 /* XCTestCase+Tester.swift */; };
 		A90873662429452F009ADE96 /* UIApplication+Wdinow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */; };
-		A9087369242945BF009ADE96 /* SimpleDependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9087368242945BF009ADE96 /* SimpleDependencyContainer.swift */; };
+		A908736D24294962009ADE96 /* FakeRespositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736C24294962009ADE96 /* FakeRespositoryService.swift */; };
+		A908737024294A0B009ADE96 /* FakeResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736F24294A0B009ADE96 /* FakeResponseType.swift */; };
+		A908737224294A38009ADE96 /* FakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908737124294A38009ADE96 /* FakeService.swift */; };
 		A94FCCF92417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */; };
 		A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */; };
 		A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFF241804ED00BC0F34 /* DataRequest.swift */; };
@@ -197,7 +199,9 @@
 		A908735E24294364009ADE96 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
 		A908736324294487009ADE96 /* XCTestCase+Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Tester.swift"; sourceTree = "<group>"; };
 		A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Wdinow.swift"; sourceTree = "<group>"; };
-		A9087368242945BF009ADE96 /* SimpleDependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleDependencyContainer.swift; sourceTree = "<group>"; };
+		A908736C24294962009ADE96 /* FakeRespositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRespositoryService.swift; sourceTree = "<group>"; };
+		A908736F24294A0B009ADE96 /* FakeResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseType.swift; sourceTree = "<group>"; };
+		A908737124294A38009ADE96 /* FakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeService.swift; sourceTree = "<group>"; };
 		A934AF8D24293D3B00CAEBB8 /* GHProjectsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A934AF9124293D3B00CAEBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultDataRequest+WebserviceRequest.swift"; sourceTree = "<group>"; };
@@ -591,6 +595,7 @@
 			isa = PBXGroup;
 			children = (
 				A908735C24294353009ADE96 /* Tabbar */,
+				A908736A24294933009ADE96 /* RepositoriesList */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -635,19 +640,36 @@
 			path = TestExtensions;
 			sourceTree = "<group>";
 		};
-		A90873672429456A009ADE96 /* DependencyContainer */ = {
+		A908736A24294933009ADE96 /* RepositoriesList */ = {
 			isa = PBXGroup;
 			children = (
-				A9087368242945BF009ADE96 /* SimpleDependencyContainer.swift */,
+				A908736B2429493E009ADE96 /* Service */,
 			);
-			path = DependencyContainer;
+			path = RepositoriesList;
+			sourceTree = "<group>";
+		};
+		A908736B2429493E009ADE96 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A908736C24294962009ADE96 /* FakeRespositoryService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A908736E242949EC009ADE96 /* TestUtils */ = {
+			isa = PBXGroup;
+			children = (
+				A908736F24294A0B009ADE96 /* FakeResponseType.swift */,
+				A908737124294A38009ADE96 /* FakeService.swift */,
+			);
+			path = TestUtils;
 			sourceTree = "<group>";
 		};
 		A934AF8E24293D3B00CAEBB8 /* GHProjectsUITests */ = {
 			isa = PBXGroup;
 			children = (
-				A90873672429456A009ADE96 /* DependencyContainer */,
 				A908735B24294344009ADE96 /* Features */,
+				A908736E242949EC009ADE96 /* TestUtils */,
 				A908736224294475009ADE96 /* TestExtensions */,
 				A934AF9124293D3B00CAEBB8 /* Info.plist */,
 				A908735824294267009ADE96 /* GHProjectsUITests-Bridging-Header.h */,
@@ -1471,8 +1493,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9087369242945BF009ADE96 /* SimpleDependencyContainer.swift in Sources */,
+				A908737224294A38009ADE96 /* FakeService.swift in Sources */,
 				A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */,
+				A908737024294A0B009ADE96 /* FakeResponseType.swift in Sources */,
+				A908736D24294962009ADE96 /* FakeRespositoryService.swift in Sources */,
 				A908735F24294364009ADE96 /* TabbarCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
