@@ -1,0 +1,17 @@
+ platform :ios, '13.2'
+
+target 'GHProjects' do
+  use_frameworks!
+
+  pod 'SwiftLint'
+
+  target 'GHProjectsTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'GHProjectsUITests' do
+    # Pods for testing
+  end
+
+end
