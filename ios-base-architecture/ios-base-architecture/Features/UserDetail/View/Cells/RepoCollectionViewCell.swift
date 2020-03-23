@@ -59,8 +59,8 @@ class RepoCollectionViewCell: UICollectionViewCell {
     }
 
     func setupViews() {
-        layer.cornerRadius = 5
-        layer.borderWidth = 0.8
+        layer.cornerRadius = 4
+        layer.borderWidth = 0.5
         layer.borderColor = UIColor.systemGray4.cgColor
         backgroundColor = .systemBackground
 
