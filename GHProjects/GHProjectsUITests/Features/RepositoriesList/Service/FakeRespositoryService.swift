@@ -9,9 +9,9 @@
 @testable import GHProjects
 
 final class FakeRespositoryService: FakeService, RepositoryService {
-    lazy var searchRepositories: SearchRepositories = SearchRepositories(items: [])
-    var hasNext: Bool = false
-    var error: GHError = .invalidResponse
+    var searchRepositories: SearchRepositories!
+    var hasNext: Bool!
+    var error: GHError!
 
     func fetchRepositoriesData(completion: @escaping (Result<SearchRepositories, GHError>, Bool) -> Void) {
         switch responseType {

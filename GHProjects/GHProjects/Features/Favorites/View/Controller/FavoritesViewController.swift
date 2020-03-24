@@ -15,6 +15,7 @@ final class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         setupViews()
         view.backgroundColor = .white
+        view.accessibilityIdentifier = "favoritesViewControllerView"
     }
 
     func setupViews() {

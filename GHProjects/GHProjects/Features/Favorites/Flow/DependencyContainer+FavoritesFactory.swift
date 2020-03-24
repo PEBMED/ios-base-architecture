@@ -11,6 +11,7 @@ extension DependencyContainer: FavoritesFactory {
         let controller = FavoritesViewController()
         controller.title = "Favorites"
         controller.tabBarItem.image = SFSymbols.star
+        controller.tabBarItem.accessibilityIdentifier = "favoritesTabBarItem"
         return controller
     }
 }

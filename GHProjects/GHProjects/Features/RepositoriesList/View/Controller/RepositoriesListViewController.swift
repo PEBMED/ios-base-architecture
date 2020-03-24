@@ -30,6 +30,7 @@ final class RepositoriesListViewController: UICollectionViewController {
         setupController()
         registerCells()
         getRepositories()
+        view.accessibilityIdentifier = "repositoriesListViewControllerView"
     }
 
     // MARK: - Private functions

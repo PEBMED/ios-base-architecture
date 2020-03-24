@@ -1,5 +1,5 @@
 //
-//  TabbarCoordinator.swift
+//  TabBarControllerTests.swift
 //  GHProjectsUITests
 //
 //  Created by Jonathan Bijos on 23/03/20.
@@ -11,27 +11,66 @@
 // swiftlint:disable all
 
 final class TabBarControllerTests: KIFTestCase {
-    var factory: TabbarCoordinator.Factory!
+    fileprivate var dependencyContainer: FakeDependencyContainer!
     var coordinator: TabbarCoordinator!
 
+    // MARK: - Mocks
+    lazy var owner = Owner(id: 0, login: "pebmed", avatarUrl: nil)
+    lazy var repository1 = Repository(id: 0, name: "John Sundell", fullName: "John MiddleName Sundell", description: "Swift by Sundell",
+                                      owner: owner, stargazersCount: 2500, forksCount: 10, openIssuesCount: 25)
+    lazy var repository2 = Repository(id: 1, name: "Guilherme Rambo", fullName: "Guilherme MiddleName Rambo", description: "Stacktrace",
+                                      owner: owner, stargazersCount: 50000, forksCount: 24, openIssuesCount: 0)
+
     override func beforeEach() {
-        factory = FakeDependencyContainer()
-        coordinator = TabbarCoordinator(window: UIApplication.shared.keyWindowInConnectedScenes!, factory: factory)
+        dependencyContainer = FakeDependencyContainer()
+    }
+
+    func startCoordinator() {
+        coordinator = TabbarCoordinator(window: UIApplication.shared.keyWindowInConnectedScenes!, factory: dependencyContainer)
         coordinator.start()
     }
 
-    // MARK: - ViewController -
-    func testElements() {
+    func makeRepositoryServiceWithTwoRepos() -> RepositoryService {
+        let service = FakeRespositoryService(responseType: .sucess)
+
+        var repositories: [Repository] = []
+        repositories.append(repository1)
+        repositories.append(repository2)
+
+        service.searchRepositories = SearchRepositories(items: repositories)
+        service.hasNext = false
+
+        return service
+    }
+
+    func testTabbarController() {
+        dependencyContainer.repositoryService = makeRepositoryServiceWithTwoRepos()
+
+        startCoordinator()
         tester.waitForView(withAccessibilityIdentifier: "ghTabBarControllerView")
+    }
+
+    func testDefaultSelectedTabbarItem() {
+        dependencyContainer.repositoryService = makeRepositoryServiceWithTwoRepos()
+
+        startCoordinator()
+        tester.waitForView(withAccessibilityIdentifier: "repositoriesListViewControllerView")
+    }
+
+    func testSecondTabbarItemTap() {
+        dependencyContainer.repositoryService = makeRepositoryServiceWithTwoRepos()
+
+        startCoordinator()
+        tester.tapView(withAccessibilityIdentifier: "favoritesTabBarItem")
+        tester.waitForView(withAccessibilityIdentifier: "favoritesViewControllerView")
     }
 }
 
 final fileprivate class FakeDependencyContainer {
-    var repositoryService: RepositoryService
-
-    init(repositoryService: RepositoryService = FakeRespositoryService(responseType: .sucess)) {
-        self.repositoryService = repositoryService
-    }
+    var repositoryService: RepositoryService!
+    var pullRequestService: PullRequestService!
+    var pullRequestDetailService: PullRequestDetailsService!
+    var userDetailService: UserDetailService!
 }
 
 
@@ -76,14 +115,14 @@ extension FakeDependencyContainer: FavoritesFactory {
         let controller = FavoritesViewController()
         controller.title = "Favorites"
         controller.tabBarItem.image = SFSymbols.star
+        controller.tabBarItem.accessibilityIdentifier = "favoritesTabBarItem"
         return controller
     }
 }
 
 extension FakeDependencyContainer: UserDetailFactory {
     func makeUserDetailViewController(userName: String, coordinator: UserDetailCoordinator) -> UserDetailViewController {
-        let service = DefaultUserDetailService()
-        let viewModel = DefaultUserDetailViewModel(userName: userName, service: service)
+        let viewModel = DefaultUserDetailViewModel(userName: userName, service: userDetailService)
         return UserDetailViewController(viewModel: viewModel, coordinator: coordinator)
     }
 }

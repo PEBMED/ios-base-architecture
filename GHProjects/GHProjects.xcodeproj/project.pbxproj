@@ -54,16 +54,19 @@
 		25F197BC2423D71D00CCC496 /* CellSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25F197BB2423D71C00CCC496 /* CellSeparatorView.swift */; };
 		265ECBBB0F98CDECD72C9246 /* Pods_GHProjectsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEE1AE14CB55A13F3E23C01E /* Pods_GHProjectsTests.framework */; };
 		82471529BA5A1A17D5B05024 /* Pods_GHProjects_GHProjectsUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC856D7BC489F66FD47205BB /* Pods_GHProjects_GHProjectsUITests.framework */; };
-		A908735F24294364009ADE96 /* TabbarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908735E24294364009ADE96 /* TabbarCoordinator.swift */; };
+		A908735F24294364009ADE96 /* TabBarControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908735E24294364009ADE96 /* TabBarControllerTests.swift */; };
 		A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736324294487009ADE96 /* XCTestCase+Tester.swift */; };
 		A90873662429452F009ADE96 /* UIApplication+Wdinow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */; };
 		A908736D24294962009ADE96 /* FakeRespositoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736C24294962009ADE96 /* FakeRespositoryService.swift */; };
 		A908737024294A0B009ADE96 /* FakeResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736F24294A0B009ADE96 /* FakeResponseType.swift */; };
 		A908737224294A38009ADE96 /* FakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908737124294A38009ADE96 /* FakeService.swift */; };
+		A9087376242951A3009ADE96 /* FakeUserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9087375242951A3009ADE96 /* FakeUserDetailService.swift */; };
 		A94FCCF92417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */; };
 		A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */; };
 		A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFF241804ED00BC0F34 /* DataRequest.swift */; };
 		A94FCD03241809C000BC0F34 /* GHDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCD02241809C000BC0F34 /* GHDecoder.swift */; };
+		A9A5B409242A3EA500C3D3EA /* FakePullRequestService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A5B408242A3EA500C3D3EA /* FakePullRequestService.swift */; };
+		A9A5B40C242A3EBD00C3D3EA /* FakePullRequestDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A5B40B242A3EBD00C3D3EA /* FakePullRequestDetailService.swift */; };
 		A9B01558241C20070050CF09 /* FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01557241C20070050CF09 /* FavoritesFactory.swift */; };
 		A9B0155A241C203A0050CF09 /* DependencyContainer+FavoritesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B01559241C203A0050CF09 /* DependencyContainer+FavoritesFactory.swift */; };
 		A9B0155D241C20ED0050CF09 /* PullRequestDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B0155C241C20ED0050CF09 /* PullRequestDetailCoordinator.swift */; };
@@ -196,18 +199,21 @@
 		9E3B0D602E67992EC95B42AF /* Pods-GHProjects-GHProjectsUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GHProjects-GHProjectsUITests.release.xcconfig"; path = "Target Support Files/Pods-GHProjects-GHProjectsUITests/Pods-GHProjects-GHProjectsUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A17CA7E5378D532D7E42B89F /* Pods-ios-base-architecture.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ios-base-architecture.debug.xcconfig"; path = "Target Support Files/Pods-ios-base-architecture/Pods-ios-base-architecture.debug.xcconfig"; sourceTree = "<group>"; };
 		A908735824294267009ADE96 /* GHProjectsUITests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GHProjectsUITests-Bridging-Header.h"; sourceTree = "<group>"; };
-		A908735E24294364009ADE96 /* TabbarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarCoordinator.swift; sourceTree = "<group>"; };
+		A908735E24294364009ADE96 /* TabBarControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerTests.swift; sourceTree = "<group>"; };
 		A908736324294487009ADE96 /* XCTestCase+Tester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Tester.swift"; sourceTree = "<group>"; };
 		A90873652429452F009ADE96 /* UIApplication+Wdinow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Wdinow.swift"; sourceTree = "<group>"; };
 		A908736C24294962009ADE96 /* FakeRespositoryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeRespositoryService.swift; sourceTree = "<group>"; };
 		A908736F24294A0B009ADE96 /* FakeResponseType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseType.swift; sourceTree = "<group>"; };
 		A908737124294A38009ADE96 /* FakeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeService.swift; sourceTree = "<group>"; };
+		A9087375242951A3009ADE96 /* FakeUserDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDetailService.swift; sourceTree = "<group>"; };
 		A934AF8D24293D3B00CAEBB8 /* GHProjectsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A934AF9124293D3B00CAEBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultDataRequest+WebserviceRequest.swift"; sourceTree = "<group>"; };
 		A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataRequest.swift; sourceTree = "<group>"; };
 		A94FCCFF241804ED00BC0F34 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
 		A94FCD02241809C000BC0F34 /* GHDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHDecoder.swift; sourceTree = "<group>"; };
+		A9A5B408242A3EA500C3D3EA /* FakePullRequestService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePullRequestService.swift; sourceTree = "<group>"; };
+		A9A5B40B242A3EBD00C3D3EA /* FakePullRequestDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakePullRequestDetailService.swift; sourceTree = "<group>"; };
 		A9B01557241C20070050CF09 /* FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesFactory.swift; sourceTree = "<group>"; };
 		A9B01559241C203A0050CF09 /* DependencyContainer+FavoritesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+FavoritesFactory.swift"; sourceTree = "<group>"; };
 		A9B0155C241C20ED0050CF09 /* PullRequestDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestDetailCoordinator.swift; sourceTree = "<group>"; };
@@ -594,7 +600,9 @@
 		A908735B24294344009ADE96 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				A9087373242950CA009ADE96 /* UserDetail */,
 				A908735C24294353009ADE96 /* Tabbar */,
+				A9A5B404242A3E8100C3D3EA /* PullRequest */,
 				A908736A24294933009ADE96 /* RepositoriesList */,
 			);
 			path = Features;
@@ -603,17 +611,9 @@
 		A908735C24294353009ADE96 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				A908735D24294359009ADE96 /* Coordinator */,
+				A91A4986242A3B4300C7E3CF /* View */,
 			);
 			path = Tabbar;
-			sourceTree = "<group>";
-		};
-		A908735D24294359009ADE96 /* Coordinator */ = {
-			isa = PBXGroup;
-			children = (
-				A908735E24294364009ADE96 /* TabbarCoordinator.swift */,
-			);
-			path = Coordinator;
 			sourceTree = "<group>";
 		};
 		A9087360242943D2009ADE96 /* View */ = {
@@ -663,6 +663,38 @@
 				A908737124294A38009ADE96 /* FakeService.swift */,
 			);
 			path = TestUtils;
+			sourceTree = "<group>";
+		};
+		A9087373242950CA009ADE96 /* UserDetail */ = {
+			isa = PBXGroup;
+			children = (
+				A9087374242950D0009ADE96 /* Service */,
+			);
+			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		A9087374242950D0009ADE96 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A9087375242951A3009ADE96 /* FakeUserDetailService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A91A4986242A3B4300C7E3CF /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A91A4987242A3B4700C7E3CF /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A91A4987242A3B4700C7E3CF /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A908735E24294364009ADE96 /* TabBarControllerTests.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A934AF8E24293D3B00CAEBB8 /* GHProjectsUITests */ = {
@@ -717,6 +749,47 @@
 				A94FCD02241809C000BC0F34 /* GHDecoder.swift */,
 			);
 			path = Decoder;
+			sourceTree = "<group>";
+		};
+		A9A5B404242A3E8100C3D3EA /* PullRequest */ = {
+			isa = PBXGroup;
+			children = (
+				A9A5B406242A3E8D00C3D3EA /* Detail */,
+				A9A5B405242A3E8900C3D3EA /* List */,
+			);
+			path = PullRequest;
+			sourceTree = "<group>";
+		};
+		A9A5B405242A3E8900C3D3EA /* List */ = {
+			isa = PBXGroup;
+			children = (
+				A9A5B407242A3E9600C3D3EA /* Service */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		A9A5B406242A3E8D00C3D3EA /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A9A5B40A242A3EB000C3D3EA /* Service */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A9A5B407242A3E9600C3D3EA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A9A5B408242A3EA500C3D3EA /* FakePullRequestService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A9A5B40A242A3EB000C3D3EA /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A9A5B40B242A3EBD00C3D3EA /* FakePullRequestDetailService.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		A9B0155B241C20DC0050CF09 /* Flow */ = {
@@ -1494,10 +1567,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A908737224294A38009ADE96 /* FakeService.swift in Sources */,
+				A9A5B409242A3EA500C3D3EA /* FakePullRequestService.swift in Sources */,
 				A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */,
 				A908737024294A0B009ADE96 /* FakeResponseType.swift in Sources */,
 				A908736D24294962009ADE96 /* FakeRespositoryService.swift in Sources */,
-				A908735F24294364009ADE96 /* TabbarCoordinator.swift in Sources */,
+				A9087376242951A3009ADE96 /* FakeUserDetailService.swift in Sources */,
+				A9A5B40C242A3EBD00C3D3EA /* FakePullRequestDetailService.swift in Sources */,
+				A908735F24294364009ADE96 /* TabBarControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
