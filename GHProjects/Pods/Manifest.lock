@@ -1,0 +1,25 @@
+PODS:
+  - KIF (3.7.8):
+    - KIF/Core (= 3.7.8)
+  - KIF/Core (3.7.8)
+  - KIF/IdentifierTests (3.7.8):
+    - KIF/Core
+  - SwiftLint (0.39.1)
+
+DEPENDENCIES:
+  - KIF
+  - KIF/IdentifierTests
+  - SwiftLint
+
+SPEC REPOS:
+  trunk:
+    - KIF
+    - SwiftLint
+
+SPEC CHECKSUMS:
+  KIF: 52e1af1a78cf6fe4ec6777b14776f3dd2eccc32e
+  SwiftLint: 55e96a4a4d537d4a3156859fc1c54bd24851a046
+
+PODFILE CHECKSUM: 59ca1513f9447ac23007dff7456db12f1258a603
+
+COCOAPODS: 1.8.4
