@@ -8,6 +8,8 @@
 
 @testable import GHProjects
 
+// swiftlint:disable all
+
 final class FakeRespositoryService: FakeService, RepositoryService {
     var searchRepositories: SearchRepositories!
     var hasNext: Bool!

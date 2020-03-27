@@ -1,5 +1,5 @@
 //
-//  ios_base_architectureTests.swift
+//  GHProjectsTests.swift
 //  ios-base-architectureTests
 //
 //  Created by Luiz on 21/02/20.
@@ -8,6 +8,8 @@
 
 @testable import GHProjects
 import XCTest
+
+// swiftlint:disable all
 
 class GHProjectsTests: XCTestCase {
     override func setUp() {

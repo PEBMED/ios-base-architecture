@@ -37,7 +37,7 @@
 		25CE7C0E2400472400A54079 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0D2400472400A54079 /* SceneDelegate.swift */; };
 		25CE7C152400472700A54079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CE7C142400472700A54079 /* Assets.xcassets */; };
 		25CE7C182400472700A54079 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25CE7C162400472700A54079 /* LaunchScreen.storyboard */; };
-		25CE7C232400472700A54079 /* ios_base_architectureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C222400472700A54079 /* ios_base_architectureTests.swift */; };
+		25CE7C232400472700A54079 /* GHProjectsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C222400472700A54079 /* GHProjectsTests.swift */; };
 		25CE7C3F240068A400A54079 /* GHCustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C3E240068A400A54079 /* GHCustomNavigationController.swift */; };
 		25E77D1B2400ADEF00239F40 /* GHBodyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D1A2400ADEF00239F40 /* GHBodyLabel.swift */; };
 		25E77D1D2400AF3C00239F40 /* GHTitleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25E77D1C2400AF3C00239F40 /* GHTitleLabel.swift */; };
@@ -172,7 +172,7 @@
 		25CE7C172400472700A54079 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		25CE7C192400472700A54079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25CE7C1E2400472700A54079 /* GHProjectsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		25CE7C222400472700A54079 /* ios_base_architectureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ios_base_architectureTests.swift; sourceTree = "<group>"; };
+		25CE7C222400472700A54079 /* GHProjectsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHProjectsTests.swift; sourceTree = "<group>"; };
 		25CE7C242400472700A54079 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		25CE7C3E240068A400A54079 /* GHCustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHCustomNavigationController.swift; sourceTree = "<group>"; };
 		25E77D1A2400ADEF00239F40 /* GHBodyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHBodyLabel.swift; sourceTree = "<group>"; };
@@ -517,7 +517,7 @@
 		25CE7C212400472700A54079 /* GHProjectsTests */ = {
 			isa = PBXGroup;
 			children = (
-				25CE7C222400472700A54079 /* ios_base_architectureTests.swift */,
+				25CE7C222400472700A54079 /* GHProjectsTests.swift */,
 				25CE7C242400472700A54079 /* Info.plist */,
 			);
 			path = GHProjectsTests;
@@ -1558,7 +1558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25CE7C232400472700A54079 /* ios_base_architectureTests.swift in Sources */,
+				25CE7C232400472700A54079 /* GHProjectsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
