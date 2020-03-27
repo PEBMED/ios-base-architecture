@@ -9,15 +9,18 @@
 import UIKit
 
 final class DefaultRepositoryViewModel: RepositoryViewModel {
+    // MARK: - Properties
     private var repositoriesViewModelItem: [RepositoryViewModelItem]
-    let service: RepositoryService
-    var hasMoreData = true
+    private let service: RepositoryService
+    private(set) var hasMoreData = true
 
+    // MARK: - Init
     required init(service: RepositoryService) {
         self.service = service
         repositoriesViewModelItem = [RepositoryViewModelItem]()
     }
 
+    // MARK: - RepositoryViewModel
     func fetchRepositories(completion: @escaping (Bool, String?) -> Void) {
         service.fetchRepositoriesData { [weak self] result, hasMoreData in
             guard let self = self else { return }
@@ -33,6 +36,15 @@ final class DefaultRepositoryViewModel: RepositoryViewModel {
         }
     }
 
+    func getRepositoryViewModelItem(with indexPath: IndexPath) -> RepositoryViewModelItem {
+        return repositoriesViewModelItem[indexPath.item]
+    }
+
+    func getRepositoryViewModelNumberOfItems() -> Int {
+        return repositoriesViewModelItem.count
+    }
+
+    // MARK: - Private
     private func setSearchReposityData(_ searchRepostioriesData: SearchRepositories) {
         repositoriesViewModelItem += searchRepostioriesData.items.map { repository -> RepositoryViewModelItem in
             return RepositoryViewModelItem(name: repository.name,
@@ -44,13 +56,5 @@ final class DefaultRepositoryViewModel: RepositoryViewModel {
                                            ownerName: repository.owner.login,
                                            login: repository.owner.login)
         }
-    }
-
-    func getRepositoryViewModelItem(with indexPath: IndexPath) -> RepositoryViewModelItem {
-        return repositoriesViewModelItem[indexPath.item]
-    }
-
-    func getRepositoryViewModelNumberOfItems() -> Int {
-        return repositoriesViewModelItem.count
     }
 }
