@@ -83,6 +83,9 @@
 		A9B56505241C181900C1EE52 /* PullRequestListCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B56504241C181900C1EE52 /* PullRequestListCoordinator.swift */; };
 		A9B56507241C183F00C1EE52 /* PullRequestListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B56506241C183F00C1EE52 /* PullRequestListFactory.swift */; };
 		A9B56509241C1DA300C1EE52 /* DependencyContainer+PullRequestListFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B56508241C1DA300C1EE52 /* DependencyContainer+PullRequestListFactory.swift */; };
+		A9BEB569242E302000E75823 /* DefaultImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEB568242E302000E75823 /* DefaultImageDownloader.swift */; };
+		A9BEB56B242E31A700E75823 /* GHImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEB56A242E31A700E75823 /* GHImageError.swift */; };
+		A9BEB56E242E388E00E75823 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BEB56D242E388E00E75823 /* ImageDownloader.swift */; };
 		A9D3CE652416E20900BED70D /* PullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2B2416E20900BED70D /* PullRequestDetailsViewModel.swift */; };
 		A9D3CE662416E20900BED70D /* DefautPullRequestDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2C2416E20900BED70D /* DefautPullRequestDetailsViewModel.swift */; };
 		A9D3CE672416E20900BED70D /* PullRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D3CE2E2416E20900BED70D /* PullRequestDetail.swift */; };
@@ -230,6 +233,9 @@
 		A9B56504241C181900C1EE52 /* PullRequestListCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListCoordinator.swift; sourceTree = "<group>"; };
 		A9B56506241C183F00C1EE52 /* PullRequestListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestListFactory.swift; sourceTree = "<group>"; };
 		A9B56508241C1DA300C1EE52 /* DependencyContainer+PullRequestListFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DependencyContainer+PullRequestListFactory.swift"; sourceTree = "<group>"; };
+		A9BEB568242E302000E75823 /* DefaultImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultImageDownloader.swift; sourceTree = "<group>"; };
+		A9BEB56A242E31A700E75823 /* GHImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHImageError.swift; sourceTree = "<group>"; };
+		A9BEB56D242E388E00E75823 /* ImageDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		A9D3CE2B2416E20900BED70D /* PullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		A9D3CE2C2416E20900BED70D /* DefautPullRequestDetailsViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefautPullRequestDetailsViewModel.swift; sourceTree = "<group>"; };
 		A9D3CE2E2416E20900BED70D /* PullRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullRequestDetail.swift; sourceTree = "<group>"; };
@@ -345,7 +351,7 @@
 				A94FCD01241809AE00BC0F34 /* Decoder */,
 				A94FCCFB2418026900BC0F34 /* DataRequest */,
 				A9D3CE912417E18400BED70D /* Network */,
-				A9D3CE922417E18C00BED70D /* ImageDownloader */,
+				A9BEB567242E300800E75823 /* ImageDownloader */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -866,6 +872,24 @@
 			path = Flow;
 			sourceTree = "<group>";
 		};
+		A9BEB567242E300800E75823 /* ImageDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				A9BEB56C242E388200E75823 /* Protocol */,
+				A9BEB568242E302000E75823 /* DefaultImageDownloader.swift */,
+				A9BEB56A242E31A700E75823 /* GHImageError.swift */,
+			);
+			path = ImageDownloader;
+			sourceTree = "<group>";
+		};
+		A9BEB56C242E388200E75823 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				A9BEB56D242E388E00E75823 /* ImageDownloader.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		A9D3CE272416E20900BED70D /* PullRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -1187,13 +1211,6 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		A9D3CE922417E18C00BED70D /* ImageDownloader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ImageDownloader;
-			sourceTree = "<group>";
-		};
 		A9D3CE952417E2F900BED70D /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
@@ -1491,11 +1508,13 @@
 				A9D3CE972417E35500BED70D /* HTTPMethod.swift in Sources */,
 				A9D3CE7B2416E20900BED70D /* RepositoryCollectionViewCell.swift in Sources */,
 				254EB02B2400742B004A4E11 /* CodeView.swift in Sources */,
+				A9BEB569242E302000E75823 /* DefaultImageDownloader.swift in Sources */,
 				257DC6DA2407E80400051554 /* GHDefaultSystemImageView.swift in Sources */,
 				A9B56507241C183F00C1EE52 /* PullRequestListFactory.swift in Sources */,
 				25E77D21240174A100239F40 /* RepositoryInfoView.swift in Sources */,
 				25F08E2A2423E37F00ABADF3 /* RepoCollectionViewCell.swift in Sources */,
 				A94FCD03241809C000BC0F34 /* GHDecoder.swift in Sources */,
+				A9BEB56E242E388E00E75823 /* ImageDownloader.swift in Sources */,
 				25E77D282401973400239F40 /* GHError.swift in Sources */,
 				A9D3CE712416E20900BED70D /* PullRequest.swift in Sources */,
 				A9D3CE6C2416E20900BED70D /* DefaultPullRequestDetailsService.swift in Sources */,
@@ -1509,6 +1528,7 @@
 				A9D3CE822416E41800BED70D /* SearchRepositories.swift in Sources */,
 				A9D3CE7C2416E20900BED70D /* RepositoriesListViewController.swift in Sources */,
 				A9D3CE672416E20900BED70D /* PullRequestDetail.swift in Sources */,
+				A9BEB56B242E31A700E75823 /* GHImageError.swift in Sources */,
 				A9D3CE802416E3FC00BED70D /* Owner.swift in Sources */,
 				A9B56505241C181900C1EE52 /* PullRequestListCoordinator.swift in Sources */,
 				A9B564E9241BAFDF00C1EE52 /* Coordinator.swift in Sources */,

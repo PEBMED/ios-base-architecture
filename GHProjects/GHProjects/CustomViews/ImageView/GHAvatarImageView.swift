@@ -9,14 +9,16 @@
 import UIKit
 
 final class GHAvatarImageView: UIImageView {
-    let size: CGSize
+    private let size: CGSize
+    private let imageDownloader: ImageDownloader
 
     override var intrinsicContentSize: CGSize {
         return size
     }
 
-    init(size: CGSize) {
+    init(size: CGSize, imageDownloader: ImageDownloader = DefaultImageDownloader()) {
         self.size = size
+        self.imageDownloader = imageDownloader
         super.init(frame: .zero)
         setupLayout()
     }
@@ -34,10 +36,14 @@ final class GHAvatarImageView: UIImageView {
     }
 
     func fetchImage(stringUrl: String) {
-        DefaultNetworkManager().downloadImage(stringURL: stringUrl) { [weak self] image in
-            guard let image = image else { return }
-            DispatchQueue.main.async {
-                self?.image = image
+        imageDownloader.download(stringURL: stringUrl) { [weak self] result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.image = image
+                }
+            case .failure:
+                break
             }
         }
     }
