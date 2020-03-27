@@ -588,6 +588,7 @@
 			isa = PBXGroup;
 			children = (
 				25E77D272401973400239F40 /* GHError.swift */,
+				A9BEB56A242E31A700E75823 /* GHImageError.swift */,
 				A9D3CE8D2417D03C00BED70D /* SFSymbols.swift */,
 			);
 			path = Enum;
@@ -877,7 +878,6 @@
 			children = (
 				A9BEB56C242E388200E75823 /* Protocol */,
 				A9BEB568242E302000E75823 /* DefaultImageDownloader.swift */,
-				A9BEB56A242E31A700E75823 /* GHImageError.swift */,
 			);
 			path = ImageDownloader;
 			sourceTree = "<group>";
