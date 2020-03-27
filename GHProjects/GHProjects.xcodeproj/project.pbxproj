@@ -394,10 +394,10 @@
 		257BE0D2241D1C0E0092A693 /* UserDetail */ = {
 			isa = PBXGroup;
 			children = (
+				257BE0D3241D1C850092A693 /* Flow */,
 				257BE0DE241D23E20092A693 /* ViewModel */,
 				257BE0DD241D23D80092A693 /* Service */,
 				257BE0DA241D23B30092A693 /* View */,
-				257BE0D3241D1C850092A693 /* Flow */,
 			);
 			path = UserDetail;
 			sourceTree = "<group>";

@@ -22,4 +22,3 @@ final class FakePullRequestService: FakeService, PullRequestService {
         }
     }
 }
-

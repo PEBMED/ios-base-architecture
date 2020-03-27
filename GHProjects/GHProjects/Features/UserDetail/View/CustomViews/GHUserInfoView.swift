@@ -8,8 +8,9 @@
 
 import UIKit
 
-class GHUserInfoView: UIView {
-    let iconImageView: UIImageView = {
+final class GHUserInfoView: UIView {
+    // MARK: - Views
+    private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.tintColor = .darkGray
@@ -19,6 +20,7 @@ class GHUserInfoView: UIView {
 
     let nameLabel = UILabel()
 
+    // MARK: - Init
     init(color: UIColor, icon: UIImage, bold: Bool = false) {
         super.init(frame: .zero)
         setupViews()
@@ -30,13 +32,15 @@ class GHUserInfoView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Public
     func setData(color: UIColor, icon: UIImage, bold: Bool) {
         nameLabel.font = bold ? .boldSystemFont(ofSize: 14) : .systemFont(ofSize: 14)
         iconImageView.image = icon
         iconImageView.tintColor = color
     }
 
-    func setupViews() {
+    // MARK: - Private functions
+    private func setupViews() {
         let stackView = UIStackView(arrangedSubviews: [iconImageView, nameLabel])
         stackView.spacing = 6
         stackView.alignment = .center
