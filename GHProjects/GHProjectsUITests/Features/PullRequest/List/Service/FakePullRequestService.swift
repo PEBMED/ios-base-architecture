@@ -8,8 +8,6 @@
 
 @testable import GHProjects
 
-// swiftlint:disable all
-
 final class FakePullRequestService: FakeService, PullRequestService {
     var pullRequest: [PullRequest]!
     var hasNext: Bool!

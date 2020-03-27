@@ -8,8 +8,6 @@
 
 @testable import GHProjects
 
-// swiftlint:disable all
-
 final class FakeUserDetailService: FakeService, UserDetailService {
     var user: User!
     var error: GHError!

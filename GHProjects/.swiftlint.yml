@@ -1,8 +1,8 @@
 excluded:
   - Pods
   - fastlane
-  - ios-base-architectureTests
-  - ios-base-architectureUITests
+  - GHProjectsTests
+  - GHProjectsUITests
 
 analyzer_rules:
   - unused_declaration
