@@ -19,7 +19,6 @@ extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard !isRunningUITests, !isRunningUITests else {
             let window = configuredWindow(scene: scene)
-            
             let viewController = UIViewController()
             viewController.view.backgroundColor = .white
             window.rootViewController = viewController

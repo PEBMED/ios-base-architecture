@@ -37,28 +37,6 @@ final class DefaultNetworkManager: NetworkManager {
         self.requests.append(request)
     }
 
-    func downloadImage(stringURL: String, completion: @escaping (UIImage?) -> Void) {
-        if let image = DefaultNetworkManager().cache.object(forKey: NSString(string: stringURL)) {
-            completion(image)
-            return
-        }
-
-        guard let url = URL(string: stringURL) else { return }
-
-        let session = URLSession(configuration: .default)
-        session.dataTask(with: url) { data, _, error in
-            guard error == nil, let data = data, let image = UIImage(data: data) else {
-                print(GHError.fetchImage.rawValue)
-                completion(nil)
-                return
-            }
-
-            DefaultNetworkManager().cache.setObject(image, forKey: NSString(string: stringURL))
-            completion(image)
-        }
-        .resume()
-    }
-
     deinit {
       print("DEINIT DefaultNetworkManager")
       requests.forEach { $0.cancel() }

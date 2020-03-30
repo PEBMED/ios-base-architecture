@@ -6,8 +6,6 @@
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import UIKit
-
 enum GHError: String, Error {
     case invalidUsername = "This username created a invalid request. Please try again."
     case unableToComplete = "Unable to complete your request. Please check your internet connection. "
@@ -16,6 +14,5 @@ enum GHError: String, Error {
     case titleError = "Bad Stuff Happend"
     case userExist = "This user has already been saved as Favorite. Try add another user. 😉"
     case genericError = "Error to processing your request. Please try again later."
-    case fetchImage = "Error to fetch image"
     case invalidURL = "Invalid URL"
 }

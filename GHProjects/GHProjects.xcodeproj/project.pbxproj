@@ -33,6 +33,9 @@
 		258CAFB9241D38EC003F3E78 /* UserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFB8241D38EC003F3E78 /* UserDetailViewModel.swift */; };
 		258CAFBB241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFBA241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift */; };
 		258CAFBD241D41C2003F3E78 /* DefaultUserDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258CAFBC241D41C2003F3E78 /* DefaultUserDetailViewModel.swift */; };
+		259948482432172200005AE5 /* GHImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259948472432172200005AE5 /* GHImageError.swift */; };
+		2599484A2432173400005AE5 /* DefaultImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 259948492432173400005AE5 /* DefaultImageDownloader.swift */; };
+		2599484D2432173E00005AE5 /* ImageDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2599484C2432173D00005AE5 /* ImageDownloader.swift */; };
 		25CE7C0C2400472400A54079 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0B2400472400A54079 /* AppDelegate.swift */; };
 		25CE7C0E2400472400A54079 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25CE7C0D2400472400A54079 /* SceneDelegate.swift */; };
 		25CE7C152400472700A54079 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 25CE7C142400472700A54079 /* Assets.xcassets */; };
@@ -169,6 +172,9 @@
 		258CAFB8241D38EC003F3E78 /* UserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailViewModel.swift; sourceTree = "<group>"; };
 		258CAFBA241D3EEA003F3E78 /* UserProfessionalDataViewModelItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfessionalDataViewModelItem.swift; sourceTree = "<group>"; };
 		258CAFBC241D41C2003F3E78 /* DefaultUserDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultUserDetailViewModel.swift; sourceTree = "<group>"; };
+		259948472432172200005AE5 /* GHImageError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GHImageError.swift; sourceTree = "<group>"; };
+		259948492432173400005AE5 /* DefaultImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultImageDownloader.swift; sourceTree = "<group>"; };
+		2599484C2432173D00005AE5 /* ImageDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageDownloader.swift; sourceTree = "<group>"; };
 		25CE7C082400472400A54079 /* GHProjects.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHProjects.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25CE7C0B2400472400A54079 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25CE7C0D2400472400A54079 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -483,6 +489,14 @@
 			path = Protocol;
 			sourceTree = "<group>";
 		};
+		2599484B2432173D00005AE5 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				2599484C2432173D00005AE5 /* ImageDownloader.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
 		25CE7BFF2400472400A54079 = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +606,7 @@
 			isa = PBXGroup;
 			children = (
 				25E77D272401973400239F40 /* GHError.swift */,
+				259948472432172200005AE5 /* GHImageError.swift */,
 				A9D3CE8D2417D03C00BED70D /* SFSymbols.swift */,
 			);
 			path = Enum;
@@ -1250,6 +1265,8 @@
 		A9D3CE922417E18C00BED70D /* ImageDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				259948492432173400005AE5 /* DefaultImageDownloader.swift */,
+				2599484B2432173D00005AE5 /* Protocol */,
 			);
 			path = ImageDownloader;
 			sourceTree = "<group>";
@@ -1557,11 +1574,14 @@
 				25F08E2A2423E37F00ABADF3 /* RepoCollectionViewCell.swift in Sources */,
 				A94FCD03241809C000BC0F34 /* GHDecoder.swift in Sources */,
 				25E77D282401973400239F40 /* GHError.swift in Sources */,
+				2599484D2432173E00005AE5 /* ImageDownloader.swift in Sources */,
 				A9D3CE712416E20900BED70D /* PullRequest.swift in Sources */,
 				A9D3CE6C2416E20900BED70D /* DefaultPullRequestDetailsService.swift in Sources */,
 				A9B01561241C217C0050CF09 /* DependencyContainer+PullRequestDetailFactory.swift in Sources */,
 				A9D3CE682416E20900BED70D /* PullRequestDetailViewController.swift in Sources */,
 				A90873662429452F009ADE96 /* UIApplication+Wdinow.swift in Sources */,
+				259948482432172200005AE5 /* GHImageError.swift in Sources */,
+				2599484A2432173400005AE5 /* DefaultImageDownloader.swift in Sources */,
 				A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */,
 				25E77D1B2400ADEF00239F40 /* GHBodyLabel.swift in Sources */,
 				257DC6D8240729C000051554 /* BranchStateView.swift in Sources */,
