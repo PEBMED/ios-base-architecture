@@ -27,7 +27,9 @@ This project has configured Swift Lint in order to enforce code standards.
 ```
 # Tools
 
-TBD
+**Swiftlint**
+If having problems using `swiftlint autocorrect` please run
+`$ sudo xcode-select -s /Applications/Xcode.app/Contents/Developer`
 
 # Logging and instrumentation
 

@@ -57,8 +57,7 @@ final class PullRequestDetailViewController: GHCustomViewController<PullRequestD
         }
     }
 
-  @objc
-    func didSelecUserInfo() {
+    @objc func didSelecUserInfo() {
         guard let userName = viewModel.getPullRequestDetailViewModelItem()?.userName else { return }
         coordinator.goToUserDetail(userName: userName)
     }

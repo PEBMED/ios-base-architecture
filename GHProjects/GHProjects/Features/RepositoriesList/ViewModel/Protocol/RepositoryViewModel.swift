@@ -9,7 +9,6 @@
 import UIKit
 
 protocol RepositoryViewModel {
-    var service: RepositoryService { get }
     var hasMoreData: Bool { get }
 
     init(service: RepositoryService)

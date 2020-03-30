@@ -9,8 +9,10 @@
 import UIKit
 
 class UserRepoCollectionViewController: UICollectionViewController {
-    let viewModel: UserDetailViewModel
+    // MARK: - Properties
+    private let viewModel: UserDetailViewModel
 
+    // MARK: - Init
     init(viewModel: UserDetailViewModel) {
         self.viewModel = viewModel
 
@@ -25,23 +27,26 @@ class UserRepoCollectionViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         registerCells()
         setupCollectionView()
     }
 
-    func setupCollectionView() {
+    // MARK: - Private functions
+    private func setupCollectionView() {
         collectionView.contentInset = UIEdgeInsets(top: 0, left: 18, bottom: 0, right: 18)
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
     }
 
-    func registerCells() {
+    private func registerCells() {
         collectionView.register(RepoCollectionViewCell.self)
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension UserRepoCollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as RepoCollectionViewCell
@@ -53,8 +58,11 @@ extension UserRepoCollectionViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension UserRepoCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width - 70
         return CGSize(width: width, height: width * 0.55)
     }

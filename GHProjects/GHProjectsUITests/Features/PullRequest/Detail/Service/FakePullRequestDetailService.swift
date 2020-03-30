@@ -16,8 +16,7 @@ final class FakePullRequestDetailService: FakeService, PullRequestDetailsService
         _ owner: String,
         repository: String,
         id: Int,
-        completion: @escaping (Result<PullRequestDetail, GHError>) -> Void)
-    {
+        completion: @escaping (Result<PullRequestDetail, GHError>) -> Void) {
         switch responseType {
         case .sucess:
             completion(.success(pullRequestDetail))

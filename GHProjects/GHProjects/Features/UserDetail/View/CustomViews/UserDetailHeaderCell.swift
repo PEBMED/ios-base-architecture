@@ -8,8 +8,9 @@
 
 import UIKit
 
-class UserDetailHeaderCell: UICollectionViewCell {
-    let profileImageView: GHAvatarImageView = {
+final class UserDetailHeaderCell: UICollectionViewCell {
+    // MARK: - Views
+    private let profileImageView: GHAvatarImageView = {
         let imageView = GHAvatarImageView(size: CGSize(width: 70, height: 70))
         imageView.image = #imageLiteral(resourceName: "avatar-placeholder-dark")
         imageView.contentMode = .scaleAspectFill
@@ -17,26 +18,26 @@ class UserDetailHeaderCell: UICollectionViewCell {
         return imageView
     }()
 
-    let userNameLabel: UILabel = {
+    private let userNameLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 24, weight: .bold)
         return label
     }()
 
-    let userLoginLabel: UILabel = {
+    private let userLoginLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 19, weight: .thin)
         return label
     }()
 
-    let bioLabel: UILabel = {
+    private let bioLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.numberOfLines = 2
         return label
     }()
 
-    let profileButton: UIButton = {
+    private let profileButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Show All Github Profile", for: .normal)
         button.layer.cornerRadius = 5
@@ -46,22 +47,16 @@ class UserDetailHeaderCell: UICollectionViewCell {
         return button
     }()
 
-    let companyInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.persons ?? UIImage())
-    let locationInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.location ?? UIImage())
+    private let companyInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.persons ?? UIImage())
+    private let locationInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.location ?? UIImage())
 
-    let emailInfoView = GHUserInfoView(color: .gray,
-                                       icon: SFSymbols.mail ?? UIImage(),
-                                       bold: true)
+    private let emailInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.mail ?? UIImage(), bold: true)
+    private let followInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.mail ?? UIImage(), bold: true)
+    private let personInfoView = GHUserInfoView(color: .gray, icon: SFSymbols.person ?? UIImage())
 
-    let followInfoView = GHUserInfoView(color: .gray,
-                                        icon: SFSymbols.mail ?? UIImage(),
-                                        bold: true)
+    private let separator = CellSeparatorView()
 
-    let personInfoView = GHUserInfoView(color: .gray,
-                                        icon: SFSymbols.person ?? UIImage())
-
-    let separator = CellSeparatorView()
-
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
@@ -72,13 +67,26 @@ class UserDetailHeaderCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Setup
     func setupViews(viewModelItem: UserProfessionalDataViewModelItem) {
         setupHeader()
         setupUserProfile()
         set(viewModelItem: viewModelItem)
     }
 
-    func setupHeader() {
+    // MARK: - Private functions
+    private func set(viewModelItem: UserProfessionalDataViewModelItem) {
+        profileImageView.fetchImage(stringUrl: viewModelItem.avatarUrl)
+        userNameLabel.text = viewModelItem.name
+        userLoginLabel.text = viewModelItem.login
+        bioLabel.text = viewModelItem.bio
+        companyInfoView.nameLabel.text = viewModelItem.company
+        locationInfoView.nameLabel.text = viewModelItem.location
+        emailInfoView.nameLabel.text = "\(viewModelItem.login)@gmail.com"
+        personInfoView.nameLabel.attributedText = viewModelItem.followersAtributtedText
+    }
+
+    private func setupHeader() {
         addSubview(profileImageView)
         profileImageView.anchor(top: safeAreaLayoutGuide.topAnchor,
                                 leading: leadingAnchor,
@@ -97,7 +105,7 @@ class UserDetailHeaderCell: UICollectionViewCell {
         labelStackView.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor).isActive = true
     }
 
-    func setupUserProfile() {
+    private func setupUserProfile() {
         let stackView = UIStackView(arrangedSubviews: [bioLabel,
                                                        UIView(),
                                                        companyInfoView,
@@ -117,16 +125,5 @@ class UserDetailHeaderCell: UICollectionViewCell {
 
         separator.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor)
         separator.anchor(height: 0.5)
-    }
-
-    func set(viewModelItem: UserProfessionalDataViewModelItem) {
-        profileImageView.fetchImage(stringUrl: viewModelItem.avatarUrl)
-        userNameLabel.text = viewModelItem.name
-        userLoginLabel.text = viewModelItem.login
-        bioLabel.text = viewModelItem.bio
-        companyInfoView.nameLabel.text = viewModelItem.company
-        locationInfoView.nameLabel.text = viewModelItem.location
-        emailInfoView.nameLabel.text = "\(viewModelItem.login)@gmail.com"
-        personInfoView.nameLabel.attributedText = viewModelItem.followersAtributtedText
     }
 }

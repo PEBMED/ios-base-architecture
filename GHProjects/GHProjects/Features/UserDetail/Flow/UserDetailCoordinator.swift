@@ -11,13 +11,13 @@ import UIKit
 
 protocol UserDetailCoordinatorProtocol: AnyObject {
     func goToProfile(stringUrl: String)
-     func closeViewController()
+    func closeViewController()
 }
 
-class UserDetailCoordinator: Coordinator {
-    let factory: UserDetailFactory
-    let userName: String
-    var navigationController: UINavigationController
+final class UserDetailCoordinator: Coordinator {
+    private let factory: UserDetailFactory
+    private let userName: String
+    private var navigationController: UINavigationController
 
     init(userName: String, factory: UserDetailFactory, navigationController: UINavigationController) {
         self.factory = factory
@@ -31,11 +31,12 @@ class UserDetailCoordinator: Coordinator {
 
         userDetailNavigationController.viewControllers = [controller]
 
-        self.navigationController.present(userDetailNavigationController, animated: true, completion: nil)
-        self.navigationController = userDetailNavigationController
+        navigationController.present(userDetailNavigationController, animated: true, completion: nil)
+        navigationController = userDetailNavigationController
     }
 }
 
+// MARK: - UserDetailCoordinatorProtocol
 extension UserDetailCoordinator: UserDetailCoordinatorProtocol {
     func goToProfile(stringUrl: String) {
         guard let url = URL(string: stringUrl) else { return }
