@@ -17,6 +17,17 @@ final class SceneDelegate: UIResponder {
 // MARK: - UIWindowSceneDelegate
 extension SceneDelegate: UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard !isRunningUITests, !isRunningUITests else {
+            let window = configuredWindow(scene: scene)
+            
+            let viewController = UIViewController()
+            viewController.view.backgroundColor = .white
+            window.rootViewController = viewController
+
+            window.makeKeyAndVisible()
+            return
+        }
+
         let window = configuredWindow(scene: scene)
 
         let applicationCoordinator = ApplicationCoordinator(window: window)
@@ -37,5 +48,16 @@ private extension SceneDelegate {
         window.windowScene = scene
         self.window = window
         return window
+    }
+}
+
+// MARK: - Testing
+private extension SceneDelegate {
+    var isRunningUnitTests: Bool {
+        return NSClassFromString("XCTest") != nil
+    }
+
+    var isRunningUITests: Bool {
+        return NSClassFromString("XCUIApplication") != nil || NSClassFromString("KIFTestCase") != nil
     }
 }

@@ -61,6 +61,7 @@
 		A908737024294A0B009ADE96 /* FakeResponseType.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908736F24294A0B009ADE96 /* FakeResponseType.swift */; };
 		A908737224294A38009ADE96 /* FakeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908737124294A38009ADE96 /* FakeService.swift */; };
 		A9087376242951A3009ADE96 /* FakeUserDetailService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9087375242951A3009ADE96 /* FakeUserDetailService.swift */; };
+		A93A690B242B75DC00123E7B /* RepositoriesListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93A690A242B75DC00123E7B /* RepositoriesListViewControllerTests.swift */; };
 		A94FCCF92417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */; };
 		A94FCCFD2418027A00BC0F34 /* DefaultDataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */; };
 		A94FCD00241804ED00BC0F34 /* DataRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94FCCFF241804ED00BC0F34 /* DataRequest.swift */; };
@@ -211,6 +212,7 @@
 		A9087375242951A3009ADE96 /* FakeUserDetailService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserDetailService.swift; sourceTree = "<group>"; };
 		A934AF8D24293D3B00CAEBB8 /* GHProjectsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHProjectsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A934AF9124293D3B00CAEBB8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A93A690A242B75DC00123E7B /* RepositoriesListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListViewControllerTests.swift; sourceTree = "<group>"; };
 		A94FCCF82417FF5000BC0F34 /* DefaultDataRequest+WebserviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DefaultDataRequest+WebserviceRequest.swift"; sourceTree = "<group>"; };
 		A94FCCFC2418027A00BC0F34 /* DefaultDataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultDataRequest.swift; sourceTree = "<group>"; };
 		A94FCCFF241804ED00BC0F34 /* DataRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataRequest.swift; sourceTree = "<group>"; };
@@ -652,6 +654,7 @@
 			isa = PBXGroup;
 			children = (
 				A908736B2429493E009ADE96 /* Service */,
+				A93A6908242B75BB00123E7B /* View */,
 			);
 			path = RepositoriesList;
 			sourceTree = "<group>";
@@ -715,6 +718,22 @@
 				A908735824294267009ADE96 /* GHProjectsUITests-Bridging-Header.h */,
 			);
 			path = GHProjectsUITests;
+			sourceTree = "<group>";
+		};
+		A93A6908242B75BB00123E7B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A93A6909242B75C300123E7B /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A93A6909242B75C300123E7B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A93A690A242B75DC00123E7B /* RepositoriesListViewControllerTests.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		A94FCCF72417FF4200BC0F34 /* Extensions */ = {
@@ -1612,6 +1631,7 @@
 			files = (
 				A908737224294A38009ADE96 /* FakeService.swift in Sources */,
 				A9A5B409242A3EA500C3D3EA /* FakePullRequestService.swift in Sources */,
+				A93A690B242B75DC00123E7B /* RepositoriesListViewControllerTests.swift in Sources */,
 				A908736424294487009ADE96 /* XCTestCase+Tester.swift in Sources */,
 				A908737024294A0B009ADE96 /* FakeResponseType.swift in Sources */,
 				A908736D24294962009ADE96 /* FakeRespositoryService.swift in Sources */,

@@ -31,6 +31,7 @@ final class PullRequestListViewController: UICollectionViewController {
         setupController()
         registerCells()
         getPullRequests()
+        view.accessibilityIdentifier = "pullRequestListViewControllerView"
     }
 
     // MARK: - Private functions
