@@ -1,0 +1,107 @@
+excluded:
+  - Pods
+  - fastlane
+  - GHProjectsTests
+  - GHProjectsUITests
+
+analyzer_rules:
+  - unused_declaration
+  - unused_import
+  - duplicate_imports
+  - unused_private_declaration
+
+opt_in_rules:
+  - anyobject_protocol
+  - array_init
+  - closure_end_indentation
+  - closure_body_length
+  - closure_spacing
+  - collection_alignment
+  - colon
+  - compiler_protocol_init
+  - contains_over_filter_count
+  - contains_over_filter_is_empty
+  - contains_over_first_not_nil
+  - contains_over_range_nil_comparison
+  - convenience_type
+  - discouraged_optional_boolean
+  - enum_case_associated_values_count
+  - empty_collection_literal
+  - empty_count
+  - empty_enum_arguments
+  - empty_string
+  - empty_xctest_method
+  - explicit_enum_raw_value
+  - explicit_init
+  - extension_access_modifier
+  - fallthrough
+  - fatal_error_message
+  - file_name
+  - file_name_no_space
+  - file_types_order
+  - first_where
+  - flatmap_over_map_reduce
+  - identical_operands
+  - implicitly_unwrapped_optional
+  - joined_default_parameter
+  - last_where
+  - legacy_multiple
+  - legacy_random
+  - let_var_whitespace
+  - literal_expression_end_indentation
+  - lower_acl_than_parent
+  - mark
+  - modifier_order
+  - multiline_arguments
+#  - multiline_arguments_brackets
+  - multiline_function_chains
+#  - multiline_literal_brackets
+  - multiline_parameters
+#  - multiline_parameters_brackets
+  - nslocalizedstring_key
+  - number_separator
+  - operator_usage_whitespace
+  - optional_enum_case_matching
+  - overridden_super_call
+  - override_in_extension
+  - pattern_matching_keywords
+  - prefer_self_type_over_type_of_self
+  - private_action
+  - private_outlet
+  - prohibited_super_call
+  - reduce_into
+  - redundant_nil_coalescing
+  - redundant_optional_initialization
+  - redundant_type_annotation
+  - sorted_first_last
+  - sorted_imports
+  - static_operator
+  - strong_iboutlet
+  - toggle_bool
+  - trailing_closure
+  - type_contents_order
+  - unavailable_function
+  - unneeded_parentheses_in_closure_argument
+  - untyped_error_in_catch
+  - unused_closure_parameter
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace_closing_braces
+  - vertical_whitespace_opening_braces
+  - yoda_condition
+
+identifier_name:
+  min_length: 2
+  excluded:
+    - id
+    - y
+    - x
+
+line_length:
+  warning: 140
+  error: 180
+
+mark:
+  severity: error
+
+vertical_whitespace:
+  severity: error
