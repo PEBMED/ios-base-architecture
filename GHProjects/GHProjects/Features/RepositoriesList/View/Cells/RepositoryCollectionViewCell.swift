@@ -89,7 +89,7 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
         separatorView.anchor(height: 1)
     }
 
-    func set(item: RepositoryViewModelItem, removeSeparator: Bool) {
+    func set(item: RepositoryViewModelItem, removeSeparator: Bool, index: Int) {
         titleLabel.text = item.name
         companyLabel.text = item.ownerName
         desciprionLabel.text = item.description
@@ -100,5 +100,6 @@ final class RepositoryCollectionViewCell: UICollectionViewCell {
 
         avatarImageView.fetchImage(stringUrl: item.avatarUrl)
         separatorView.isHidden = removeSeparator
+        accessibilityIdentifier = "repositoryCollectionViewCell\(index)"
     }
 }

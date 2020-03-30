@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DefaultUserDetailViewModel: UserDetailViewModel {
-    let userName: String
-    let service: UserDetailService
-    var userProfessionalDataViewModelItem: UserProfessionalDataViewModelItem?
+final class DefaultUserDetailViewModel: UserDetailViewModel {
+    private let userName: String
+    private let service: UserDetailService
+    private var userProfessionalDataViewModelItem: UserProfessionalDataViewModelItem?
 
     required init(userName: String, service: UserDetailService) {
         self.service = service
@@ -19,7 +19,8 @@ class DefaultUserDetailViewModel: UserDetailViewModel {
     }
 
     func fetchUserDetail(_ completion: @escaping (Bool, String?) -> Void) {
-        service.fetchUserDetailData(userName: userName) { result in
+        service.fetchUserDetailData(userName: userName) { [weak self] result in
+            guard let self = self else { return }
             switch result {
             case .success(let user):
                 self.userProfessionalDataViewModelItem = self.setupUserProfessionalDataViewModelItem(user: user)

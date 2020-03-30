@@ -8,8 +8,9 @@
 
 import UIKit
 
-class RepoCollectionViewCell: UICollectionViewCell {
-    let avatarImageView: GHAvatarImageView = {
+final class RepoCollectionViewCell: UICollectionViewCell {
+    // MARK: - Views
+    private let avatarImageView: GHAvatarImageView = {
         let imageView = GHAvatarImageView(size: CGSize(width: 22, height: 22))
         imageView.layer.cornerRadius = 5
         imageView.heightAnchor.constraint(equalToConstant: 22).isActive = true
@@ -18,29 +19,29 @@ class RepoCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
-    let loginLabel: UILabel = {
+    private let loginLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 15)
         label.text = "luizhammerli"
         return label
     }()
 
-    let projectNameLabel: UILabel = {
+    private let projectNameLabel: UILabel = {
         let label = UILabel()
         label.font = .boldSystemFont(ofSize: 17)
         label.text = "OnTheMap"
         return label
     }()
 
-    let languageNameLabel: UILabel = {
+    private let languageNameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 16)
-        label.text = "Java Script"
+        label.text = "Javascript"
         return label
     }()
 
-    let startsCountLabel: UILabel = {
+    private let startsCountLabel: UILabel = {
         let label = UILabel()
         label.textColor = .systemGray
         label.font = .systemFont(ofSize: 16)
@@ -48,6 +49,7 @@ class RepoCollectionViewCell: UICollectionViewCell {
         return label
     }()
 
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -58,7 +60,8 @@ class RepoCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
+    // MARK: - Private functions
+    private func setupViews() {
         layer.cornerRadius = 4
         layer.borderWidth = 0.5
         layer.borderColor = UIColor.systemGray4.cgColor
@@ -68,7 +71,7 @@ class RepoCollectionViewCell: UICollectionViewCell {
         setupBottomView()
     }
 
-    func setupHeader() {
+    private func setupHeader() {
         let horizontalStackView = UIStackView(arrangedSubviews: [avatarImageView, loginLabel])
         horizontalStackView.alignment = .center
         horizontalStackView.spacing = 8
@@ -88,7 +91,7 @@ class RepoCollectionViewCell: UICollectionViewCell {
                                 padding: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
     }
 
-    func setupBottomView() {
+    private func setupBottomView() {
         let circleImageView = UIImageView()
         circleImageView.image = UIImage(systemName: "circle.fill")
         circleImageView.tintColor = #colorLiteral(red: 0.9607843137, green: 0.7176470588, blue: 0.3882352941, alpha: 1)
@@ -113,6 +116,9 @@ class RepoCollectionViewCell: UICollectionViewCell {
         mainStackView.distribution = .equalSpacing
 
         addSubview(mainStackView)
-        mainStackView.anchor(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
+        mainStackView.anchor(leading: leadingAnchor,
+                             bottom: bottomAnchor,
+                             trailing: trailingAnchor,
+                             padding: UIEdgeInsets(top: 0, left: 16, bottom: 16, right: 16))
     }
 }

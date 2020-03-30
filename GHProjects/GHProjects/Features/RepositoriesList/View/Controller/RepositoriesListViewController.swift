@@ -31,6 +31,7 @@ final class RepositoriesListViewController: UICollectionViewController {
         registerCells()
         getRepositories()
         view.accessibilityIdentifier = "repositoriesListViewControllerView"
+        collectionView.accessibilityIdentifier = "repositoriesListViewControllerCollectionView"
     }
 
     // MARK: - Private functions
@@ -87,7 +88,7 @@ extension RepositoriesListViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as RepositoryCollectionViewCell
         let removeSeparator = indexPath.item == viewModel.getRepositoryViewModelNumberOfItems() - 1
-        cell.set(item: viewModel.getRepositoryViewModelItem(with: indexPath), removeSeparator: removeSeparator)
+        cell.set(item: viewModel.getRepositoryViewModelItem(with: indexPath), removeSeparator: removeSeparator, index: indexPath.item)
         return cell
     }
 

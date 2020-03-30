@@ -1,16 +1,15 @@
 //
-//  ios_base_architectureTests.swift
+//  GHProjectsTests.swift
 //  ios-base-architectureTests
 //
 //  Created by Luiz on 21/02/20.
 //  Copyright © 2020 PEBMED. All rights reserved.
 //
 
-import XCTest
 @testable import GHProjects
+import XCTest
 
 class GHProjectsTests: XCTestCase {
-
     override func setUp() {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -30,5 +29,4 @@ class GHProjectsTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }

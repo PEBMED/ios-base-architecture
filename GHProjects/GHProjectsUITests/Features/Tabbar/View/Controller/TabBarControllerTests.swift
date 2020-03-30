@@ -8,8 +8,6 @@
 
 @testable import GHProjects
 
-// swiftlint:disable all
-
 final class TabBarControllerTests: KIFTestCase {
     fileprivate var dependencyContainer: FakeDependencyContainer!
     var coordinator: TabbarCoordinator!

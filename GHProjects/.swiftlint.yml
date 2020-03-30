@@ -1,8 +1,8 @@
 excluded:
   - Pods
   - fastlane
-  - ios-base-architectureTests
-  - ios-base-architectureUITests
+  - GHProjectsTests
+  - GHProjectsUITests
 
 analyzer_rules:
   - unused_declaration
@@ -13,7 +13,6 @@ analyzer_rules:
 opt_in_rules:
   - anyobject_protocol
   - array_init
-  - attributes
   - closure_end_indentation
   - closure_body_length
   - closure_spacing

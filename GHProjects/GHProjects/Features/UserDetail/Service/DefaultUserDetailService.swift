@@ -8,8 +8,8 @@
 
 import Foundation
 
-class DefaultUserDetailService: UserDetailService {
-    let networkManager: NetworkManager
+final class DefaultUserDetailService: UserDetailService {
+    private let networkManager: NetworkManager
 
     init(networkManager: NetworkManager = DefaultNetworkManager()) {
         self.networkManager = networkManager

@@ -7,7 +7,6 @@
 //
 
 extension XCTestCase {
-
   var tester: KIFUITestActor { return tester() }
   var system: KIFSystemTestActor { return system() }
 
@@ -19,4 +18,3 @@ extension XCTestCase {
     return KIFSystemTestActor(inFile: file, atLine: line, delegate: self)
   }
 }
-

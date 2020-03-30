@@ -8,10 +8,12 @@
 
 import UIKit
 
-class UserDetailViewController: UICollectionViewController {
-    let viewModel: UserDetailViewModel
-    let coordinator: UserDetailCoordinatorProtocol
+final class UserDetailViewController: UICollectionViewController {
+    // MARK: - Properties
+    private let viewModel: UserDetailViewModel
+    private let coordinator: UserDetailCoordinatorProtocol
 
+    // MARK: - Init
     init(viewModel: UserDetailViewModel, coordinator: UserDetailCoordinatorProtocol) {
         self.viewModel = viewModel
         self.coordinator = coordinator
@@ -23,6 +25,7 @@ class UserDetailViewController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupController()
@@ -31,11 +34,12 @@ class UserDetailViewController: UICollectionViewController {
         getUserDetail()
     }
 
-    func setupController() {
+    // MARK: - Private functions
+    private func setupController() {
         collectionView.backgroundColor = .systemGroupedBackground
     }
 
-    func setupTargets() {
+    private func setupTargets() {
         navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .close,
                                                            target: self,
                                                            action: #selector(didSelectCloseButton))
@@ -43,12 +47,12 @@ class UserDetailViewController: UICollectionViewController {
         //customView.profileButton.addTarget(self, action: #selector(didSelectButton), for: .touchUpInside)
     }
 
-    func registerCollectionViewCells() {
+    private func registerCollectionViewCells() {
         collectionView.register(UserDetailHeaderCell.self)
         collectionView.register(UserReposCollectionViewCell.self)
     }
 
-    func getUserDetail() {
+    private func getUserDetail() {
         showLoader()
         viewModel.fetchUserDetail { success, errorMessage in
             self.removeLoader()
@@ -63,17 +67,17 @@ class UserDetailViewController: UICollectionViewController {
         }
     }
 
-    @objc
-    func didSelectButton() {
+    // MARK: - Actions
+    @objc private func didSelectButton() {
         coordinator.goToProfile(stringUrl: viewModel.getUserViewModelItem()?.profileUrl ?? "")
     }
 
-    @objc
-    func didSelectCloseButton() {
+    @objc private func didSelectCloseButton() {
         coordinator.closeViewController()
     }
 }
 
+// MARK: - UICollectionViewDataSource
 extension UserDetailViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.getUserViewModelItem() == nil ? 0 : 2
@@ -93,6 +97,7 @@ extension UserDetailViewController {
     }
 }
 
+// MARK: - UICollectionViewDelegateFlowLayout
 extension UserDetailViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,

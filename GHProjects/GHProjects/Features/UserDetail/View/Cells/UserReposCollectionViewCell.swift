@@ -8,11 +8,12 @@
 
 import UIKit
 
-class UserReposCollectionViewCell: UICollectionViewCell {
-    let topSeparatorView = CellSeparatorView()
-    let bottomSeparatorView = CellSeparatorView()
+final class UserReposCollectionViewCell: UICollectionViewCell {
+    // MARK: - Views
+    private let topSeparatorView = CellSeparatorView()
+    private let bottomSeparatorView = CellSeparatorView()
 
-    let pinImageView: UIImageView = {
+    private let pinImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .darkGray
         imageView.image = UIImage(systemName: "pin")
@@ -21,17 +22,18 @@ class UserReposCollectionViewCell: UICollectionViewCell {
         return imageView
     }()
 
-    let pinLabel: UILabel = {
+    private let pinLabel: UILabel = {
         let label = UILabel()
         label.text = "Pinned"
         label.font = .boldSystemFont(ofSize: 17)
         return label
     }()
 
-    let padding: CGFloat = 18
+    // MARK: - Properties
+    private let padding: CGFloat = 18
+    private var collectionView: UserRepoCollectionViewController?
 
-    var collectionView: UserRepoCollectionViewController?
-
+    // MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -42,7 +44,22 @@ class UserReposCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func setupViews() {
+    // MARK: - Public
+    func setupCollectionView(viewModel: UserDetailViewModel) {
+        collectionView = UserRepoCollectionViewController(viewModel: viewModel)
+
+        guard let collectionView = collectionView?.view else { return }
+        addSubview(collectionView)
+
+        collectionView.anchor(top: pinImageView.bottomAnchor,
+                              leading: leadingAnchor,
+                              bottom: bottomAnchor,
+                              trailing: trailingAnchor,
+                              padding: UIEdgeInsets(top: padding, left: 0, bottom: padding, right: 0))
+    }
+
+    // MARK: - Private functions
+    private func setupViews() {
         backgroundColor = .systemBackground
 
         addSubviews(topSeparatorView, bottomSeparatorView)
@@ -56,7 +73,7 @@ class UserReposCollectionViewCell: UICollectionViewCell {
         setupTitleStackView()
     }
 
-    func setupTitleStackView() {
+    private func setupTitleStackView() {
         let titleStackView = UIStackView(arrangedSubviews: [pinImageView, pinLabel])
         titleStackView.spacing = 8
         titleStackView.alignment = .center
@@ -68,18 +85,5 @@ class UserReposCollectionViewCell: UICollectionViewCell {
                               bottom: nil,
                               trailing: trailingAnchor,
                               padding: UIEdgeInsets(top: padding, left: padding, bottom: 0, right: padding))
-    }
-
-    func setupCollectionView(viewModel: UserDetailViewModel) {
-        collectionView = UserRepoCollectionViewController(viewModel: viewModel)
-
-        guard let collectionView = collectionView?.view else { return }
-        addSubview(collectionView)
-
-        collectionView.anchor(top: pinImageView.bottomAnchor,
-                              leading: leadingAnchor,
-                              bottom: bottomAnchor,
-                              trailing: trailingAnchor,
-                              padding: UIEdgeInsets(top: padding, left: 0, bottom: padding, right: 0))
     }
 }
