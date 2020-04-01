@@ -94,7 +94,7 @@ extension PullRequestListViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(forIndexPath: indexPath) as PullRequestCollectionViewCell
         let removeSeparator = (viewModel.getPullRequestViewModelNumberOfItems() - 1) == indexPath.item
-        cell.set(item: viewModel.getPullRequestViewModelItem(with: indexPath), removeSeparator: removeSeparator)
+        cell.set(item: viewModel.getPullRequestViewModelItem(with: indexPath), removeSeparator: removeSeparator, index: indexPath.item)
         return cell
     }
 

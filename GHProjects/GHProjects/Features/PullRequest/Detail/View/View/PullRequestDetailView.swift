@@ -58,6 +58,8 @@ class PullRequestDetailView: UIView {
         secondContainer.heightAnchor.constraint(equalToConstant: secondContainerHeight).isActive = true
 
         stackView.fillSuperview()
+
+        secondContainer.accessibilityIdentifier = "secondContainerID"
     }
 
     func setUpContainersSubviews(item: PullRequestDetailViewModelItem) {

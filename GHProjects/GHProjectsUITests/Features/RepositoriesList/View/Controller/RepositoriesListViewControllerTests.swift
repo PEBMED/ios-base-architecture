@@ -42,6 +42,13 @@ final class RepositoriesListViewControllerTests: KIFTestCase {
         coordinator.start()
     }
 
+    private func makeUserDetailService() -> UserDetailService {
+        let service = FakeUserDetailService(responseType: .sucess)
+        service.user = User(id: 12848020, login: "luizhammeli", avatarUrl: "https://avatars0.githubusercontent.com/u/12848020?v=4", company: "PEBMED", name: "Luiz Hammerli", location: "Rio de Janeiro, RJ", bio: "iOS Developer", publicRepos: 16, publicGists: 0, htmlUrl: "https://github.com/luizhammeli", following: 3, followers: 10, createdAt: Date())
+
+        return service
+    }
+
     private func makeRepositoryServiceWithTwoRepos() -> RepositoryService {
         let service = FakeRespositoryService(responseType: .sucess)
 
@@ -64,6 +71,24 @@ final class RepositoriesListViewControllerTests: KIFTestCase {
         service.pullRequest = pullRequests
         service.hasNext = false
 
+        return service
+    }
+
+    private func makePullRequestDetailService() -> PullRequestDetailsService {
+        let service = FakePullRequestDetailService(responseType: .sucess)
+        let head = Base(label: "roshal:master", ref: "master", repo: repository2)
+        let base =  Base(label: "airbnb:master", ref: "master", repo: repository1)
+
+        service.pullRequestDetail = PullRequestDetail(id: 106174713,
+                                             number: 8,
+                                             changedFiles: 10,
+                                             additions: 10,
+                                             deletions: 8,
+                                             title:  "Cant find enum",
+                                             state: "open",
+                                             body: "I need somebody help",
+                                             createdAt: Date(),
+                                             base: base, head: head)
         return service
     }
 
@@ -96,10 +121,14 @@ final class RepositoriesListViewControllerTests: KIFTestCase {
     func testFirstCellTap() {
         dependencyContainer.repositoryService = makeRepositoryServiceWithTwoRepos()
         dependencyContainer.pullRequestService = makePullRequestServiceWithTwoPRs()
+        dependencyContainer.pullRequestDetailService = makePullRequestDetailService()
+        dependencyContainer.userDetailService = makeUserDetailService()
 
         startCoordinator()
         tester.tapView(withAccessibilityIdentifier: "repositoryCollectionViewCell0")
         tester.waitForView(withAccessibilityIdentifier: "pullRequestListViewControllerView")
+        tester.tapView(withAccessibilityIdentifier: "pullRequestCollectionViewCell0")
+        tester.tapView(withAccessibilityIdentifier: "secondContainerID")
     }
 }
 

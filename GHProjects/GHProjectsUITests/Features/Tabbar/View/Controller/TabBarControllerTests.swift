@@ -14,10 +14,9 @@ final class TabBarControllerTests: KIFTestCase {
 
     // MARK: - Mocks
     lazy var owner = Owner(id: 0, login: "pebmed", avatarUrl: nil)
-    lazy var repository1 = Repository(id: 0, name: "John Sundell", fullName: "John MiddleName Sundell", description: "Swift by Sundell",
-                                      owner: owner, stargazersCount: 2500, forksCount: 10, openIssuesCount: 25)
-    lazy var repository2 = Repository(id: 1, name: "Guilherme Rambo", fullName: "Guilherme MiddleName Rambo", description: "Stacktrace",
-                                      owner: owner, stargazersCount: 50000, forksCount: 24, openIssuesCount: 0)
+    lazy var repository1 = Repository(id: 0, name: "John Sundell", fullName: "John MiddleName Sundell", description: "Swift by Sundell", owner: owner, stargazersCount: 2500, forksCount: 10, openIssuesCount: 25)
+
+    lazy var repository2 = Repository(id: 1, name: "Guilherme Rambo", fullName: "Guilherme MiddleName Rambo", description: "Stacktrace", owner: owner, stargazersCount: 50000, forksCount: 24, openIssuesCount: 0)
 
     override func beforeEach() {
         dependencyContainer = FakeDependencyContainer()

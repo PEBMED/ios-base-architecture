@@ -85,7 +85,7 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
         return stackView
     }
 
-    func set(item: PullRequestViewModelItem, removeSeparator: Bool) {
+    func set(item: PullRequestViewModelItem, removeSeparator: Bool, index: Int) {
         userLoginLabel.text = item.login
         dateLabel.text = item.createdAt
         titleLabel.text = item.title
@@ -93,5 +93,6 @@ final class PullRequestCollectionViewCell: UICollectionViewCell {
 
         avatarImageView.fetchImage(stringUrl: item.avatarUrl ?? "")
         separatorView.isHidden = removeSeparator
+        accessibilityIdentifier = "pullRequestCollectionViewCell\(index)"
     }
 }
