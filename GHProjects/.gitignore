@@ -105,6 +105,6 @@ fastlane/test_output
 
 .DS_Store
 xcov_output/
-xcshareddata/
+#xcshareddata/
 
 # End of https://www.gitignore.io/api/xcode,swift,cocoapods
