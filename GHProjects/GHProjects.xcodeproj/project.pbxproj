@@ -1814,7 +1814,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = PEBMED.GHProjects;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.pebmed.sample.github;
 				PRODUCT_NAME = GHProjects;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1833,7 +1833,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = PEBMED.GHProjects;
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.pebmed.sample.github;
 				PRODUCT_NAME = GHProjects;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
