@@ -1807,15 +1807,19 @@
 			baseConfigurationReference = 9D1E0FF61E5256443688AB00 /* Pods-GHProjects.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 7VX4BB4FYN;
 				INFOPLIST_FILE = "$(SRCROOT)/GHProjects/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.pebmed.sample.github;
 				PRODUCT_NAME = GHProjects;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.pebmed.sample.github";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1826,15 +1830,19 @@
 			baseConfigurationReference = DDE6EABABDBC4BBE09C00E41 /* Pods-GHProjects.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = 7VX4BB4FYN;
 				INFOPLIST_FILE = "$(SRCROOT)/GHProjects/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.pebmed.sample.github;
 				PRODUCT_NAME = GHProjects;
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore br.com.pebmed.sample.github";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
